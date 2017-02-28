@@ -1,0 +1,65 @@
+tout_xlarge:
+  version: 1.0
+  css:
+    layout:
+      css/tout/layout/tout-xlarge.css: {}
+    theme:
+      css/tout/theme/tout-xlarge.css: {}
+tout_large:
+  version: 1.0
+  css:
+    layout:
+      css/tout/layout/tout-large.css: {}
+    theme:
+      css/tout/theme/tout-large.css: {}
+tout_medium:
+  version: 1.0
+  css:
+    layout:
+      css/tout/layout/tout-medium.css: {}
+    theme:
+      css/tout/theme/tout-medium.css: {}
+
+
+text_teaser_large:
+  version: 1.0
+  css:
+    layout:
+      css/text-teaser/layout/text-teaser-large.css: {}
+    theme:
+      css/text-teaser/theme/text-teaser-large.css: {}
+text_teaser_medium:
+  version: 1.0
+  css:
+    layout:
+      css/text-teaser/layout/text-teaser-medium.css: {}
+    theme:
+      css/text-teaser/theme/text-teaser-medium.css: {}
+text_teaser_small:
+  version: 1.0
+  css:
+    layout:
+      css/text-teaser/layout/text-teaser-small.css: {}
+    theme:
+      css/text-teaser/theme/text-teaser-small.css: {}
+text_teaser_large_text_only:
+  version: 1.0
+  css:
+    layout:
+      css/text-teaser/layout/text-teaser-large-text-only.css: {}
+    theme:
+      css/text-teaser/theme/text-teaser-large-text-only.css: {}
+text_teaser_medium_text_only:
+  version: 1.0
+  css:
+    layout:
+      css/text-teaser/layout/text-teaser-medium-text-only.css: {}
+    theme:
+      css/text-teaser/theme/text-teaser-medium-text-only.css: {}
+text_teaser_small_text_only:
+  version: 1.0
+  css:
+    layout:
+      css/text-teaser/layout/text-teaser-small-text-only.css: {}
+    theme:
+      css/text-teaser/theme/text-teaser-small-text-only.css: {}

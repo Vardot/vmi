@@ -1,0 +1,43 @@
+.tout-medium .field--name-node-title,
+.tout-medium .tout-title {
+  background: #000000;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+}
+.tout-medium .field--name-node-title h1,
+.tout-medium .tout-title h1,
+.tout-medium .field--name-node-title h2,
+.tout-medium .tout-title h2,
+.tout-medium .field--name-node-title h3,
+.tout-medium .tout-title h3,
+.tout-medium .field--name-node-title h4,
+.tout-medium .tout-title h4,
+.tout-medium .field--name-node-title h5,
+.tout-medium .tout-title h5,
+.tout-medium .field--name-node-title h6,
+.tout-medium .tout-title h6 {
+  padding-top: 0;
+  color: #fff;
+  display: block;
+  display: -webkit-box;
+  max-height: 3.5em;
+  margin: 0 auto;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tout-medium .field--name-node-title a,
+.tout-medium .tout-title a {
+  color: #fff;
+  text-decoration: none;
+}
+.tout-medium .field--name-node-title:hover,
+.tout-medium .tout-title:hover,
+.tout-medium .field--name-node-title:focus,
+.tout-medium .tout-title:focus,
+.tout-medium .field--name-node-title:active,
+.tout-medium .tout-title:active {
+  opacity: 0.7;
+}
+/*# sourceMappingURL=tout-medium.css.map */

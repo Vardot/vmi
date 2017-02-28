@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.vertical_media_teaser_xsmall_text_only
+label: 'Vertical media teaser - xsmall - text only'
+targetEntityType: node
+cache: true

@@ -1,0 +1,31 @@
+.text-teaser-large {
+  margin-top: 15px;
+}
+.text-teaser-large .field--name-node-title h1,
+.text-teaser-large .field--name-node-title h2,
+.text-teaser-large .field--name-node-title h3,
+.text-teaser-large .field--name-node-title h4,
+.text-teaser-large .field--name-node-title h5,
+.text-teaser-large .field--name-node-title h6 {
+  padding-top: 0;
+  display: block;
+  display: -webkit-box;
+  max-height: 1.5em;
+  margin: 0 auto;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.text-teaser-large .field--name-body {
+  padding-top: 0;
+  display: block;
+  display: -webkit-box;
+  max-height: 5.5em;
+  margin: 0 auto;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*# sourceMappingURL=text-teaser-large.css.map */
