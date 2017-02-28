@@ -20,7 +20,6 @@ tout_medium:
     theme:
       css/tout/theme/tout-medium.css: {}
 
-
 text_teaser_large:
   version: 1.0
   css:
@@ -42,6 +41,7 @@ text_teaser_small:
       css/text-teaser/layout/text-teaser-small.css: {}
     theme:
       css/text-teaser/theme/text-teaser-small.css: {}
+
 text_teaser_large_text_only:
   version: 1.0
   css:
