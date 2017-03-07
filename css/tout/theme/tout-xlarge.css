@@ -1,25 +1,21 @@
-.tout-xlarge .field--name-node-title,
-.tout-xlarge .tout-title {
+.tout-view-mode.tout-xlarge .field--name-node-title {
   background: #000000;
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
 }
-.tout-xlarge .field--name-node-title h3,
-.tout-xlarge .tout-title h3 {
-  padding-top: 0;
+.tout-view-mode.tout-xlarge .field--name-node-title h3 {
+  margin: 0;
+  padding: 0;
   color: #fff;
+  font-size: 3.6em;
 }
-.tout-xlarge .field--name-node-title a,
-.tout-xlarge .tout-title a {
+.tout-view-mode.tout-xlarge .field--name-node-title a {
   color: #fff;
   text-decoration: none;
 }
-.tout-xlarge .field--name-node-title:hover,
-.tout-xlarge .tout-title:hover,
-.tout-xlarge .field--name-node-title:focus,
-.tout-xlarge .tout-title:focus,
-.tout-xlarge .field--name-node-title:active,
-.tout-xlarge .tout-title:active {
+.tout-view-mode.tout-xlarge .field--name-node-title:hover,
+.tout-view-mode.tout-xlarge .field--name-node-title:focus,
+.tout-view-mode.tout-xlarge .field--name-node-title:active {
   opacity: 0.7;
 }
 /*# sourceMappingURL=tout-xlarge.css.map */

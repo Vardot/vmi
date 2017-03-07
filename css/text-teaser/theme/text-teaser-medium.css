@@ -1,15 +1,8 @@
-.text-teaser-medium .main:first-child {
-  margin-top: 0;
+.text-teaser-view-mode.medium .field--name-node-title h3 {
+  font-size: 1.4em;
 }
-.text-teaser-medium .field--name-body {
-  margin-top: 5px;
-  display: block;
-  display: -webkit-box;
+.text-teaser-view-mode.medium .field--name-body {
   max-height: 4.5em;
-  margin: 0 auto;
   -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 /*# sourceMappingURL=text-teaser-medium.css.map */

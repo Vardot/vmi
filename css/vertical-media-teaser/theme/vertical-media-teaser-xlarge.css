@@ -1,0 +1,8 @@
+.vertical-media-teaser-view-mode.xlarge .field--name-node-title h3 {
+  font-size: 2em;
+}
+.vertical-media-teaser-view-mode.xlarge .field--name-body {
+  max-height: 5.5em;
+  -webkit-line-clamp: 5;
+}
+/*# sourceMappingURL=vertical-media-teaser-xlarge.css.map */

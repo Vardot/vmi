@@ -1,0 +1,14 @@
+.text-teaser-view-mode .field--name-node-title h3 {
+  margin: 0.4em 0;
+}
+.text-teaser-view-mode .field--name-body {
+  display: block;
+  display: -webkit-box;
+  max-height: 2.5em;
+  margin: 0 auto;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*# sourceMappingURL=text-teaser.css.map */

@@ -1,0 +1,11 @@
+.horizontal-media-teaser-view-mode .field--name-body {
+  display: block;
+  display: -webkit-box;
+  max-height: 4.5em;
+  margin: 0 auto;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*# sourceMappingURL=horizontal-media-teaser.css.map */

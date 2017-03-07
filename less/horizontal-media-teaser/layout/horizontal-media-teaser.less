@@ -1,0 +1,29 @@
+.horizontal-media-teaser-view-mode {
+  margin: 15px 0 0 0;
+  padding: 0;
+  
+  .right,
+  .left {
+    padding-left: 0;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  .field--name-node-title {
+    h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+[dir="rtl"] {
+  .horizontal-media-teaser-view-mode {
+    .right,
+    .left {
+      padding-left: 15px;
+      padding-right: 0;
+    }
+  }
+}

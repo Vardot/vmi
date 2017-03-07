@@ -1,5 +1,5 @@
 # View Modes Inventory Layouts.
-# Which they will peered with the list of Varbase View Modes Inventory
+# Which they will peered with the list of View Modes Inventory.
 
 # Vertical media teasers layouts.
 # ------------------------------------------------------------------------------
@@ -12,6 +12,7 @@ vertical_media_teaser_xlarge:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-xlarge.png
   template: templates/vertical-media-teaser/vertical-media-teaser-xlarge
+  library: view_modes_inventory/vertical_media_teaser_xlarge
   regions:
     main:
       label: 'Content'
@@ -24,6 +25,7 @@ vertical_media_teaser_large:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-large.png
   template: templates/vertical-media-teaser/vertical-media-teaser-large
+  library: view_modes_inventory/vertical_media_teaser_large
   regions:
     main:
       label: 'Content'
@@ -36,6 +38,7 @@ vertical_media_teaser_medium:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-medium.png
   template: templates/vertical-media-teaser/vertical-media-teaser-medium
+  library: view_modes_inventory/vertical_media_teaser_medium
   regions:
     main:
       label: 'Content'
@@ -48,6 +51,7 @@ vertical_media_teaser_small:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-small.png
   template: templates/vertical-media-teaser/vertical-media-teaser-small
+  library: view_modes_inventory/vertical_media_teaser_small
   regions:
     main:
       label: 'Content'
@@ -60,6 +64,7 @@ vertical_media_teaser_xsmall:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-xsmall.png
   template: templates/vertical-media-teaser/vertical-media-teaser-xsmall
+  library: view_modes_inventory/vertical_media_teaser_xsmall
   regions:
     main:
       label: 'Content'
@@ -76,6 +81,7 @@ vertical_media_teaser_xlarge_text_only:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-xlarge-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-xlarge-text-only
+  library: view_modes_inventory/vertical_media_teaser_xlarge_text_only
   regions:
     main:
       label: 'Content'
@@ -88,6 +94,7 @@ vertical_media_teaser_large_text_only:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-large-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-large-text-only
+  library: view_modes_inventory/vertical_media_teaser_large_text_only
   regions:
     main:
       label: 'Content'
@@ -100,6 +107,7 @@ vertical_media_teaser_medium_text_only:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-medium-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-medium-text-only
+  library: view_modes_inventory/vertical_media_teaser_medium_text_only
   regions:
     main:
       label: 'Content'
@@ -112,6 +120,7 @@ vertical_media_teaser_small_text_only:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-small-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-small-text-only
+  library: view_modes_inventory/vertical_media_teaser_small_text_only
   regions:
     main:
       label: 'Content'
@@ -124,6 +133,7 @@ vertical_media_teaser_xsmall_text_only:
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-xsmall-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-xsmall-text-only
+  library: view_modes_inventory/vertical_media_teaser_xsmall_text_only
   regions:
     main:
       label: 'Content'
@@ -140,6 +150,7 @@ horizontal_media_teaser_xlarge:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-xlarge.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-xlarge
+  library: view_modes_inventory/horizontal_media_teaser_xlarge
   regions:
     left:
       label: Left
@@ -154,6 +165,7 @@ horizontal_media_teaser_large:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-large.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-large
+  library: view_modes_inventory/horizontal_media_teaser_large
   regions:
     left:
       label: Left
@@ -168,6 +180,7 @@ horizontal_media_teaser_medium:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-medium.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-medium
+  library: view_modes_inventory/horizontal_media_teaser_medium
   regions:
     left:
       label: Left
@@ -182,6 +195,7 @@ horizontal_media_teaser_small:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-small.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-small
+  library: view_modes_inventory/horizontal_media_teaser_small
   regions:
     left:
       label: Left
@@ -196,6 +210,7 @@ horizontal_media_teaser_xsmall:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-xsmall.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-xsmall
+  library: view_modes_inventory/horizontal_media_teaser_xsmall
   regions:
     left:
       label: Left
@@ -214,6 +229,7 @@ horizontal_media_teaser_xlarge_text_only:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-xlarge-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-xlarge-text-only
+  library: view_modes_inventory/horizontal_media_teaser_xlarge_text_only
   regions:
     main:
       label: 'Content'
@@ -226,6 +242,7 @@ horizontal_media_teaser_large_text_only:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-large-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-large-text-only
+  library: view_modes_inventory/horizontal_media_teaser_large_text_only
   regions:
     main:
       label: 'Content'
@@ -238,6 +255,7 @@ horizontal_media_teaser_medium_text_only:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-medium-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-medium-text-only
+  library: view_modes_inventory/horizontal_media_teaser_medium_text_only
   regions:
     main:
       label: 'Content'
@@ -250,6 +268,7 @@ horizontal_media_teaser_small_text_only:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-small-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-small-text-only
+  library: view_modes_inventory/horizontal_media_teaser_small_text_only
   regions:
     main:
       label: 'Content'
@@ -262,6 +281,7 @@ horizontal_media_teaser_xsmall_text_only:
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-xsmall-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-xsmall-text-only
+  library: view_modes_inventory/horizontal_media_teaser_xsmall_text_only
   regions:
     main:
       label: 'Content'
@@ -405,6 +425,7 @@ hero_xlarge:
   type: partial
   icon: images/hero/hero-xlarge.png
   template: templates/hero/hero-xlarge
+  library: view_modes_inventory/hero_xlarge
   regions:
     main:
       label: 'Content'

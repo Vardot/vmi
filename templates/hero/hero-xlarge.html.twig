@@ -1,5 +1,7 @@
-<div class="hero-xlarge">
-  <div class="main col-sm-12">
+<div {{ attributes.addClass('hero-view-mode', 'xlarge', 'clearfix') }}>
+  {{ title_suffix.contextual_links }}
+  <div class="main">
     {{ content.main }}
   </div>
 </div>
+
