@@ -14,7 +14,6 @@
   "require": {
       "drupal/layout_plugin": "^1.0-alpha23"
   },
-  "license": "MIT",
   "authors": [
     {
       "name": "Mohammed J. Razem",
