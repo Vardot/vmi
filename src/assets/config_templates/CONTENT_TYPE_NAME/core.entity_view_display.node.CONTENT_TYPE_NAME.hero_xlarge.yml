@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.hero_xlarge
+    - field.field.node.CONTENT_TYPE_NAME.body
+    - field.field.node.CONTENT_TYPE_NAME.field_image
+    - node.type.CONTENT_TYPE_NAME
+  module:
+    - ds
+    - panelizer
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: hero_xlarge
+      path: modules/CONTENT_TYPE_NAME
+      library: view_modes_inventory/hero_xlarge
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_image
+        - node_title
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.CONTENT_TYPE_NAME.hero_xlarge
+targetEntityType: node
+bundle: CONTENT_TYPE_NAME
+mode: hero_xlarge
+content:
+  field_image:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: cropped_full
+      link: false
+    third_party_settings: {  }
+hidden:
+  body: true
+  langcode: true
+  links: true

@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.tout_medium
+    - field.field.node.CONTENT_TYPE_NAME.body
+    - field.field.node.CONTENT_TYPE_NAME.field_image
+    - node.type.CONTENT_TYPE_NAME
+  module:
+    - ds
+    - panelizer
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: tout_medium
+      path: modules/view_modes_inventory
+      library: view_modes_inventory/tout_medium
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_image
+        - node_title
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 5
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.CONTENT_TYPE_NAME.tout_medium
+targetEntityType: node
+bundle: CONTENT_TYPE_NAME
+mode: tout_medium
+content:
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: cropped_medium
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  body: true
+  langcode: true
+  links: true

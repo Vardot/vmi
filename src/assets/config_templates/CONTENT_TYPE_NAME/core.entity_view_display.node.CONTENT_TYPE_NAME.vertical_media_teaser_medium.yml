@@ -1,0 +1,73 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.vertical_media_teaser_medium
+    - field.field.node.CONTENT_TYPE_NAME.body
+    - field.field.node.CONTENT_TYPE_NAME.field_image
+    - node.type.CONTENT_TYPE_NAME
+  module:
+    - ds
+    - panelizer
+    - smart_trim
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: vertical_media_teaser_medium
+      path: modules/view_modes_inventory
+      library: view_modes_inventory/vertical_media_teaser_medium
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_image
+        - node_title
+        - body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: ''
+  panelizer:
+    enable: false
+    custom: false
+    allow: false
+    default: default
+id: node.CONTENT_TYPE_NAME.vertical_media_teaser_medium
+targetEntityType: node
+bundle: CONTENT_TYPE_NAME
+mode: vertical_media_teaser_medium
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 2
+    settings:
+      trim_length: '30'
+      trim_type: words
+      trim_suffix: ' ...'
+      more_link: '0'
+      more_text: More
+      summary_handler: full
+      trim_options:
+        text: text
+      more_class: more-link
+    third_party_settings: {  }
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: cropped_medium
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+hidden:
+  langcode: true
+  links: true
