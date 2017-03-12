@@ -1,8 +1,4 @@
 .vertical-media-teaser-view-mode.small .field--name-node-title h3 {
   font-size: 1.4em;
 }
-.vertical-media-teaser-view-mode.small .field--name-body {
-  max-height: 4.5em;
-  -webkit-line-clamp: 4;
-}
 /*# sourceMappingURL=vertical-media-teaser-small.css.map */

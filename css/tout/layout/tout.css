@@ -1,14 +1,14 @@
 .tout-view-mode {
   margin-top: 15px;
 }
-.tout-view-mode .main {
+.tout-view-mode .main-contnet {
   position: relative;
 }
-.tout-view-mode .field--name-node-title {
+.tout-view-mode .tout-content {
   position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  padding: 1rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2em;
 }
 /*# sourceMappingURL=tout.css.map */

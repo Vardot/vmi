@@ -1,13 +1,13 @@
-.hero-view-mode.xlarge .main {
+.hero-view-mode.xlarge .main-contnet {
   position: relative;
 }
-.hero-view-mode.xlarge .field--name-node-title {
+.hero-view-mode.xlarge .hero-content {
   position: absolute;
   width: 50%;
   top: 20%;
   bottom: 20%;
   left: 5%;
   right: 5%;
-  padding: 1em;
+  padding: 1.2em;
 }
 /*# sourceMappingURL=hero-xlarge.css.map */

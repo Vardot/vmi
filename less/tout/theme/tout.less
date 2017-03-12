@@ -1,20 +1,26 @@
+@import "../../variables.less";
 .tout-view-mode {
-  
+
   .field--name-node-title {
-    background: rgb(0,0,0);
-    background: rgba(0,0,0,0.7);
-    color: #fff;
+    color: @tout-title-color;
     
     h3 {
       margin: 0;
       padding: 0;
-      color: #fff;
+      color: @tout-title-color;
     }
 
     a {
-      color: #fff;
+      color: @tout-title-color;
       text-decoration: none;
     }
+  }
+  
+  .tout-content {
+    background: linear-gradient(to bottom, transparent 0%, @tout-content-background 200%) repeat scroll 0 0;
+    background: -webkit-linear-gradient(to bottom, transparent 0%, @tout-content-background  200%) repeat scroll 0 0;
+    background: -o-linear-gradient(to bottom, transparent 0%, @tout-content-background  200%) repeat scroll 0 0;
+    background: -moz-linear-gradient(to bottom, transparent 0%, @tout-content-background  200%) repeat scroll 0 0;
     
     &:hover,
     &:focus,

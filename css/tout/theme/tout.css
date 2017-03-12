@@ -1,6 +1,4 @@
 .tout-view-mode .field--name-node-title {
-  background: #000000;
-  background: rgba(0, 0, 0, 0.7);
   color: #fff;
 }
 .tout-view-mode .field--name-node-title h3 {
@@ -12,9 +10,15 @@
   color: #fff;
   text-decoration: none;
 }
-.tout-view-mode .field--name-node-title:hover,
-.tout-view-mode .field--name-node-title:focus,
-.tout-view-mode .field--name-node-title:active {
+.tout-view-mode .tout-content {
+  background: linear-gradient(to bottom, transparent 0%, #000 200%) repeat scroll 0 0;
+  background: -webkit-linear-gradient(to bottom, transparent 0%, #000 200%) repeat scroll 0 0;
+  background: -o-linear-gradient(to bottom, transparent 0%, #000 200%) repeat scroll 0 0;
+  background: -moz-linear-gradient(to bottom, transparent 0%, #000 200%) repeat scroll 0 0;
+}
+.tout-view-mode .tout-content:hover,
+.tout-view-mode .tout-content:focus,
+.tout-view-mode .tout-content:active {
   opacity: 0.7;
 }
 /*# sourceMappingURL=tout.css.map */

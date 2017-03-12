@@ -1,8 +1,4 @@
 .horizontal-media-teaser-view-mode.xlarge .field--name-node-title h3 {
   font-size: 2em;
 }
-.horizontal-media-teaser-view-mode.xlarge .field--name-body {
-  max-height: 5.5em;
-  -webkit-line-clamp: 5;
-}
 /*# sourceMappingURL=horizontal-media-teaser-xlarge.css.map */

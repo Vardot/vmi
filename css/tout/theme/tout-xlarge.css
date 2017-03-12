@@ -1,21 +1,4 @@
-.tout-view-mode.tout-xlarge .field--name-node-title {
-  background: #000000;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-}
 .tout-view-mode.tout-xlarge .field--name-node-title h3 {
-  margin: 0;
-  padding: 0;
-  color: #fff;
-  font-size: 3.6em;
-}
-.tout-view-mode.tout-xlarge .field--name-node-title a {
-  color: #fff;
-  text-decoration: none;
-}
-.tout-view-mode.tout-xlarge .field--name-node-title:hover,
-.tout-view-mode.tout-xlarge .field--name-node-title:focus,
-.tout-view-mode.tout-xlarge .field--name-node-title:active {
-  opacity: 0.7;
+  font-size: 4em;
 }
 /*# sourceMappingURL=tout-xlarge.css.map */
