@@ -1,9 +1,21 @@
-<div {{ attributes.addClass('horizontal-media-teaser-view-mode', 'xlarge', 'clearfix') }}>
-  {{ title_suffix.contextual_links }}
-  <div class="left col-sm-8">
-    {{ content.left }}
-  </div>
-  <div class="right col-sm-4">
-    {{ content.right }}
-  </div>
-</div>
+{#
+/**
+ * @file
+ * View modes inventory - Horizontal media teaser - xlarge template.
+ */
+#}
+<{{ outer_wrapper }}{{ attributes.addClass('horizontal-media-teaser-view-mode', 'xlarge', 'clearfix') }}>
+  {% if title_suffix.contextual_links is not null %}
+    {{ title_suffix.contextual_links }}
+  {% endif %}
+  {% if left is not null %}
+    <{{ left_wrapper }} class="left col-sm-8">
+      {{ content.left }}
+    </{{ left_wrapper }}>
+  {% endif %}
+  {% if right is not null %}
+    <{{ right_wrapper }} class="right col-sm-4">
+      {{ content.right }}
+    </{{ right_wrapper }}>
+  {% endif %}
+</{{ outer_wrapper }}>

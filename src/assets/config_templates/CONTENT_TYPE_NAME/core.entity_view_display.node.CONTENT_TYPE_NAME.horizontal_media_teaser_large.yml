@@ -19,7 +19,16 @@ third_party_settings:
       library: view_modes_inventory/horizontal_media_teaser_large
       disable_css: false
       entity_classes: all_classes
-      settings: {  }
+      settings:
+        wrappers:
+          left: div
+          right: article
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
     regions:
       left:
         - field_image
@@ -51,7 +60,7 @@ content:
     weight: 2
     label: hidden
     settings:
-      trim_length: '30'
+      trim_length: '90'
       trim_type: words
       trim_suffix: ' ...'
       more_link: '0'

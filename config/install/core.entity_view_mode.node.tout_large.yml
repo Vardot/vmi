@@ -1,8 +1,11 @@
+uuid: 7d961409-53a5-450b-ab06-b7c136565af6
 langcode: en
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: smFyEFS3LNXtBRtSp8Mlpwzy2_pwI3IaYBoXIAH3Fv4
 id: node.tout_large
 label: 'Tout - large'
 targetEntityType: node

@@ -8,6 +8,7 @@ dependencies:
     - node.type.CONTENT_TYPE_NAME
   module:
     - ds
+    - field_group
     - panelizer
     - user
 third_party_settings:
@@ -23,11 +24,20 @@ third_party_settings:
       library: view_modes_inventory/tout_large
       disable_css: false
       entity_classes: all_classes
-      settings: {  }
+      settings:
+        wrappers:
+          main: div
+        outer_wrapper: article
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
     regions:
       main:
         - field_image
         - node_title
+        - group_tout_content
     fields:
       node_title:
         plugin_id: node_title
@@ -38,6 +48,23 @@ third_party_settings:
           link: true
           wrapper: h3
           class: ''
+  field_group:
+    group_tout_content:
+      children:
+        - node_title
+      parent_name: ''
+      weight: 20
+      format_type: html_element
+      format_settings:
+        id: ''
+        classes: tout-content
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Tout content'
 id: node.CONTENT_TYPE_NAME.tout_large
 targetEntityType: node
 bundle: CONTENT_TYPE_NAME

@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Display Suite core functions.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_install().
+ */
+function view_modes_inventory_install() {
+  module_set_weight('view_modes_inventory', 3);
+}
+
+/**
+ * Implements hook_help().
+ */
+function view_modes_inventory_help($route_name, RouteMatchInterface $route_match){
+  switch ($route_name) {
+    case 'help.page.view_modes_inventory':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<br/>' . t('The <a href="https://www.drupal.org/project/view_modes_inventory">View modes inventory</a> module has a set of template view modes that we typically use (some of them) in each website.');
+      return $output;
+  }
+}

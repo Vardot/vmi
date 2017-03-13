@@ -1,8 +1,11 @@
+uuid: ae8ecb40-239a-403f-920c-4b9b38c5cf45
 langcode: en
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: pEZU0NZVmZrPzjeeHgaiOdarMAYCy46zVfRC53wLTSg
 id: node.hero_xlarge
 label: 'Hero - xlarge'
 targetEntityType: node

@@ -9,6 +9,7 @@ vertical_media_teaser_xlarge:
   label: 'Vertical media teaser - xlarge'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-xlarge.png
   template: templates/vertical-media-teaser/vertical-media-teaser-xlarge
@@ -22,6 +23,7 @@ vertical_media_teaser_large:
   label: 'Vertical media teaser - large'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-large.png
   template: templates/vertical-media-teaser/vertical-media-teaser-large
@@ -35,6 +37,7 @@ vertical_media_teaser_medium:
   label: 'Vertical media teaser - medium'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-medium.png
   template: templates/vertical-media-teaser/vertical-media-teaser-medium
@@ -48,6 +51,7 @@ vertical_media_teaser_small:
   label: 'Vertical media teaser - small'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-small.png
   template: templates/vertical-media-teaser/vertical-media-teaser-small
@@ -61,6 +65,7 @@ vertical_media_teaser_xsmall:
   label: 'Vertical media teaser - xsmall'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-xsmall.png
   template: templates/vertical-media-teaser/vertical-media-teaser-xsmall
@@ -78,6 +83,7 @@ vertical_media_teaser_xlarge_text_only:
   label: 'Vertical media teaser - xlarge - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-xlarge-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-xlarge-text-only
@@ -91,6 +97,7 @@ vertical_media_teaser_large_text_only:
   label: 'Vertical media teaser - large - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-large-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-large-text-only
@@ -104,6 +111,7 @@ vertical_media_teaser_medium_text_only:
   label: 'Vertical media teaser - medium - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-medium-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-medium-text-only
@@ -117,6 +125,7 @@ vertical_media_teaser_small_text_only:
   label: 'Vertical media teaser - small - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-small-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-small-text-only
@@ -130,6 +139,7 @@ vertical_media_teaser_xsmall_text_only:
   label: 'Vertical media teaser - xsmall - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/vertical-media-teaser/vertical-media-teaser-xsmall-text-only.png
   template: templates/vertical-media-teaser/vertical-media-teaser-xsmall-text-only
@@ -147,6 +157,7 @@ horizontal_media_teaser_xlarge:
   label: 'Horizontal media teaser - xlarge'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-xlarge.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-xlarge
@@ -162,6 +173,7 @@ horizontal_media_teaser_large:
   label: 'Horizontal media teaser - large'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-large.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-large
@@ -177,6 +189,7 @@ horizontal_media_teaser_medium:
   label: 'Horizontal media teaser - medium'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-medium.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-medium
@@ -192,6 +205,7 @@ horizontal_media_teaser_small:
   label: 'Horizontal media teaser - small'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-small.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-small
@@ -207,6 +221,7 @@ horizontal_media_teaser_xsmall:
   label: 'Horizontal media teaser - xsmall'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-xsmall.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-xsmall
@@ -226,6 +241,7 @@ horizontal_media_teaser_xlarge_text_only:
   label: 'Horizontal media teaser - xlarge - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-xlarge-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-xlarge-text-only
@@ -239,6 +255,7 @@ horizontal_media_teaser_large_text_only:
   label: 'Horizontal media teaser - large - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-large-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-large-text-only
@@ -252,6 +269,7 @@ horizontal_media_teaser_medium_text_only:
   label: 'Horizontal media teaser - medium - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-medium-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-medium-text-only
@@ -265,6 +283,7 @@ horizontal_media_teaser_small_text_only:
   label: 'Horizontal media teaser - small - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-small-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-small-text-only
@@ -278,6 +297,7 @@ horizontal_media_teaser_xsmall_text_only:
   label: 'Horizontal media teaser - xsmall - text only'
   description: 'It contains a media element — typically an image — on the left with a headline and text on the right. It is a versatile pattern that contain content such as blog posts, user information, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/horizontal-media-teaser/horizontal-media-teaser-xsmall-text-only.png
   template: templates/horizontal-media-teaser/horizontal-media-teaser-xsmall-text-only
@@ -294,6 +314,7 @@ text_teaser_large:
   label: 'Text teaser - large'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/text-teaser/text-teaser-large.png
   template: templates/text-teaser/text-teaser-large
@@ -307,6 +328,7 @@ text_teaser_medium:
   label: 'Text teaser - medium'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/text-teaser/text-teaser-medium.png
   template: templates/text-teaser/text-teaser-medium
@@ -320,6 +342,7 @@ text_teaser_small:
   label: 'Text teaser - small'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/text-teaser/text-teaser-small.png
   template: templates/text-teaser/text-teaser-small
@@ -337,6 +360,7 @@ text_teaser_large_text_only:
   label: 'Text teaser - large - text only'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/text-teaser/text-teaser-large-text-only.png
   template: templates/text-teaser/text-teaser-large-text-only
@@ -350,6 +374,7 @@ text_teaser_medium_text_only:
   label: 'Text teaser - medium - text only'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/text-teaser/text-teaser-medium-text-only.png
   template: templates/text-teaser/text-teaser-medium-text-only
@@ -363,6 +388,7 @@ text_teaser_small_text_only:
   label: 'Text teaser - small - text only'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/text-teaser/text-teaser-small-text-only.png
   template: templates/text-teaser/text-teaser-small-text-only
@@ -380,6 +406,7 @@ tout_xlarge:
   label: 'Tout - xlarge'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/tout/tout-xlarge.png
   template: templates/tout/tout-xlarge
@@ -393,6 +420,7 @@ tout_large:
   label: 'Tout - large'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/tout/tout-large.png
   template: templates/tout/tout-large
@@ -406,6 +434,7 @@ tout_medium:
   label: 'Tout - medium'
   description: 'It contains a headline and text underneath it. It is a versatile pattern that contain content such as blog posts, news, and other content types.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/tout/tout-medium.png
   template: templates/tout/tout-medium
@@ -422,6 +451,7 @@ hero_xlarge:
   label: 'Hero - xlarge'
   description: 'The hero is a large block that typically appears at the top of the page and contains a large full-bleed image and a title. Typically found on homepages and marketing pages.'
   category: 'View modes inventory'
+  class: '\Drupal\ds\Plugin\DsLayout'
   type: partial
   icon: images/hero/hero-xlarge.png
   template: templates/hero/hero-xlarge

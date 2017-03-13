@@ -5,3 +5,6 @@ core: 8.x
 package: Layout
 dependencies:
   - layout_plugin
+  - ds
+  - ds_extras
+  - field_group

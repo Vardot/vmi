@@ -1,6 +1,14 @@
-<div {{ attributes.addClass('horizontal-media-teaser-view-mode', 'medium-text-only', 'clearfix') }}>
-  {{ title_suffix.contextual_links }}
-  <div class="main-content">
+{#
+/**
+ * @file
+ * View modes inventory - Horizontal media teaser - medium text only template.
+ */
+#}
+<{{ outer_wrapper }}{{ attributes.addClass('horizontal-media-teaser-view-mode', 'medium-text-only', 'clearfix') }}>
+  {% if title_suffix.contextual_links is not null %}
+    {{ title_suffix.contextual_links }}
+  {% endif %}
+  <{{ main_wrapper }} class="main-content">
     {{ content.main }}
-  </div>
-</div>
+  </{{ main_wrapper }}>
+</{{ outer_wrapper }}>
