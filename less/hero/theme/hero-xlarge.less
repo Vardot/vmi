@@ -2,8 +2,8 @@
 .hero-view-mode.xlarge {
   
   .hero-content {
-    background: rgb(0,0,0);
-    background: rgba(0,0,0,0.7);
+    background: @hero-content-background-color1;
+    background: @hero-content-background-color2;
     color: @hero-title-color;
     
     h3 {
@@ -21,8 +21,7 @@
     &:hover,
     &:focus,
     &:active {
-      opacity: 0.7;
+      opacity: @hero-content-hover-opacity;
     }
   }
 }
-

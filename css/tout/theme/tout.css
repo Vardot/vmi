@@ -11,10 +11,10 @@
   text-decoration: none;
 }
 .tout-view-mode .tout-content {
-  background: linear-gradient(to bottom, transparent 0%, #000 200%) repeat scroll 0 0;
-  background: -webkit-linear-gradient(to bottom, transparent 0%, #000 200%) repeat scroll 0 0;
-  background: -o-linear-gradient(to bottom, transparent 0%, #000 200%) repeat scroll 0 0;
-  background: -moz-linear-gradient(to bottom, transparent 0%, #000 200%) repeat scroll 0 0;
+  background: linear-gradient(to bottom, transparent 0%, #000 150%) repeat scroll 0 0;
+  background: -webkit-linear-gradient(to bottom, transparent 0%, #000 150%) repeat scroll 0 0;
+  background: -o-linear-gradient(to bottom, transparent 0%, #000 150%) repeat scroll 0 0;
+  background: -moz-linear-gradient(to bottom, transparent 0%, #000 150%) repeat scroll 0 0;
 }
 .tout-view-mode .tout-content:hover,
 .tout-view-mode .tout-content:focus,

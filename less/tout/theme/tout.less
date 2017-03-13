@@ -17,15 +17,15 @@
   }
   
   .tout-content {
-    background: linear-gradient(to bottom, transparent 0%, @tout-content-background 200%) repeat scroll 0 0;
-    background: -webkit-linear-gradient(to bottom, transparent 0%, @tout-content-background  200%) repeat scroll 0 0;
-    background: -o-linear-gradient(to bottom, transparent 0%, @tout-content-background  200%) repeat scroll 0 0;
-    background: -moz-linear-gradient(to bottom, transparent 0%, @tout-content-background  200%) repeat scroll 0 0;
+    background: linear-gradient(to bottom, @tout-content-stop1-color @tout-content-stop1-location, @tout-content-stop2-color @tout-content-stop2-location) repeat scroll 0 0;
+    background: -webkit-linear-gradient(to bottom, @tout-content-stop1-color @tout-content-stop1-location, @tout-content-stop2-color  @tout-content-stop2-location) repeat scroll 0 0;
+    background: -o-linear-gradient(to bottom, @tout-content-stop1-color @tout-content-stop1-location, @tout-content-stop2-color  @tout-content-stop2-location) repeat scroll 0 0;
+    background: -moz-linear-gradient(to bottom, @tout-content-stop1-color @tout-content-stop1-location, @tout-content-stop2-color  @tout-content-stop2-location) repeat scroll 0 0;
     
     &:hover,
     &:focus,
     &:active {
-      opacity: 0.7;
+      opacity: @tout-content-hover-opacity;
     }
   }
 }
