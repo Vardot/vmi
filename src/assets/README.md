@@ -24,7 +24,8 @@ Pre Requests for the content type:
    config/install folder of your module or profile.
 
 ```
-   cp  modules/view_modes_inventory/src/assets/config_templates/CONTENT_TYPE_NAME/* modules/your_module/config/install/
+   cp view_modes_inventory/src/assets/config_templates/CONTENT_TYPE_NAME/* 
+      modules/your_module/config/install/
 ```
 
 2. Replace CONTENT_TYPE_NAME with the machine name of your custom content type
