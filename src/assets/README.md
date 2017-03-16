@@ -11,7 +11,7 @@ To have the full set working for your custom content type, you will need:
 
 Pre Requests for the content type:
 --------------------------------------------------------------------------------
-  - view_modes_inventory module should be enabled.
+  - vmi module should be enabled.
   - Title field [CONTENT_TYPE_NAME].title .
   - Body field [CONTENT_TYPE_NAME].body machine name.
          (Some view modes do not use the body field)
@@ -24,7 +24,7 @@ Pre Requests for the content type:
    config/install folder of your module or profile.
 
 ```
-   cp view_modes_inventory/src/assets/config_templates/CONTENT_TYPE_NAME/* 
+   cp modules/vmi/src/assets/config_templates/CONTENT_TYPE_NAME/* 
       modules/your_module/config/install/
 ```
 

@@ -15,8 +15,8 @@ third_party_settings:
   ds:
     layout:
       id: text_teaser_medium_text_only
-      path: modules/view_modes_inventory
-      library: view_modes_inventory/text_teaser_medium_text_only
+      path: modules/vmi
+      library: vmi/text_teaser_medium_text_only
       disable_css: false
       entity_classes: all_classes
       settings:

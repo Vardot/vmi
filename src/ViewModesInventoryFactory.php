@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\view_modes_inventory;
+namespace Drupal\vmi;
 
 use Symfony\Component\Yaml\Yaml;
 
@@ -10,7 +10,7 @@ use Symfony\Component\Yaml\Yaml;
 class ViewModesInventoryFactory {
 
   /**
-   * Constructs a Drupal\view_modes_inventory\ViewModesInventoryFactory object.
+   * Constructs a Drupal\vmi\ViewModesInventoryFactory object.
    */
   public function __construct() {
     parent::__construct();
@@ -25,11 +25,11 @@ class ViewModesInventoryFactory {
    * @throws Exception
    */
   public static function getViewModesList() {
-    $view_modes_inventory_filename = \Drupal::root() . '/' . drupal_get_path('module', 'view_modes_inventory') . '/src/assets/view_modes.list.yml';
+    $vmi_filename = \Drupal::root() . '/' . drupal_get_path('module', 'vmi') . '/src/assets/view_modes.list.vmi.yml';
 
-    if (is_file($view_modes_inventory_filename)) {
-      $view_modes_inventory_list = (array) Yaml::parse(file_get_contents($view_modes_inventory_filename));
-      return $view_modes_inventory_list;
+    if (is_file($vmi_filename)) {
+      $vmi_list = (array) Yaml::parse(file_get_contents($vmi_filename));
+      return $vmi_list;
     }
     else {
       throw new \Exception('View modes inventory layouts list file does not exist!');
@@ -45,11 +45,11 @@ class ViewModesInventoryFactory {
    * @throws Exception
    */
   public static function getLayoutsMapping() {
-    $view_modes_inventory_layout_filename = \Drupal::root() . '/' . drupal_get_path('module', 'view_modes_inventory') . '/src/assets/layouts.mapping.yml';
+    $vmi_layout_filename = \Drupal::root() . '/' . drupal_get_path('module', 'vmi') . '/src/assets/layouts.mapping.vmi.yml';
 
-    if (is_file($view_modes_inventory_layout_filename)) {
-      $view_modes_inventory_layout_list = (array) Yaml::parse(file_get_contents($view_modes_inventory_layout_filename));
-      return $view_modes_inventory_layout_list;
+    if (is_file($vmi_layout_filename)) {
+      $vmi_layout_list = (array) Yaml::parse(file_get_contents($vmi_layout_filename));
+      return $vmi_layout_list;
     }
     else {
       throw new \Exception('View modes inventory layouts list file does not exist!');
@@ -80,7 +80,7 @@ class ViewModesInventoryFactory {
     $view_mode_config = \Drupal::service('config.factory')->getEditable($real_config_name);
 
     // Load the config template.
-    $full_config_template_file = \Drupal::root() . '/' . drupal_get_path('module', 'view_modes_inventory') . $config_template_file;
+    $full_config_template_file = \Drupal::root() . '/' . drupal_get_path('module', 'vmi') . $config_template_file;
     $config_template_content = file_get_contents($full_config_template_file);
 
     // Replace CONTENT_TYPE_NAME with the bundle name in the config template.

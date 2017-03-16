@@ -1,6 +1,0 @@
-services:
-  view_modes_inventory.factory:
-    class: Drupal\view_modes_inventory\ViewModesInventoryFactory
-    arguments: []
-    tags:
-      - { name: backend_overridable }

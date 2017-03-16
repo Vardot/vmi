@@ -15,8 +15,8 @@ third_party_settings:
   ds:
     layout:
       id: vertical_media_teaser_medium
-      path: modules/view_modes_inventory
-      library: view_modes_inventory/vertical_media_teaser_medium
+      path: modules/vmi
+      library: vmi/vertical_media_teaser_medium
       disable_css: false
       entity_classes: all_classes
       settings:

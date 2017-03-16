@@ -8,6 +8,6 @@
 /**
  * Implements hook_install().
  */
-function view_modes_inventory_install() {
-  module_set_weight('view_modes_inventory', 3);
+function vmi_install() {
+  module_set_weight('vmi', 3);
 }
