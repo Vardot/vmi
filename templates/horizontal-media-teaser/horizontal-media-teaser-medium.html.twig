@@ -4,10 +4,10 @@
  * View modes inventory - Horizontal media teaser - medium template.
  */
 #}
+{% if title_suffix.contextual_links is not null %}
+  {{ title_suffix.contextual_links }}
+{% endif %}
 <{{ outer_wrapper }}{{ attributes.addClass('horizontal-media-teaser-view-mode', 'medium', 'clearfix') }}>
-  {% if title_suffix.contextual_links is not null %}
-    {{ title_suffix.contextual_links }}
-  {% endif %}
   {% if left is not null %}
     <{{ left_wrapper }} class="left col-xs-6 col-sm-6">
       {{ content.left }}
