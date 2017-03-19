@@ -1,18 +1,33 @@
 @import "../../variables.less";
 .tout-view-mode {
-
+    
   .field--name-node-title {
+    position: static;
     color: @tout-title-color;
     
     h3 {
+      position: static;
       margin: 0;
       padding: 0;
       color: @tout-title-color;
-    }
 
-    a {
-      color: @tout-title-color;
-      text-decoration: none;
+      a {
+        color: @tout-title-color;
+        text-decoration: none;
+        position: static;
+
+        &::before {
+          position: absolute;
+          content: '';
+          display: block;
+          overflow: hidden;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;        
+          z-index: 2;
+        }
+      }
     }
   }
   

@@ -8,9 +8,18 @@
   
   .tout-content {
     position: absolute;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     padding: @xsmall-title-font-size;
+    z-index: 1;
+    display: flex;
+    align-self: flex-end;
+
+    >.field {
+      display: flex;
+      align-self: flex-end;
+    }
   }
 }
