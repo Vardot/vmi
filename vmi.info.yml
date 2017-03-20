@@ -8,3 +8,4 @@ dependencies:
   - ds
   - ds_extras
   - field_group
+  - smart_trim
