@@ -4,7 +4,6 @@ description: This module has a set of template view modes that we typically use 
 core: 8.x
 package: Layout
 dependencies:
-  - layout_plugin
   - ds
   - ds_extras
   - field_group
