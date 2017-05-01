@@ -1,32 +1,34 @@
 @import "../../variables.less";
 .horizontal-media-teaser-view-mode {
-  position: relative;
-  
-  .right,
-  .left {
-    position: static;
-  }
-  
-  .field--name-node-title {
-    position: static;
-    
-    h3 {
-      font-size: @medium-title-font-size;
+  &.anchor-all {
+    position: relative;
+
+    .right,
+    .left {
       position: static;
-      
-      a {
+    }
+
+    .field--name-node-title {
+      position: static;
+
+      h3 {
+        font-size: @medium-title-font-size;
         position: static;
-        
-        &::before {
-          position: absolute;
-          content: '';
-          display: block;
-          overflow: hidden;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          left: 0;        
-          z-index: 1;
+
+        a {
+          position: static;
+
+          &::before {
+            position: absolute;
+            content: '';
+            display: block;
+            overflow: hidden;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;        
+            z-index: 1;
+          }
         }
       }
     }

@@ -1,21 +1,21 @@
-.horizontal-media-teaser-view-mode {
+.horizontal-media-teaser-view-mode.anchor-all {
   position: relative;
 }
-.horizontal-media-teaser-view-mode .right,
-.horizontal-media-teaser-view-mode .left {
+.horizontal-media-teaser-view-mode.anchor-all .right,
+.horizontal-media-teaser-view-mode.anchor-all .left {
   position: static;
 }
-.horizontal-media-teaser-view-mode .field--name-node-title {
+.horizontal-media-teaser-view-mode.anchor-all .field--name-node-title {
   position: static;
 }
-.horizontal-media-teaser-view-mode .field--name-node-title h3 {
+.horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 {
   font-size: 1.4em;
   position: static;
 }
-.horizontal-media-teaser-view-mode .field--name-node-title h3 a {
+.horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 a {
   position: static;
 }
-.horizontal-media-teaser-view-mode .field--name-node-title h3 a::before {
+.horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 a::before {
   position: absolute;
   content: '';
   display: block;
