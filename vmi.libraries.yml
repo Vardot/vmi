@@ -1,7 +1,7 @@
 # View Modes Inventory libraries.
 # Which they will peered with the list of View Modes Inventory
 
-# Vertical media teasers libraries.
+# Vertical media teaser libraries.
 # ------------------------------------------------------------------------------
 
 # Vertical media teaser - xlarge.
@@ -55,61 +55,7 @@ vertical_media_teaser_xsmall:
       css/vertical-media-teaser/theme/vertical-media-teaser-xsmall.css: {}
 
 
-# Vertical media teasers - text only libraries.
-# ------------------------------------------------------------------------------
-
-# Vertical media teaser - xlarge - text only.
-vertical_media_teaser_xlarge_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
-    theme:
-      css/vertical-media-teaser/theme/vertical-media-teaser.css: {}
-      css/vertical-media-teaser/theme/vertical-media-teaser-xlarge-text-only.css: {}
-      
-# Vertical media teaser - large - text only.
-vertical_media_teaser_large_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
-    theme:
-      css/vertical-media-teaser/theme/vertical-media-teaser.css: {}
-      css/vertical-media-teaser/theme/vertical-media-teaser-large-text-only.css: {}
-
-# Vertical media teaser - medium - text only.
-vertical_media_teaser_medium_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
-    theme:
-      css/vertical-media-teaser/theme/vertical-media-teaser.css: {}
-      css/vertical-media-teaser/theme/vertical-media-teaser-medium-text-only.css: {}
-
-# Vertical media teaser - small - text only.
-vertical_media_teaser_small_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
-    theme:
-      css/vertical-media-teaser/theme/vertical-media-teaser.css: {}
-      css/vertical-media-teaser/theme/vertical-media-teaser-small-text-only.css: {}
-
-# Vertical media teaser - xsmall - text-only.
-vertical_media_teaser_xsmall_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
-    theme:
-      css/vertical-media-teaser/theme/vertical-media-teaser.css: {}
-      css/vertical-media-teaser/theme/vertical-media-teaser-xsmall-text-only.css: {}
-      
-
-# Horizontal media teasers libraries.
+# Horizontal media teaser libraries.
 # ------------------------------------------------------------------------------
 
 # Horizontal media teaser - xlarge.
@@ -162,61 +108,7 @@ horizontal_media_teaser_xsmall:
       css/horizontal-media-teaser/theme/horizontal-media-teaser.css: {}
       css/horizontal-media-teaser/theme/horizontal-media-teaser-xsmall.css: {}
 
-# Horizontal media teasers - text only libraries.
-# ------------------------------------------------------------------------------
-
-# Horizontal media teaser - xlarge - text-only.
-horizontal_media_teaser_xlarge_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
-    theme:
-      css/horizontal-media-teaser/theme/horizontal-media-teaser.css: {}
-      css/horizontal-media-teaser/theme/horizontal-media-teaser-xlarge-text-only.css: {}
-
-# Horizontal media teaser - large - text only.
-horizontal_media_teaser_large_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
-    theme:
-      css/horizontal-media-teaser/theme/horizontal-media-teaser.css: {}
-      css/horizontal-media-teaser/theme/horizontal-media-teaser-large-text-only.css: {}
-
-# Horizontal media teaser - medium - text-only.
-horizontal_media_teaser_medium_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
-    theme:
-      css/horizontal-media-teaser/theme/horizontal-media-teaser.css: {}
-      css/horizontal-media-teaser/theme/horizontal-media-teaser-medium-text-only.css: {}
-
-# Horizontal media teaser - small - text only.
-horizontal_media_teaser_small_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
-    theme:
-      css/horizontal-media-teaser/theme/horizontal-media-teaser.css: {}
-      css/horizontal-media-teaser/theme/horizontal-media-teaser-small-text-only.css: {}
-
-# Horizontal media teaser - xsmall - text only.
-horizontal_media_teaser_xsmall_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
-    theme:
-      css/horizontal-media-teaser/theme/horizontal-media-teaser.css: {}
-      css/horizontal-media-teaser/theme/horizontal-media-teaser-xsmall-text-only.css: {}
-
-
-# Text teasers libraries.
+# Text teaser libraries.
 # ------------------------------------------------------------------------------
 
 # Text teaser - large.
@@ -248,39 +140,6 @@ text_teaser_small:
     theme:
       css/text-teaser/theme/text-teaser.css: {}
       css/text-teaser/theme/text-teaser-small.css: {}
-
-# Text teasers - text only libraries.
-# ------------------------------------------------------------------------------
-
-# Text teaser - large - text only.
-text_teaser_large_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/text-teaser/layout/text-teaser.css: {}
-    theme:
-      css/text-teaser/theme/text-teaser.css: {}
-      css/text-teaser/theme/text-teaser-large-text-only.css: {}
-
-# Text teaser - medium - text only.
-text_teaser_medium_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/text-teaser/layout/text-teaser.css: {}
-    theme:
-      css/text-teaser/theme/text-teaser.css: {}
-      css/text-teaser/theme/text-teaser-medium-text-only.css: {}
-      
-# Text teaser - small - text only.
-text_teaser_small_text_only:
-  version: 1.0
-  css:
-    layout:
-      css/text-teaser/layout/text-teaser.css: {}
-    theme:
-      css/text-teaser/theme/text-teaser.css: {}
-      css/text-teaser/theme/text-teaser-small-text-only.css: {}
 
 # Touts libraries. 
 # ------------------------------------------------------------------------------

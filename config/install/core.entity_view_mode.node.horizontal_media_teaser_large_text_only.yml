@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - node
-id: node.horizontal_media_teaser_large_text_only
-label: 'Horizontal media teaser - large - text only'
-targetEntityType: node
-cache: true

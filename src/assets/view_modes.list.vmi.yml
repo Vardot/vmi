@@ -12,16 +12,6 @@ view_modes:
     label: 'Vertical media teaser - small'
   vertical_media_teaser_xsmall:
     label: 'Vertical media teaser - xsmall'
-  vertical_media_teaser_xlarge_text_only:
-    label: 'Vertical media teaser - xlarge - text only'
-  vertical_media_teaser_large_text_only:
-    label: 'Vertical media teaser - large - text only'
-  vertical_media_teaser_medium_text_only:
-    label: 'Vertical media teaser - medium - text only'
-  vertical_media_teaser_small_text_only:
-    label: 'Vertical media teaser - small - text only'
-  vertical_media_teaser_xsmall_text_only:
-    label: 'Vertical media teaser - xsmall - text only'
   horizontal_media_teaser_xlarge:
     label: 'Horizontal media teaser - xlarge'
   horizontal_media_teaser_large:
@@ -32,28 +22,12 @@ view_modes:
     label: 'Horizontal media teaser - small'
   horizontal_media_teaser_xsmall:
     label: 'Horizontal media teaser - xsmall'
-  horizontal_media_teaser_xlarge_text_only:
-    label: 'Horizontal media teaser - xlarge - text only'
-  horizontal_media_teaser_large_text_only:
-    label: 'Horizontal media teaser - large - text only'
-  horizontal_media_teaser_medium_text_only:
-    label: 'Horizontal media teaser - medium - text only'
-  horizontal_media_teaser_small_text_only:
-    label: 'Horizontal media teaser - small - text only'
-  horizontal_media_teaser_xsmall_text_only:
-    label: 'Horizontal media teaser - xsmall - text only'
   text_teaser_large:
     label: 'Text teaser - large'
   text_teaser_medium:
     label: 'Text teaser - medium'
   text_teaser_small:
     label: 'Text teaser - small'
-  text_teaser_large_text_only:
-    label: 'Text teaser - large - text only'
-  text_teaser_medium_text_only:
-    label: 'Text teaser - medium - text only'
-  text_teaser_small_text_only:
-    label: 'Text teaser - small - text only'
   tout_xlarge:
     label: 'Tout - xlarge'
   tout_large:

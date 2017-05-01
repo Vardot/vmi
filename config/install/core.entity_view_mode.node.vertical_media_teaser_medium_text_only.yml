@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - node
-id: node.vertical_media_teaser_medium_text_only
-label: 'Vertical media teaser - medium - text only'
-targetEntityType: node
-cache: true

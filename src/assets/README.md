@@ -41,4 +41,4 @@ grep -rl 'CONTENT_TYPE_NAME' * | xargs sed -i "s/CONTENT_TYPE_NAME/story/g" ;
 ```
 
 3. Import the configuration to your Drupal site by enabling your feature module
-   or manuall import operation for the configuration.
+   or manually import operation for the configuration.

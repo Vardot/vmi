@@ -35,7 +35,6 @@ third_party_settings:
           layout_class: {  }
     regions:
       main:
-        - field_image
         - node_title
         - body
     fields:
@@ -67,14 +66,6 @@ content:
       trim_options:
         text: text
       more_class: more-link
-    third_party_settings: {  }
-  field_image:
-    type: entity_reference_entity_view
-    weight: 0
-    label: hidden
-    settings:
-      view_mode: cropped_large
-      link: false
     third_party_settings: {  }
 hidden:
   langcode: true

@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies:
-  module:
-    - node
-id: node.text_teaser_small_text_only
-label: 'Text teaser - small - text only'
-targetEntityType: node
-cache: true
