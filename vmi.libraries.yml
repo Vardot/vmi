@@ -11,7 +11,6 @@ vertical_media_teaser_xlarge:
     layout:
       css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
     theme:
-      css/vertical-media-teaser/theme/vertical-media-teaser.css: {}
       css/vertical-media-teaser/theme/vertical-media-teaser-xlarge.css: {}
 
 # Vertical media teaser - large.
@@ -21,7 +20,6 @@ vertical_media_teaser_large:
     layout:
       css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
     theme:
-      css/vertical-media-teaser/theme/vertical-media-teaser.css: {}
       css/vertical-media-teaser/theme/vertical-media-teaser-large.css: {}
 
 # Vertical media teaser - medium.
@@ -65,7 +63,6 @@ horizontal_media_teaser_xlarge:
     layout:
       css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
     theme:
-      css/horizontal-media-teaser/theme/horizontal-media-teaser.css: {}
       css/horizontal-media-teaser/theme/horizontal-media-teaser-xlarge.css: {}
 
 # Horizontal media teaser - large.
@@ -75,7 +72,6 @@ horizontal_media_teaser_large:
     layout:
       css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
     theme:
-      css/horizontal-media-teaser/theme/horizontal-media-teaser.css: {}
       css/horizontal-media-teaser/theme/horizontal-media-teaser-large.css: {}
       
 # Horizontal media teaser - medium. 
@@ -118,7 +114,6 @@ text_teaser_large:
     layout:
       css/text-teaser/layout/text-teaser.css: {}
     theme:
-      css/text-teaser/theme/text-teaser.css: {}
       css/text-teaser/theme/text-teaser-large.css: {}
       
 # Text teaser - medium.
@@ -128,7 +123,6 @@ text_teaser_medium:
     layout:
       css/text-teaser/layout/text-teaser.css: {}
     theme:
-      css/text-teaser/theme/text-teaser.css: {}
       css/text-teaser/theme/text-teaser-medium.css: {}
 
 # Text teaser - small.

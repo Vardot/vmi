@@ -36,7 +36,11 @@
 
 
 ## Requirements
-  layout_plugin module.
+* Bootstrap theme or a sub theme.
+* Display Suite module.
+* Display Suite Extras module.
+* Field Group module.
+* Smart Trim module.
 
 ## Installation
 
