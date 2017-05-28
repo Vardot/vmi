@@ -15,7 +15,6 @@ third_party_settings:
   ds:
     layout:
       id: tout_xlarge
-      path: modules/vmi
       library: vmi/tout_xlarge
       disable_css: false
       entity_classes: all_classes
@@ -74,10 +73,11 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: cropped_full
+      view_mode: se2e_standard
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: main
 hidden:
   body: true
   langcode: true

@@ -3,9 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.vertical_media_teaser_large
-    - field.field.node.CONTENT_TYPE_NAME.body
-    - field.field.node.CONTENT_TYPE_NAME.field_image
-    - node.type.CONTENT_TYPE_NAME
+    - field.field.node.vmi.body
+    - field.field.node.vmi.field_image
+    - node.type.vmi
   module:
     - ds
     - panelizer
@@ -15,7 +15,6 @@ third_party_settings:
   ds:
     layout:
       id: vertical_media_teaser_large
-      path: modules/vmi
       library: vmi/vertical_media_teaser_large
       disable_css: false
       entity_classes: all_classes
@@ -48,9 +47,9 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.CONTENT_TYPE_NAME.vertical_media_teaser_large
+id: node.vmi.vertical_media_teaser_large
 targetEntityType: node
-bundle: CONTENT_TYPE_NAME
+bundle: vmi
 mode: vertical_media_teaser_large
 content:
   body:
@@ -68,14 +67,16 @@ content:
         text: text
       more_class: more-link
     third_party_settings: {  }
+    region: main
   field_image:
     weight: 0
     label: hidden
     settings:
-      view_mode: cropped_large
+      view_mode: s6_standard
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: main
 hidden:
   langcode: true
   links: true

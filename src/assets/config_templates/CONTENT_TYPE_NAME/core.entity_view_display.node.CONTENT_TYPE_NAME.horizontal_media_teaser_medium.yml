@@ -15,7 +15,6 @@ third_party_settings:
   ds:
     layout:
       id: horizontal_media_teaser_medium
-      path: modules/vmi
       library: vmi/horizontal_media_teaser_medium
       disable_css: false
       entity_classes: all_classes
@@ -30,15 +29,15 @@ third_party_settings:
         classes:
           layout_class: {  }
     regions:
+      left:
+        - field_image
       right:
         - node_title
         - body
-      left:
-        - field_image
     fields:
       node_title:
         plugin_id: node_title
-        weight: 0
+        weight: 1
         label: hidden
         formatter: default
         settings:
@@ -57,7 +56,7 @@ mode: horizontal_media_teaser_medium
 content:
   body:
     type: smart_trim
-    weight: 7
+    weight: 2
     label: hidden
     settings:
       trim_length: '30'
@@ -70,14 +69,16 @@ content:
         text: text
       more_class: more-link
     third_party_settings: {  }
+    region: right
   field_image:
     type: entity_reference_entity_view
-    weight: 8
+    weight: 0
     label: hidden
     settings:
-      view_mode: cropped_medium
+      view_mode: s4_standard
       link: false
     third_party_settings: {  }
+    region: left
 hidden:
   langcode: true
   links: true

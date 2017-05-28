@@ -14,7 +14,6 @@ third_party_settings:
   ds:
     layout:
       id: horizontal_media_teaser_small
-      path: modules/vmi
       library: vmi/horizontal_media_teaser_small
       disable_css: false
       entity_classes: all_classes
@@ -58,9 +57,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: cropped_small
+      view_mode: s3_standard
       link: false
     third_party_settings: {  }
+    region: left
 hidden:
   body: true
   langcode: true

@@ -15,7 +15,6 @@ third_party_settings:
   ds:
     layout:
       id: tout_medium
-      path: modules/vmi
       library: vmi/tout_medium
       disable_css: false
       entity_classes: all_classes
@@ -74,10 +73,11 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: cropped_medium
+      view_mode: s4_standard
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: main
 hidden:
   body: true
   langcode: true
