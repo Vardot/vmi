@@ -3,9 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.vertical_media_teaser_large
-    - field.field.node.vmi.body
-    - field.field.node.vmi.field_image
-    - node.type.vmi
+    - field.field.node.CONTENT_TYPE_NAME.body
+    - field.field.node.CONTENT_TYPE_NAME.field_image
+    - node.type.CONTENT_TYPE_NAME
   module:
     - ds
     - panelizer
@@ -47,9 +47,9 @@ third_party_settings:
     custom: false
     allow: false
     default: default
-id: node.vmi.vertical_media_teaser_large
+id: node.CONTENT_TYPE_NAME.vertical_media_teaser_large
 targetEntityType: node
-bundle: vmi
+bundle: CONTENT_TYPE_NAME
 mode: vertical_media_teaser_large
 content:
   body:
