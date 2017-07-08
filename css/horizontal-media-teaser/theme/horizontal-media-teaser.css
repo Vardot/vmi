@@ -26,4 +26,7 @@
   left: 0;
   z-index: 1;
 }
+.horizontal-media-teaser-view-mode.anchor-all a {
+  z-index: 2;
+}
 /*# sourceMappingURL=horizontal-media-teaser.css.map */

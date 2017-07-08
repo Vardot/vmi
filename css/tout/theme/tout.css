@@ -24,6 +24,9 @@
   left: 0;
   z-index: 2;
 }
+.tout-view-mode a {
+  z-index: 3;
+}
 .tout-view-mode .tout-content {
   background: linear-gradient(to bottom, transparent 65%, #000 105%) repeat scroll 0 0;
   background: -webkit-linear-gradient(to bottom, transparent 65%, #000 105%) repeat scroll 0 0;
