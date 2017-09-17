@@ -26,6 +26,9 @@ function vmi_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_form_alter().
  */
 function vmi_form_entity_view_display_edit_form_alter(&$form, FormStateInterface $form_state) {
+  
+  // Load the vmi admin theme library.
+   $form['#attached']['library'][] = 'vmi/vim_admin_theme';
 
   // Apply the config for view modes inventory form entity view display.
   $form['actions']['submit']['#submit'][]  = '_vmi_form_entity_view_display_edit_form_submit';

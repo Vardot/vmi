@@ -1,6 +1,14 @@
 # View Modes Inventory libraries.
 # Which they will peered with the list of View Modes Inventory
 
+# View modes inventory admin theme library.
+# ------------------------------------------------------------------------------
+vim_admin_theme:
+  version: 1.0
+  css:
+    theme:
+      css/vmi.admin.theme.css: {}
+
 # Vertical media teaser libraries.
 # ------------------------------------------------------------------------------
 
