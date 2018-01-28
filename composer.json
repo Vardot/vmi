@@ -2,7 +2,7 @@
   "name": "drupal/vmi",
   "description": "View Modes Inventory : This module has a set of template view modes that we typically use (some of them) in each website.",
   "type": "drupal-module",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "repositories": [
