@@ -28,5 +28,5 @@
 }
 .horizontal-media-teaser-view-mode.anchor-all a {
   z-index: 2;
+  position: relative;
 }
-/*# sourceMappingURL=horizontal-media-teaser.css.map */

@@ -26,6 +26,7 @@
 }
 .tout-view-mode a {
   z-index: 3;
+  position: relative;
 }
 .tout-view-mode .tout-content {
   background: linear-gradient(to bottom, transparent 65%, #000 105%) repeat scroll 0 0;
@@ -38,4 +39,3 @@
 .tout-view-mode .tout-content:active {
   opacity: 0.9;
 }
-/*# sourceMappingURL=tout.css.map */
