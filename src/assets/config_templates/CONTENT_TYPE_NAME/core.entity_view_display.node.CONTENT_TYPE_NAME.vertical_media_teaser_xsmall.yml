@@ -54,7 +54,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: s2_standard
+      view_mode: s02_standard
       link: false
     third_party_settings:
       ds:
