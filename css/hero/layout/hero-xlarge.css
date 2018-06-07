@@ -9,4 +9,5 @@
   left: 5%;
   right: 5%;
   padding: 1.2em;
+  z-index: 3;
 }
