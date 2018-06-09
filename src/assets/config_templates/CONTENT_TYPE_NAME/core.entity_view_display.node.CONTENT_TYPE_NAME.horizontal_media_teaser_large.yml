@@ -5,6 +5,8 @@ dependencies:
     - core.entity_view_mode.node.horizontal_media_teaser_large
     - field.field.node.CONTENT_TYPE_NAME.body
     - field.field.node.CONTENT_TYPE_NAME.field_image
+    - field.field.node.CONTENT_TYPE_NAME.field_video
+    - field.field.node.CONTENT_TYPE_NAME.field_media
     - node.type.CONTENT_TYPE_NAME
   module:
     - ds
@@ -31,6 +33,8 @@ third_party_settings:
     regions:
       left:
         - field_image
+        - field_video
+        - field_media
       right:
         - node_title
         - body
@@ -106,6 +110,24 @@ content:
             lb-col: false
             fis: false
             fi: false
+    region: left
+  field_video:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: s06_standard
+      link: false
+    third_party_settings: { }
+    region: left
+  field_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: s06_standard
+      link: false
+    third_party_settings: { }
     region: left
 hidden:
   langcode: true

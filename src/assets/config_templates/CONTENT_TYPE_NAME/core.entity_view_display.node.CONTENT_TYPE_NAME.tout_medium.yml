@@ -5,6 +5,8 @@ dependencies:
     - core.entity_view_mode.node.tout_medium
     - field.field.node.CONTENT_TYPE_NAME.body
     - field.field.node.CONTENT_TYPE_NAME.field_image
+    - field.field.node.CONTENT_TYPE_NAME.field_video
+    - field.field.node.CONTENT_TYPE_NAME.field_media
     - node.type.CONTENT_TYPE_NAME
   module:
     - ds
@@ -30,6 +32,8 @@ third_party_settings:
     regions:
       main:
         - field_image
+        - field_video
+        - field_media
         - node_title
         - group_tout_content
     fields:
@@ -70,6 +74,24 @@ bundle: CONTENT_TYPE_NAME
 mode: tout_medium
 content:
   field_image:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: s04_standard
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: main
+  field_video:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: s04_standard
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: main
+  field_media:
     weight: 0
     label: hidden
     settings:

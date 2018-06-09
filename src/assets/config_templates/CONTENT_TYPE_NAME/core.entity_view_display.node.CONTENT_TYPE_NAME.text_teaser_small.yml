@@ -5,6 +5,8 @@ dependencies:
     - core.entity_view_mode.node.text_teaser_small
     - field.field.node.CONTENT_TYPE_NAME.body
     - field.field.node.CONTENT_TYPE_NAME.field_image
+    - field.field.node.CONTENT_TYPE_NAME.field_video
+    - field.field.node.CONTENT_TYPE_NAME.field_media
     - node.type.CONTENT_TYPE_NAME
   module:
     - ds
@@ -70,5 +72,7 @@ content:
     region: content
 hidden:
   field_image: true
+  field_video: true
+  field_media: true
   langcode: true
   links: true
