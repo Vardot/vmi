@@ -10,15 +10,9 @@ dependencies:
     - node.type.CONTENT_TYPE_NAME
   module:
     - ds
-    - panelizer
     - smart_trim
     - user
 third_party_settings:
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   ds:
     layout:
       id: text_teaser_large
