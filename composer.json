@@ -22,7 +22,11 @@
       "url": "https://packages.drupal.org/8"
     }
   ],
-  "require": { },
+  "require": {
+    "drupal/ds": "3.1",
+    "drupal/field_group": "~3",
+    "drupal/smart_trim": "~1"
+  },
   "extra": {
     "branch-alias": {
       "dev-8.x-2.x": "8.2.x-dev"
