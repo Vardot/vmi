@@ -8,7 +8,6 @@ dependencies:
     - node.type.CONTENT_TYPE_NAME
   module:
     - ds
-    - panelizer
     - smart_trim
     - user
 third_party_settings:
@@ -44,11 +43,6 @@ third_party_settings:
           link: true
           wrapper: h3
           class: ''
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
 id: node.CONTENT_TYPE_NAME.horizontal_media_teaser_large
 targetEntityType: node
 bundle: CONTENT_TYPE_NAME

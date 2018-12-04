@@ -9,7 +9,6 @@ dependencies:
   module:
     - ds
     - field_group
-    - panelizer
     - user
 third_party_settings:
   ds:
@@ -42,11 +41,6 @@ third_party_settings:
           link: true
           wrapper: h3
           class: ''
-  panelizer:
-    enable: false
-    custom: false
-    allow: false
-    default: default
   field_group:
     group_hero_content:
       children:
