@@ -4,7 +4,9 @@ description: This module has a set of template view modes that we typically use 
 core: 8.x
 package: Layout
 dependencies:
-  - ds
-  - ds_extras
-  - field_group
-  - smart_trim
+  - drupal:user
+  - drupal:node
+  - ds:ds
+  - ds:ds_extras
+  - field_group:field_group
+  - smart_trim:smart_trim
