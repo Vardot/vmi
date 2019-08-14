@@ -3,6 +3,7 @@ type: module
 description: 'This module has a set of template view modes that we typically use (some of them) in each website.'
 core: 8.x
 package: Layout
+project: vmi
 dependencies:
   - drupal:user
   - drupal:node

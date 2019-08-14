@@ -4,7 +4,7 @@
 # View modes inventory admin theme library.
 # ------------------------------------------------------------------------------
 vim_admin_theme:
-  version: 1.0
+  version: 2.0
   css:
     theme:
       css/vmi.admin.theme.css: {}
@@ -14,7 +14,7 @@ vim_admin_theme:
 
 # Vertical media teaser - xlarge.
 vertical_media_teaser_xlarge:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
@@ -23,7 +23,7 @@ vertical_media_teaser_xlarge:
 
 # Vertical media teaser - large.
 vertical_media_teaser_large:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
@@ -32,7 +32,7 @@ vertical_media_teaser_large:
 
 # Vertical media teaser - medium.
 vertical_media_teaser_medium:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
@@ -42,7 +42,7 @@ vertical_media_teaser_medium:
 
 # Vertical media teaser - small.
 vertical_media_teaser_small:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
@@ -52,7 +52,7 @@ vertical_media_teaser_small:
       
 # Vertical media teaser - xsmall.
 vertical_media_teaser_xsmall:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/vertical-media-teaser/layout/vertical-media-teaser.css: {}
@@ -66,7 +66,7 @@ vertical_media_teaser_xsmall:
 
 # Horizontal media teaser - xlarge.
 horizontal_media_teaser_xlarge:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
@@ -75,7 +75,7 @@ horizontal_media_teaser_xlarge:
 
 # Horizontal media teaser - large.
 horizontal_media_teaser_large:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
@@ -84,7 +84,7 @@ horizontal_media_teaser_large:
       
 # Horizontal media teaser - medium. 
 horizontal_media_teaser_medium:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
@@ -94,7 +94,7 @@ horizontal_media_teaser_medium:
 
 # Horizontal media teaser - small.
 horizontal_media_teaser_small:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
@@ -104,7 +104,7 @@ horizontal_media_teaser_small:
       
 # Horizontal media teaser - xsmall.
 horizontal_media_teaser_xsmall:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/horizontal-media-teaser/layout/horizontal-media-teaser.css: {}
@@ -117,7 +117,7 @@ horizontal_media_teaser_xsmall:
 
 # Text teaser - large.
 text_teaser_large:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/text-teaser/layout/text-teaser.css: {}
@@ -126,7 +126,7 @@ text_teaser_large:
       
 # Text teaser - medium.
 text_teaser_medium:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/text-teaser/layout/text-teaser.css: {}
@@ -135,7 +135,7 @@ text_teaser_medium:
 
 # Text teaser - small.
 text_teaser_small:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/text-teaser/layout/text-teaser.css: {}
@@ -148,7 +148,7 @@ text_teaser_small:
       
 # Tout - xlarge.
 tout_xlarge:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/tout/layout/tout.css: {}
@@ -159,7 +159,7 @@ tout_xlarge:
       
 # Tout - large.
 tout_large:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/tout/layout/tout.css: {}
@@ -170,7 +170,7 @@ tout_large:
       
 # Tout - medium.
 tout_medium:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/tout/layout/tout.css: {}
@@ -184,7 +184,7 @@ tout_medium:
 
 # Hero xlarge.    
 hero_xlarge:
-  version: 1.0
+  version: 2.0
   css:
     layout:
       css/hero/layout/hero-xlarge.css: {}
