@@ -1,5 +1,6 @@
 .hero-view-mode.xlarge .main-content {
-  position: relative; }
+  position: relative;
+}
 
 .hero-view-mode.xlarge .hero-content {
   position: absolute;
@@ -9,11 +10,15 @@
   left: 0;
   right: 0;
   padding: 1.2rem;
-  z-index: 3; }
-  @media screen and (min-width: 992px) {
-    .hero-view-mode.xlarge .hero-content {
-      width: 50%;
-      top: 20%;
-      bottom: 20%;
-      left: 5%;
-      right: 5%; } }
+  z-index: 3;
+}
+
+@media screen and (min-width: 992px) {
+  .hero-view-mode.xlarge .hero-content {
+    width: 50%;
+    top: 20%;
+    bottom: 20%;
+    left: 5%;
+    right: 5%;
+  }
+}

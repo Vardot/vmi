@@ -23,15 +23,15 @@ function vmi_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_entity_view_display_edit_form_alter().
  */
 function vmi_form_entity_view_display_edit_form_alter(&$form, FormStateInterface $form_state) {
-  
+
   // Load the vmi admin theme library.
-   $form['#attached']['library'][] = 'vmi/vim_admin_theme';
+  $form['#attached']['library'][] = 'vmi/vim_admin_theme';
 
   // Apply the config for view modes inventory form entity view display.
-  $form['actions']['submit']['#submit'][]  = '_vmi_form_entity_view_display_edit_form_submit';
+  $form['actions']['submit']['#submit'][] = '_vmi_form_entity_view_display_edit_form_submit';
 }
 
 /**
@@ -52,9 +52,6 @@ function _vmi_form_entity_view_display_edit_form_submit($form, FormStateInterfac
 
     // View modes inventory layouts mapping.
     $vmi_layouts_mapping = ViewModesInventoryFactory::getLayoutsMapping();
-
-    // Available view modes for content types.
-    $available_view_modes = $form['modes']['display_modes_custom']['#options'];
 
     // Enabled view modes.
     $enabled_view_modes = $form['modes']['display_modes_custom']['#default_value'];

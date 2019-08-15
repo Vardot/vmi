@@ -3,6 +3,8 @@
 namespace Drupal\vmi;
 
 use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * View Modes Inventory Factory.
@@ -10,10 +12,39 @@ use Symfony\Component\Yaml\Yaml;
 class ViewModesInventoryFactory {
 
   /**
-   * Constructs a Drupal\vmi\ViewModesInventoryFactory object.
+   * The module handler service.
+   *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
    */
-  public function __construct() {
-    parent::__construct();
+  protected $moduleHandler;
+
+  /**
+   * Constructs the View Modes Inventory Factory object.
+   *
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+   *   The module handler service.
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, ModuleHandlerInterface $module_handler) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->moduleHandler = $module_handler;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('module_handler')
+    );
   }
 
   /**
@@ -25,7 +56,8 @@ class ViewModesInventoryFactory {
    * @throws Exception
    */
   public static function getViewModesList() {
-    $vmi_filename = \Drupal::root() . '/' . drupal_get_path('module', 'vmi') . '/src/assets/view_modes.list.vmi.yml';
+    $module_path = $this->moduleHandler->getModule('vmi')->getPath();
+    $vmi_filename = DRUPAL_ROOT . '/' . $module_path . '/src/assets/view_modes.list.vmi.yml';
 
     if (is_file($vmi_filename)) {
       $vmi_list = (array) Yaml::parse(file_get_contents($vmi_filename));
