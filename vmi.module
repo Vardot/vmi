@@ -41,6 +41,9 @@ function _vmi_form_entity_view_display_edit_form_submit($form, FormStateInterfac
 
   if (isset($form['modes']['display_modes_custom'])) {
 
+    $vmi_factory = \Drupal::service('class_resolver')
+      ->getInstanceFromDefinition(ViewModesInventoryFactory::class);
+
     // Entity type.
     $entity_type = $form['#entity_type'];
 
@@ -48,10 +51,10 @@ function _vmi_form_entity_view_display_edit_form_submit($form, FormStateInterfac
     $bundle_name = $form['#bundle'];
 
     // View modes inventory list.
-    $vmi_list = ViewModesInventoryFactory::getViewModesList();
+    $vmi_list = $vmi_factory->getViewModesList();
 
     // View modes inventory layouts mapping.
-    $vmi_layouts_mapping = ViewModesInventoryFactory::getLayoutsMapping();
+    $vmi_layouts_mapping = $vmi_factory->getLayoutsMapping();
 
     // Enabled view modes.
     $enabled_view_modes = $form['modes']['display_modes_custom']['#default_value'];
@@ -75,7 +78,7 @@ function _vmi_form_entity_view_display_edit_form_submit($form, FormStateInterfac
           $config_template_file = $vmi_layouts_mapping['mapping'][$selected_view_mode]['config_template'];
           $config_name = $vmi_layouts_mapping['mapping'][$selected_view_mode]['config_name'];
 
-          ViewModesInventoryFactory::mapViewModeWithLayout($selected_view_mode, $default_mapped_layout, $entity_type, $bundle_name, $config_template_file, $config_name);
+          $vmi_factory->mapViewModeWithLayout($selected_view_mode, $default_mapped_layout, $entity_type, $bundle_name, $config_template_file, $config_name);
 
         }
       }
