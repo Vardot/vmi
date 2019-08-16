@@ -3,6 +3,7 @@
 namespace Drupal\vmi;
 
 use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslationInterface;
@@ -15,6 +16,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ViewModesInventoryFactory implements ContainerInjectionInterface {
 
   use StringTranslationTrait;
+
+  /**
+   * The config factory service.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
   /**
    * The module handler service.
    *
@@ -25,12 +34,15 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
   /**
    * Constructs the View Modes Inventory Factory object.
    *
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *   The config factory service.
    * @param \Drupal\Core\StringTranslation\TranslationInterface $translation
    *   The translation service. for form alters.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler service.
    */
-  public function __construct(TranslationInterface $translation, ModuleHandlerInterface $module_handler) {
+  public function __construct(ConfigFactoryInterface $config_factory, TranslationInterface $translation, ModuleHandlerInterface $module_handler) {
+    $this->configFactory = $config_factory;
     $this->stringTranslation = $translation;
     $this->moduleHandler = $module_handler;
   }
@@ -40,6 +52,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
    */
   public static function create(ContainerInterface $container) {
     return new static(
+      $container->get('config.factory'),
       $container->get('string_translation'),
       $container->get('module_handler')
     );
@@ -76,7 +89,8 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
    * @throws Exception
    */
   public function getLayoutsMapping() {
-    $vmi_layout_filename = \Drupal::root() . '/' . drupal_get_path('module', 'vmi') . '/src/assets/layouts.mapping.vmi.yml';
+    $module_path = $this->moduleHandler->getModule('vmi')->getPath();
+    $vmi_layout_filename = DRUPAL_ROOT . '/' . $module_path . '/src/assets/layouts.mapping.vmi.yml';
 
     if (is_file($vmi_layout_filename)) {
       $vmi_layout_list = (array) Yaml::parse(file_get_contents($vmi_layout_filename));
@@ -109,10 +123,11 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     // Replace CONTENT_TYPE_NAME with the bundle name for the config name.
     $real_config_name = str_replace('CONTENT_TYPE_NAME', $bundle_name, $config_name);
 
-    $view_mode_config = \Drupal::service('config.factory')->getEditable($real_config_name);
+    $view_mode_config = $this->configFactory->getEditable($real_config_name);
 
     // Load the config template.
-    $full_config_template_file = \Drupal::root() . '/' . drupal_get_path('module', 'vmi') . $config_template_file;
+    $module_path = $this->moduleHandler->getModule('vmi')->getPath();
+    $full_config_template_file = DRUPAL_ROOT . '/' . $module_path . $config_template_file;
     $config_template_content = file_get_contents($full_config_template_file);
 
     // Replace CONTENT_TYPE_NAME with the bundle name in the config template.
