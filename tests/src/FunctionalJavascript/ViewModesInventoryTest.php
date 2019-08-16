@@ -51,6 +51,7 @@ class ViewModesInventoryTest extends WebDriverTestBase {
     'node',
     'field',
     'field_ui',
+    'layout_discovery',
     'ds',
     'ds_extras',
     'field_group',
@@ -71,6 +72,12 @@ class ViewModesInventoryTest extends WebDriverTestBase {
    */
   protected function setUp() {
     parent::setUp();
+
+    \Drupal::service('theme_installer')->install(['seven']);
+
+    \Drupal::service('config.factory')->getEditable('system.theme')
+      ->set('admin', 'seven')
+      ->save();
 
     $permissions = [
       'access toolbar',
@@ -106,6 +113,7 @@ class ViewModesInventoryTest extends WebDriverTestBase {
 
     $this->assertSession()->pageTextContains($this->t('Use custom display settings for the following view modes'));
 
+    // Make sure that we do have all VMI custom display view modes ready to use.
     $this->assertSession()->pageTextContains($this->t('Hero - xlarge'));
 
     $this->assertSession()->pageTextContains($this->t('Tout - large'));
@@ -127,6 +135,141 @@ class ViewModesInventoryTest extends WebDriverTestBase {
     $this->assertSession()->pageTextContains($this->t('Text teaser - large'));
     $this->assertSession()->pageTextContains($this->t('Text teaser - medium'));
     $this->assertSession()->pageTextContains($this->t('Text teaser - small'));
+
+    // Check all check boxes for VMI custom display view modes.
+    $this->getSession()->getPage()->checkField($this->t('Hero - xlarge'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Tout - large'));
+    $this->getSession()->getPage()->checkField($this->t('Tout - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Tout - xlarge'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - small'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - xlarge'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - xsmall'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - small'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - xlarge'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - xsmall'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - small'));
+    $this->getSession()->getPage()->pressButton('Save');
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/hero_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Hero content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/tout_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/tout_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/tout_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/vertical_media_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/vertical_media_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/vertical_media_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/vertical_media_teaser_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/vertical_media_teaser_xsmall');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/horizontal_media_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/horizontal_media_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/horizontal_media_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/horizontal_media_teaser_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/horizontal_media_teaser_xsmall');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main image'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/text_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/text_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/image_content/display/text_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
 
   }
 
@@ -141,6 +284,7 @@ class ViewModesInventoryTest extends WebDriverTestBase {
 
     $this->assertSession()->pageTextContains($this->t('Use custom display settings for the following view modes'));
 
+    // Make sure that we do have all VMI custom display view modes ready to use.
     $this->assertSession()->pageTextContains($this->t('Hero - xlarge'));
 
     $this->assertSession()->pageTextContains($this->t('Tout - large'));
@@ -162,6 +306,141 @@ class ViewModesInventoryTest extends WebDriverTestBase {
     $this->assertSession()->pageTextContains($this->t('Text teaser - large'));
     $this->assertSession()->pageTextContains($this->t('Text teaser - medium'));
     $this->assertSession()->pageTextContains($this->t('Text teaser - small'));
+
+    // Check all check boxes for VMI custom display view modes.
+    $this->getSession()->getPage()->checkField($this->t('Hero - xlarge'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Tout - large'));
+    $this->getSession()->getPage()->checkField($this->t('Tout - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Tout - xlarge'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - small'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - xlarge'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - xsmall'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - small'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - xlarge'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - xsmall'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - small'));
+    $this->getSession()->getPage()->pressButton('Save');
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/hero_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Hero content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/tout_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/tout_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/tout_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/vertical_media_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/vertical_media_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/vertical_media_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/vertical_media_teaser_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/vertical_media_teaser_xsmall');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/horizontal_media_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/horizontal_media_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/horizontal_media_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/horizontal_media_teaser_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/horizontal_media_teaser_xsmall');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main video'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/text_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/text_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/video_content/display/text_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
   }
 
   /**
@@ -175,6 +454,7 @@ class ViewModesInventoryTest extends WebDriverTestBase {
 
     $this->assertSession()->pageTextContains($this->t('Use custom display settings for the following view modes'));
 
+    // Make sure that we do have all VMI custom display view modes ready to use.
     $this->assertSession()->pageTextContains($this->t('Hero - xlarge'));
 
     $this->assertSession()->pageTextContains($this->t('Tout - large'));
@@ -196,6 +476,141 @@ class ViewModesInventoryTest extends WebDriverTestBase {
     $this->assertSession()->pageTextContains($this->t('Text teaser - large'));
     $this->assertSession()->pageTextContains($this->t('Text teaser - medium'));
     $this->assertSession()->pageTextContains($this->t('Text teaser - small'));
+
+    // Check all check boxes for VMI custom display view modes.
+    $this->getSession()->getPage()->checkField($this->t('Hero - xlarge'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Tout - large'));
+    $this->getSession()->getPage()->checkField($this->t('Tout - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Tout - xlarge'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - small'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - xlarge'));
+    $this->getSession()->getPage()->checkField($this->t('Vertical media teaser - xsmall'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - small'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - xlarge'));
+    $this->getSession()->getPage()->checkField($this->t('Horizontal media teaser - xsmall'));
+    $this->getSession()->getPage()->pressButton('Save');
+    $this->clickLink($custom_display_settings_text);
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - large'));
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - medium'));
+    $this->getSession()->getPage()->checkField($this->t('Text teaser - small'));
+    $this->getSession()->getPage()->pressButton('Save');
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/hero_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Hero content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/tout_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/tout_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/tout_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Tout content'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/vertical_media_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/vertical_media_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/vertical_media_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/vertical_media_teaser_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/vertical_media_teaser_xsmall');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/horizontal_media_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/horizontal_media_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/horizontal_media_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/horizontal_media_teaser_xlarge');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/horizontal_media_teaser_xsmall');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Left'));
+    $this->assertSession()->pageTextContains($this->t('Main media'));
+    $this->assertSession()->pageTextContains($this->t('Right'));
+    $this->assertSession()->pageTextContains($this->t('Title'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/text_teaser_large');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/text_teaser_medium');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
+    $this->assertSession()->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('admin/structure/types/manage/media_content/display/text_teaser_small');
+    $this->assertSession()->waitForElementVisible('css', '#field-display-overview');
+    $this->assertSession()->pageTextContains($this->t('Title'));
   }
 
   /**
@@ -221,7 +636,7 @@ class ViewModesInventoryTest extends WebDriverTestBase {
       'field_storage' => $storage,
       'entity_type' => 'node',
       'bundle' => 'image_content',
-      'label' => 'Main Image',
+      'label' => 'Main image',
       'settings' => [
         'handler_settings' => [
           'target_bundles' => [
@@ -255,7 +670,7 @@ class ViewModesInventoryTest extends WebDriverTestBase {
       'field_storage' => $storage,
       'entity_type' => 'node',
       'bundle' => 'video_content',
-      'label' => 'Main Video',
+      'label' => 'Main video',
       'settings' => [
         'handler_settings' => [
           'target_bundles' => [
@@ -290,7 +705,7 @@ class ViewModesInventoryTest extends WebDriverTestBase {
       'field_storage' => $storage,
       'entity_type' => 'node',
       'bundle' => 'media_content',
-      'label' => 'Main Media',
+      'label' => 'Main media',
       'settings' => [
         'handler_settings' => [
           'target_bundles' => [
