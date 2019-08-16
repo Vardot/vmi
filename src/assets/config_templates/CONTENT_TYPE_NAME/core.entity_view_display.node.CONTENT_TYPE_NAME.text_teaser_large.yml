@@ -4,9 +4,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.text_teaser_large
     - field.field.node.CONTENT_TYPE_NAME.body
-    - field.field.node.CONTENT_TYPE_NAME.field_image
-    - field.field.node.CONTENT_TYPE_NAME.field_video
-    - field.field.node.CONTENT_TYPE_NAME.field_media
     - node.type.CONTENT_TYPE_NAME
   module:
     - ds
@@ -16,7 +13,6 @@ third_party_settings:
   ds:
     layout:
       id: text_teaser_large
-      path: modules/vmi
       library: vmi/text_teaser_large
       disable_css: false
       entity_classes: all_classes
