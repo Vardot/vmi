@@ -4,6 +4,8 @@ namespace Drupal\Tests\vmi\FunctionalJavascript;
 
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
 
 /**
  * Tests View Modes Inventory.
@@ -47,6 +49,8 @@ class ViewModesInventoryTest extends WebDriverTestBase {
     'block',
     'views',
     'node',
+    'field',
+    'field_ui',
     'ds',
     'ds_extras',
     'field_group',
@@ -89,15 +93,6 @@ class ViewModesInventoryTest extends WebDriverTestBase {
 
     // Create Media Content type with Main Media field.
     $this->createMediaContentType();
-  }
-
-  /**
-   * Tests View Modes Inventory.
-   */
-  public function testViewModesInventory() {
-    $this->TestDisplayImageContentType();
-    $this->TestDisplayVideoContentType();
-    $this->TestDisplayMediaContentType();
   }
 
   /**
