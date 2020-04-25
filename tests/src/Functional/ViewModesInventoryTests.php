@@ -114,7 +114,7 @@ class ViewModesInventoryTests extends BrowserTestBase {
   public function testDisplayImageContentType() {
     $assert_session = $this->assertSession();
     $page = $this->getSession()->getPage();
-    
+
     $this->drupalGet('/admin/structure/types/manage/image_content/display');
     $custom_display_settings_text = $this->t('Custom display settings');
     $assert_session->pageTextContains($custom_display_settings_text);
@@ -288,7 +288,7 @@ class ViewModesInventoryTests extends BrowserTestBase {
   public function testDisplayVideoContentType() {
     $assert_session = $this->assertSession();
     $page = $this->getSession()->getPage();
-    
+
     $this->drupalGet('/admin/structure/types/manage/video_content/display');
     $custom_display_settings_text = $this->t('Custom display settings');
     $assert_session->pageTextContains($custom_display_settings_text);
@@ -461,7 +461,7 @@ class ViewModesInventoryTests extends BrowserTestBase {
   public function testDisplayMediaContentType() {
     $assert_session = $this->assertSession();
     $page = $this->getSession()->getPage();
-    
+
     $this->drupalGet('/admin/structure/types/manage/media_content/display');
     $custom_display_settings_text = $this->t('Custom display settings');
     $assert_session->pageTextContains($custom_display_settings_text);
