@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\vmi\Functional;
 
+use Drupal\Tests\BrowserTestBase;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
