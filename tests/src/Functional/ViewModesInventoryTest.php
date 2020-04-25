@@ -1,8 +1,7 @@
 <?php
 
-namespace Drupal\Tests\vmi\FunctionalJavascript;
+namespace Drupal\Tests\vmi\Functional;
 
-use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
@@ -12,9 +11,14 @@ use Drupal\field\Entity\FieldStorageConfig;
  *
  * @group vmi
  */
-class ViewModesInventoryTest extends WebDriverTestBase {
+class ViewModesInventoryTest extends BrowserTestBase {
 
   use StringTranslationTrait;
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'bartik';
 
   /**
    * Image content type.
@@ -73,10 +77,11 @@ class ViewModesInventoryTest extends WebDriverTestBase {
   protected function setUp() {
     parent::setUp();
 
-    \Drupal::service('theme_installer')->install(['seven']);
+    \Drupal::service('theme_installer')->install(['claro']);
 
-    \Drupal::service('config.factory')->getEditable('system.theme')
-      ->set('admin', 'seven')
+    \Drupal::configFactory()
+      ->getEditable('system.theme')
+      ->set('admin', 'claro')
       ->save();
 
     $permissions = [
