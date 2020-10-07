@@ -8,27 +8,17 @@
 
 .tout-view-mode .tout-content {
   position: absolute;
+  z-index: 3;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  padding: 1.2rem;
-  z-index: 3;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
   align-self: flex-end;
+  padding: 1.2rem;
 }
 
 .tout-view-mode .tout-content > .field {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
   align-self: flex-end;
 }

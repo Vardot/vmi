@@ -105,4 +105,3 @@ mapping:
     layout: hero_xlarge
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.hero_xlarge.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.hero_xlarge'
-    

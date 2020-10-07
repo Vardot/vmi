@@ -11,35 +11,30 @@
 }
 
 .tout-view-mode .field--name-node-title h3 a {
-  color: #fff;
-  text-decoration: none;
   position: static;
+  text-decoration: none;
+  color: #fff;
 }
 
 .tout-view-mode .field--name-node-title h3 a::before {
   position: absolute;
-  content: '';
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: block;
   overflow: hidden;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 2;
+  content: "";
 }
 
 .tout-view-mode a {
-  z-index: 3;
   position: relative;
+  z-index: 3;
 }
 
 .tout-view-mode .tout-content {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(65%, transparent), color-stop(105%, #000)) repeat scroll 0 0;
-  background: -webkit-linear-gradient(top, transparent 65%, #000 105%) repeat scroll 0 0;
-  background: -o-linear-gradient(top, transparent 65%, #000 105%) repeat scroll 0 0;
   background: linear-gradient(to bottom, transparent 65%, #000 105%) repeat scroll 0 0;
-  background: -webkit-linear-gradient(to bottom, transparent 65%, #000 105%) repeat scroll 0 0;
-  background: -o-linear-gradient(to bottom, transparent 65%, #000 105%) repeat scroll 0 0;
   background: -moz-linear-gradient(to bottom, transparent 65%, #000 105%) repeat scroll 0 0;
 }
 

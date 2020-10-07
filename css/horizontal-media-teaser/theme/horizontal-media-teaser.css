@@ -12,13 +12,13 @@
 }
 
 .horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 {
-  font-size: 1.4rem;
   position: static;
+  font-size: calc(1.265rem + 0.18vw);
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   .horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 {
-    font-size: calc(1.265rem + 0.18vw);
+    font-size: 1.4rem;
   }
 }
 
@@ -28,17 +28,17 @@
 
 .horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 a::before {
   position: absolute;
-  content: '';
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: block;
   overflow: hidden;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
+  content: "";
 }
 
 .horizontal-media-teaser-view-mode.anchor-all a {
-  z-index: 2;
   position: relative;
+  z-index: 2;
 }

@@ -1,9 +1,9 @@
 .vertical-media-teaser-view-mode.xlarge .field--name-node-title h3 {
-  font-size: 2rem;
+  font-size: calc(1.325rem + 0.9vw);
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   .vertical-media-teaser-view-mode.xlarge .field--name-node-title h3 {
-    font-size: calc(1.325rem + 0.9vw);
+    font-size: 2rem;
   }
 }
