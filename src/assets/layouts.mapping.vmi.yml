@@ -8,7 +8,7 @@ mapping:
     label: 'Vertical media teaser - xlarge'
     layout: vertical_media_teaser_xlarge
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xlarge.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xlarge'  
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xlarge'
   vertical_media_teaser_large:
     label: 'Vertical media teaser - large'
     layout: vertical_media_teaser_large
@@ -28,7 +28,7 @@ mapping:
     label: 'Vertical media teaser - xsmall'
     layout: vertical_media_teaser_xsmall
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xsmall.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xsmall'    
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xsmall'
   horizontal_media_teaser_xlarge:
     label: 'Horizontal media teaser - xlarge'
     layout: horizontal_media_teaser_xlarge
