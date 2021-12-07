@@ -6,6 +6,8 @@ node_modules
 /css/variables.css
 /css/variables.css.map
 /css/mixins/
+css/bootstrap-variables.css
+css/bootstrap-variables.css.map
 
 # Ignore vim swp files and gedit temp files
 *.swp

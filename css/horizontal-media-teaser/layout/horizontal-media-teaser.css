@@ -1,11 +1,5 @@
 .horizontal-media-teaser-view-mode {
-  margin: 15px 0 0 0;
-  padding: 0;
-}
-
-.horizontal-media-teaser-view-mode .right,
-.horizontal-media-teaser-view-mode .left {
-  padding-left: 0;
+  margin-top: 0rem;
 }
 
 .horizontal-media-teaser-view-mode .right:first-child,
@@ -15,10 +9,4 @@
 
 .horizontal-media-teaser-view-mode .field--name-node-title h3 {
   margin-top: 0;
-}
-
-[dir="rtl"] .horizontal-media-teaser-view-mode .right,
-[dir="rtl"] .horizontal-media-teaser-view-mode .left {
-  padding-right: 0;
-  padding-left: 15px;
 }

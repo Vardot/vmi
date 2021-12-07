@@ -1,3 +1,6 @@
 **/*.min.js
 **/gulpfile.js
 **/node_modules
+**/bootstrap
+drupalci.yml
+**/drupalci.yml
