@@ -27,10 +27,5 @@
     "drupal/ds": "~3",
     "drupal/field_group": "~3",
     "drupal/smart_trim": "~1"
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-3.0.x": "3.0.x-dev"
-    }
   }
 }

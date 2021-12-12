@@ -1,5 +1,12 @@
 @import "../../variables.scss";
 .horizontal-media-teaser-view-mode {
+
+  .field--name-node-title {
+    h3 {
+      margin: $view-modes-h3-margin; 
+    }
+  }
+
   &.anchor-all {
     position: relative;
 
@@ -12,7 +19,6 @@
       position: static;
 
       h3 {
-        @include font-size($medium-title-font-size);
         position: static;
 
         a {

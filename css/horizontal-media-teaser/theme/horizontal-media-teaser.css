@@ -1,3 +1,7 @@
+.horizontal-media-teaser-view-mode .field--name-node-title h3 {
+  margin: 0.4em 0;
+}
+
 .horizontal-media-teaser-view-mode.anchor-all {
   position: relative;
 }
@@ -13,13 +17,6 @@
 
 .horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 {
   position: static;
-  font-size: calc(1.265rem + 0.18vw);
-}
-
-@media (min-width: 1200px) {
-  .horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 {
-    font-size: 1.4rem;
-  }
 }
 
 .horizontal-media-teaser-view-mode.anchor-all .field--name-node-title h3 a {

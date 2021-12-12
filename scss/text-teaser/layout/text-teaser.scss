@@ -1,7 +1,6 @@
 @import "../../variables.scss";
 .text-teaser-view-mode {
-  margin: $view-modes-padding 0 0 0;
-  padding: 0;
+  margin-top: $view-modes-margin;
   
   .main-content {
     &:first-child {

@@ -1,3 +1,7 @@
+.text-teaser-view-mode .field--name-node-title h3 {
+  margin: 0.4em 0;
+}
+
 .text-teaser-view-mode.anchor-all .main-content {
   position: relative;
 }
@@ -8,7 +12,6 @@
 
 .text-teaser-view-mode.anchor-all .field--name-node-title h3 {
   position: static;
-  margin: 0.4em 0;
 }
 
 .text-teaser-view-mode.anchor-all .field--name-node-title h3 a {
