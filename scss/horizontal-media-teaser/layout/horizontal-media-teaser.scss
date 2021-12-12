@@ -1,17 +1,17 @@
 @import "../../variables.scss";
 .horizontal-media-teaser-view-mode {
   margin-top: $view-modes-margin;
-  
+
   .right,
   .left {
     &:first-child {
-      margin-top: 0;
+      margin-top: 0 !important;
     }
   }
-  
+
   .field--name-node-title {
     h3 {
-      margin-top: 0;
+      margin-top: 0 !important;
     }
   }
 }

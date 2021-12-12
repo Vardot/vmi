@@ -3,6 +3,6 @@
 }
 
 .vertical-media-teaser-view-mode .main-content:first-child {
-  margin-top: 0;
-  padding-top: 0;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
