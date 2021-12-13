@@ -5,31 +5,31 @@
 
 ## View Modes Inventory Layouts peered with the list of View Modes Inventory.
 
-## Vertical media teaser.
+## Vertical media teasers:
 * Vertical media teaser - xlarge.
 * Vertical media teaser - large.
 * Vertical media teaser - medium.
 * Vertical media teaser - small.
 * Vertical media teaser - xsmall.
 
-## Horizontal media teaser.
+## Horizontal media teasers:
 * Horizontal media teaser - xlarge.
 * Horizontal media teaser - large.
 * Horizontal media teaser - medium.
 * Horizontal media teaser - small.
 * Horizontal media teaser - xsmall.
     
-## Text teaser.
+## Text teasers:
 * Text teaser - large.
 * Text teaser - medium.
 * Text teaser - small.
 
-## Touts. 
+## Touts: 
 *Tout - xlarge.
 * Tout - large.
 * Tout - medium.
 
-## Hero. 
+## Hero:
 * Hero xlarge.
 
 
