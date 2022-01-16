@@ -1,6 +1,8 @@
 # Ignore node modules
 node_modules
 /*/node_modules
+yarn.lock
+package-lock.json
 
 # Ignore Variables
 /css/variables.css
