@@ -1,6 +1,6 @@
 node_modules/**/*.css
 vendor/**/*.css
-**/*.min.css"
+**/*.min.css
 /css/variables.css
 /css/mixins/
 scss/*
@@ -15,3 +15,14 @@ config/**/*.yml
 *.svg
 *.ico
 *.json
+*.make
+*.md
+*.po
+*.xml
+*.js
+*.php
+*.twig
+*.install
+*.module
+*.lock
+package
