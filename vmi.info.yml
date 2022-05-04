@@ -2,7 +2,7 @@ name: 'View Modes Inventory'
 type: module
 description: 'This module has a set of template view modes that we typically use (some of them) in each website.'
 package: Layout
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 dependencies:
   - drupal:user
   - drupal:node
