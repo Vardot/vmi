@@ -11,6 +11,7 @@
   width: 100%;
   padding: 1.2rem;
 }
+
 @media screen and (min-width: 992px) {
   .hero-view-mode.xlarge .hero-content {
     top: 20%;
