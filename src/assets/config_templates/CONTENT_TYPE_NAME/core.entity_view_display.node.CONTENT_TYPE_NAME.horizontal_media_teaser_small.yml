@@ -55,7 +55,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: s03_standard
+      view_mode: media_16_09
       link: false
     third_party_settings:
       ds:
@@ -92,7 +92,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: s03_standard
+      view_mode: media_16_09
       link: false
     third_party_settings: { }
     region: left
@@ -101,7 +101,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: s03_standard
+      view_mode: media_16_09
       link: false
     third_party_settings: { }
     region: left
