@@ -1,9 +1,11 @@
 .tout-view-mode {
-  margin-top: 1.5rem !important;
+  margin-top: 30px !important;
 }
+
 .tout-view-mode .main-content {
   position: relative;
 }
+
 .tout-view-mode .tout-content {
   position: absolute;
   z-index: 3;
@@ -15,6 +17,7 @@
   align-self: flex-end;
   padding: 1.2rem;
 }
+
 .tout-view-mode .tout-content > .field {
   display: flex;
   align-self: flex-end;

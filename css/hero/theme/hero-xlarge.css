@@ -1,20 +1,23 @@
 .hero-view-mode.xlarge .hero-content {
   color: #fff;
   background: rgb(0, 0, 0);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, .7);
 }
+
 .hero-view-mode.xlarge .hero-content h3 {
   margin: 0;
   padding: 0;
   color: #fff;
   font-size: 3em;
 }
+
 .hero-view-mode.xlarge .hero-content a {
   text-decoration: none;
   color: #fff;
 }
+
 .hero-view-mode.xlarge .hero-content:hover,
-.hero-view-mode.xlarge .hero-content:focus,
-.hero-view-mode.xlarge .hero-content:active {
-  opacity: 0.7;
+ .hero-view-mode.xlarge .hero-content:focus,
+ .hero-view-mode.xlarge .hero-content:active {
+  opacity: .7;
 }

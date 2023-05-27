@@ -1,10 +1,12 @@
 .horizontal-media-teaser-view-mode {
-  margin-top: 1.5rem !important;
+  margin-top: 30px !important;
 }
+
 .horizontal-media-teaser-view-mode .right:first-child,
 .horizontal-media-teaser-view-mode .left:first-child {
   margin-top: 0 !important;
 }
+
 .horizontal-media-teaser-view-mode .field--name-node-title h3 {
   margin-top: 0 !important;
 }

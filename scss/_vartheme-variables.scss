@@ -1,9 +1,8 @@
-@import "../node_modules/bootstrap/scss/functions";  // Bootstrap functions.
-@import "../node_modules/bootstrap/scss/mixins";     // Bootstrap mixins.
-@import "../node_modules/bootstrap/scss/variables";  // Bootstrap variables.
-// -------------------------------------------------------------------------.
+// Custom View modes inventory variables. for Vartheme.
+// -----------------------------------------------------------------------------
 
-// View modes inventory variables.
+$grid-gutter-width: 30px;
+$view-modes-padding: math.div($grid-gutter-width, 2);
 
 // View modes inventory's default h3 title font size.
 $xlarge-title-font-size: 2em;
@@ -31,4 +30,3 @@ $hero-content-background-color2: rgba(0,0,0,0.7);
 $view-modes-padding: $grid-gutter-width !important;
 $view-modes-margin: $grid-gutter-width !important;
 $view-modes-h3-margin: 0.4em 0;
-

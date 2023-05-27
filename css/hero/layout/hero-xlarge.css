@@ -1,6 +1,7 @@
 .hero-view-mode.xlarge .main-content {
   position: relative;
 }
+
 .hero-view-mode.xlarge .hero-content {
   position: absolute;
   z-index: 3;
