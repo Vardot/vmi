@@ -4,88 +4,93 @@ type: mapping
 for:
   view_modes: '/src/assets/view_modes.list.yml'
 mapping:
-  vertical_media_teaser_xlarge:
-    label: 'Vertical media teaser - xlarge'
-    layout: vertical_media_teaser_xlarge
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xlarge.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xlarge'
-  vertical_media_teaser_large:
-    label: 'Vertical media teaser - large'
-    layout: vertical_media_teaser_large
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_large.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_large'
-  vertical_media_teaser_medium:
-    label: 'Vertical media teaser - medium'
-    layout: vertical_media_teaser_medium
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_medium.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_medium'
-  vertical_media_teaser_small:
-    label: 'Vertical media teaser - small'
-    layout: vertical_media_teaser_small
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_small.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_small'
-  vertical_media_teaser_xsmall:
-    label: 'Vertical media teaser - xsmall'
-    layout: vertical_media_teaser_xsmall
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xsmall.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.vertical_media_teaser_xsmall'
-  horizontal_media_teaser_xlarge:
-    label: 'Horizontal media teaser - xlarge'
-    layout: horizontal_media_teaser_xlarge
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_xlarge.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_xlarge'
-  horizontal_media_teaser_large:
-    label: 'Horizontal media teaser - large'
-    layout: horizontal_media_teaser_large
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_large.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_large'
-  horizontal_media_teaser_medium:
-    label: 'Horizontal media teaser - medium'
-    layout: horizontal_media_teaser_medium
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_medium.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_medium'
-  horizontal_media_teaser_small:
-    label: 'Horizontal media teaser - small'
-    layout: horizontal_media_teaser_small
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_small.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_small'
-  horizontal_media_teaser_xsmall:
-    label: 'Horizontal media teaser - xsmall'
-    layout: horizontal_media_teaser_xsmall
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_xsmall.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.horizontal_media_teaser_xsmall'
-  text_teaser_large:
+  impressed_card_xlarge:
+    label: 'Impressed card - xlarge'
+    layout: pattern_card_impressed
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_xlarge.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_xlarge'
+  impressed_card_large:
+    label: 'Impressed card - large'
+    layout: pattern_card_impressed
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_large.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_large'
+  impressed_card_medium:
+    label: 'Impressed card - medium'
+    layout: pattern_card_impressed
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_medium.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_medium'
+  impressed_card_small:
+    label: 'Impressed card - small'
+    layout: pattern_card_impressed
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_small.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_small'
+  impressed_card_xsmall:
+    label: 'Impressed card - xsmall'
+    layout: pattern_card_impressed
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_xsmall.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_xsmall'
+  featured_card_xlarge:
+    label: 'Featured card - xlarge'
+    layout: pattern_card_featured
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_xlarge.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_xlarge'
+  featured_card_large:
+    label: 'Featured card - large'
+    layout: pattern_card_featured
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_large.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_large'
+  featured_card_medium:
+    label: 'Featured card - medium'
+    layout: pattern_card_featured
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_medium.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_medium'
+  featured_card_small:
+    label: 'Featured card - small'
+    layout: pattern_card_featured
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_small.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_small'
+  featured_card_xsmall:
+    label: 'Featured card - xsmall'
+    layout: pattern_card_featured
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_xsmall.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_xsmall'
+  text_card_large:
     label: 'Text teaser - large'
-    layout: text_teaser_large
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_teaser_large.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_teaser_large'
-  text_teaser_medium:
+    layout: pattern_card_text
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_large.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_large'
+  text_card_medium:
     label: 'Text teaser - medium'
-    layout: text_teaser_medium
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_teaser_medium.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_teaser_medium'
-  text_teaser_small:
+    layout: pattern_card_text
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_medium.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_medium'
+  text_card_small:
     label: 'Text teaser - small'
-    layout: text_teaser_small
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_teaser_small.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_teaser_small'
-  tout_xlarge:
-    label: 'Tout - xlarge'
-    layout: tout_xlarge
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.tout_xlarge.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.tout_xlarge'
-  tout_large:
-    label: 'Tout - large'
-    layout: tout_large
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.tout_large.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.tout_large'
-  tout_medium:
-    label: 'Tout - medium'
-    layout: tout_medium
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.tout_medium.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.tout_medium'
-  hero_xlarge:
-    label: 'Hero - xlarge'
-    layout: hero_xlarge
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.hero_xlarge.yml'
+    layout: pattern_card_text
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_small.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_small'
+  overlay_card_xlarge:
+    label: 'overlay_card - xlarge'
+    layout: pattern_card_overlay
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_xlarge.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_xlarge'
+  overlay_card_large:
+    label: 'overlay_card - large'
+    layout: pattern_card_overlay
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_large.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_large'
+  overlay_card_medium:
+    label: 'overlay_card - medium'
+    layout: pattern_card_overlay
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_medium.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_medium'
+  hero_card_large:
+    label: 'Hero card - large'
+    layout: pattern_card_hero
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.hero_card_large.yml'
+    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.hero_card_large'
+  hero_card_xlarge:
+    label: 'Hero card - xlarge'
+    layout: pattern_card_hero
+    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.hero_card_xlarge.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.hero_xlarge'

@@ -66,7 +66,7 @@ function _vmi_form_entity_view_display_edit_form_submit($form, FormStateInterfac
         && isset($vmi_layouts_mapping['mapping'])) {
 
       foreach ($selected_view_modes as $selected_view_mode) {
-        // Only when we do hava a new selected view mode inventory.
+        // Only when we do have a new selected view mode inventory.
         if (!in_array($selected_view_mode, $enabled_view_modes)
            && isset($vmi_list['view_modes'][$selected_view_mode])
            && isset($vmi_layouts_mapping['mapping'][$selected_view_mode])

@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.impressed_card_large
+label: 'Impressed card - large'
+targetEntityType: node
+cache: true

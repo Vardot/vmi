@@ -133,7 +133,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     // Replace CONTENT_TYPE_NAME with the bundle name in the config template.
     $real_config_template_content = str_replace('CONTENT_TYPE_NAME', $bundle_name, $config_template_content);
 
-    // Parse real config template conten to data.
+    // Parse real config template content to data.
     $real_config_template_content_data = (array) Yaml::parse($real_config_template_content);
 
     // Set and save new message value.

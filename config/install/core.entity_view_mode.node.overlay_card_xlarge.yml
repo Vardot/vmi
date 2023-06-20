@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.overlay_card_xlarge
+label: 'Overlay card - xlarge'
+targetEntityType: node
+cache: true

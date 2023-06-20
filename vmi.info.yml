@@ -10,3 +10,4 @@ dependencies:
   - ds:ds_extras
   - field_group:field_group
   - smart_trim:smart_trim
+  - varbase_components:varbase_components

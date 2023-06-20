@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.text_card_medium
+label: 'Text card - medium'
+targetEntityType: node
+cache: true

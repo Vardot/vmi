@@ -1,0 +1,107 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.overlay_card_xlarge
+    - field.field.node.CONTENT_TYPE_NAME.body
+    - field.field.node.CONTENT_TYPE_NAME.field_image
+    - field.field.node.CONTENT_TYPE_NAME.field_video
+    - field.field.node.CONTENT_TYPE_NAME.field_media
+    - node.type.CONTENT_TYPE_NAME
+  module:
+    - ds
+    - smart_trim
+    - varbase_components
+third_party_settings:
+  ds:
+    layout:
+      id: pattern_card_overlay
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        pattern:
+          field_templates: default
+          settings:
+            style_size: xlarge
+            card_attributes: ''
+            content_attributes: ''
+            card_classes: ''
+            horizontal_alignment: center
+            vertical_alignment: center
+    regions:
+      media:
+        - field_image
+        - field_video
+        - field_media
+      content:
+        - node_title
+        - body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h3
+          class: card-title
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+id: node.CONTENT_TYPE_NAME.overlay_card_xlarge
+targetEntityType: node
+bundle: CONTENT_TYPE_NAME
+mode: overlay_card_xlarge
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 2
+    settings:
+      trim_length: '40'
+      trim_type: words
+      trim_suffix: ' ...'
+      more_link: '0'
+      more_text: More
+      summary_handler: full
+      trim_options:
+        text: text
+      more_class: more-link
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: media_16_09
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_video:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: media_video_16_09
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: media_video_16_09
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  body: true
+  langcode: true
+  links: true
