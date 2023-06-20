@@ -84,11 +84,6 @@ mapping:
     layout: pattern_card_overlay
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_medium.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_medium'
-  hero_card_large:
-    label: 'Hero card - large'
-    layout: pattern_card_hero
-    config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.hero_card_large.yml'
-    config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.hero_card_large'
   hero_card_xlarge:
     label: 'Hero card - xlarge'
     layout: pattern_card_hero
