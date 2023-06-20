@@ -31,7 +31,7 @@ third_party_settings:
     fields:
       node_title:
         plugin_id: node_title
-        weight: 4
+        weight: 1
         label: hidden
         formatter: default
         settings:
@@ -69,7 +69,7 @@ content:
       trim_options:
         text: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
 hidden:
   content_moderation_control: true
