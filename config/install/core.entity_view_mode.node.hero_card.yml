@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - node
-id: node.hero_card_large
-label: 'Hero card - large'
+id: node.hero_card
+label: 'Hero card'
 targetEntityType: node
 cache: true

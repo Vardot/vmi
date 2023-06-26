@@ -34,5 +34,5 @@ view_modes:
     label: 'Overlay card - large'
   overlay_card_medium:
     label: 'Overlay card - medium'
-  hero_card_xlarge:
-    label: 'Hero card - xlarge'
+  hero_card:
+    label: 'Hero card'
