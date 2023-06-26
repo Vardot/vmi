@@ -8,13 +8,8 @@
     "node": ">= 18.0"
   },
   "scripts": {
-    "theme:build": "webpack --progress --config webpack.config.build.js",
-    "theme:watch": "webpack --progress --config webpack.config.dev.js --watch",
     "phpcs": "phpcs --standard=./.phpcs.xml .",
-    "phpcbf": "phpcbf --standard=./.phpcs.xml .",
-    "lint:js": "node ./node_modules/eslint/bin/eslint.js .",
-    "lint:css": "stylelint \"**/*.css\"",
-    "lint:yaml": "node ./node_modules/eslint/bin/eslint.js --ext .yml ."
+    "phpcbf": "phpcbf --standard=./.phpcs.xml ."
   },
   "license": "MIT",
   "keywords": [
@@ -23,7 +18,9 @@
     "Drupal",
     "Varbase",
     "View Mode Inventory",
-    "VMI"
+    "VMI",
+    "SDC",
+    "Varbase Components"
   ],
   "devDependencies": {
     "dotenv-safe": "^8.2.0",

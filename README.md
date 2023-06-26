@@ -5,32 +5,32 @@
 
 ## View Modes Inventory Layouts peered with the list of View Modes Inventory.
 
-## Vertical media teasers:
-* Vertical media teaser - xlarge.
-* Vertical media teaser - large.
-* Vertical media teaser - medium.
-* Vertical media teaser - small.
-* Vertical media teaser - xsmall.
+## Impressed cards:
+* Impressed card - xlarge.
+* Impressed card - large.
+* Impressed card - medium.
+* Impressed card - small.
+* Impressed card - xsmall.
 
-## Horizontal media teasers:
-* Horizontal media teaser - xlarge.
-* Horizontal media teaser - large.
-* Horizontal media teaser - medium.
-* Horizontal media teaser - small.
-* Horizontal media teaser - xsmall.
+## Featured cards:
+* Featured card - xlarge.
+* Featured card - large.
+* Featured card - medium.
+* Featured card - small.
+* Featured card - xsmall.
     
-## Text teasers:
-* Text teaser - large.
-* Text teaser - medium.
-* Text teaser - small.
+## Text cards:
+* Text card - large.
+* Text card - medium.
+* Text card - small.
 
-## Touts: 
-*Tout - xlarge.
-* Tout - large.
-* Tout - medium.
+## Overlay cards: 
+* Overlay card - xlarge.
+* Overlay card - large.
+* Overlay card - medium.
 
-## Hero:
-* Hero xlarge.
+## Hero cards:
+* Hero card.
 
 
 
@@ -41,6 +41,7 @@
 * Display Suite Extras module.
 * Field Group module.
 * Smart Trim module.
+* Varbase Components.
 
 ## Installation
 

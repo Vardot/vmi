@@ -19,14 +19,7 @@ class ViewModesInventoryTests extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected $defaultTheme = 'bartik';
-
-  /**
-   * The profile to install as a basis for testing.
-   *
-   * @var string
-   */
-  protected $profile = 'minimal';
+  protected $defaultTheme = 'olivero';
 
   /**
    * Image content type.
@@ -125,113 +118,99 @@ class ViewModesInventoryTests extends BrowserTestBase {
     $this->drupalGet('/admin/structure/types/manage/image_content/display');
 
     // Check all check boxes for VMI custom display view modes.
-    $page->checkField($this->t('Hero - xlarge'));
-    $page->checkField($this->t('Tout - large'));
-    $page->checkField($this->t('Tout - medium'));
-    $page->checkField($this->t('Tout - xlarge'));
-    $page->checkField($this->t('Vertical media teaser - large'));
-    $page->checkField($this->t('Vertical media teaser - medium'));
-    $page->checkField($this->t('Vertical media teaser - small'));
-    $page->checkField($this->t('Vertical media teaser - xlarge'));
-    $page->checkField($this->t('Vertical media teaser - xsmall'));
-    $page->checkField($this->t('Horizontal media teaser - large'));
-    $page->checkField($this->t('Horizontal media teaser - medium'));
-    $page->checkField($this->t('Horizontal media teaser - small'));
-    $page->checkField($this->t('Horizontal media teaser - xlarge'));
-    $page->checkField($this->t('Horizontal media teaser - xsmall'));
-    $page->checkField($this->t('Text teaser - large'));
-    $page->checkField($this->t('Text teaser - medium'));
-    $page->checkField($this->t('Text teaser - small'));
+    $page->checkField($this->t('Featured card - large'));
+    $page->checkField($this->t('Featured card - medium'));
+    $page->checkField($this->t('Featured card - small'));
+    $page->checkField($this->t('Featured card - xlarge'));
+    $page->checkField($this->t('Featured card - xsmall'));
+    $page->checkField($this->t('Impressed card - large'));
+    $page->checkField($this->t('Impressed card - medium'));
+    $page->checkField($this->t('Impressed card - small'));
+    $page->checkField($this->t('Impressed card - xlarge'));
+    $page->checkField($this->t('Impressed card - xsmall'));
+    $page->checkField($this->t('Overlay card - large'));
+    $page->checkField($this->t('Overlay card - medium'));
+    $page->checkField($this->t('Overlay card - xlarge'));
+    $page->checkField($this->t('Text card - large'));
+    $page->checkField($this->t('Text card - medium'));
+    $page->checkField($this->t('Text card - small'));
+    $page->checkField($this->t('Hero card'));
     $page->pressButton('Save');
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/hero_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/hero_card');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Hero content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/tout_large');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/overlay_card_large');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/tout_medium');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/overlay_card_medium');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/tout_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/overlay_card_xlarge');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/vertical_media_teaser_large');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/impressed_card_large');
     $assert_session->pageTextContains($this->t('Main image'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/vertical_media_teaser_medium');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/impressed_card_medium');
     $assert_session->pageTextContains($this->t('Main image'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/vertical_media_teaser_small');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/impressed_card_small');
     $assert_session->pageTextContains($this->t('Main image'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/vertical_media_teaser_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/impressed_card_xlarge');
     $assert_session->pageTextContains($this->t('Main image'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/vertical_media_teaser_xsmall');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/impressed_card_xsmall');
     $assert_session->pageTextContains($this->t('Main image'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/horizontal_media_teaser_large');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/featured_card_large');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/horizontal_media_teaser_medium');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/featured_card_medium');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/horizontal_media_teaser_small');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/featured_card_small');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/horizontal_media_teaser_xlarge');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/featured_card_xlarge');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/horizontal_media_teaser_xsmall');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/featured_card_xsmall');
     $assert_session->pageTextContains($this->t('Main image'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/text_teaser_large');
-    $assert_session->pageTextContains($this->t('Title'));
-    $assert_session->pageTextContains($this->t('Body'));
-
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/text_teaser_medium');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/text_card_large');
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/image_content/display/text_teaser_small');
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/text_card_medium');
+    $assert_session->pageTextContains($this->t('Title'));
+    $assert_session->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('/admin/structure/types/manage/image_content/display/text_card_small');
     $assert_session->pageTextContains($this->t('Title'));
 
   }
@@ -246,113 +225,99 @@ class ViewModesInventoryTests extends BrowserTestBase {
     $this->drupalGet('/admin/structure/types/manage/video_content/display');
 
     // Check all check boxes for VMI custom display view modes.
-    $page->checkField($this->t('Hero - xlarge'));
-    $page->checkField($this->t('Tout - large'));
-    $page->checkField($this->t('Tout - medium'));
-    $page->checkField($this->t('Tout - xlarge'));
-    $page->checkField($this->t('Vertical media teaser - large'));
-    $page->checkField($this->t('Vertical media teaser - medium'));
-    $page->checkField($this->t('Vertical media teaser - small'));
-    $page->checkField($this->t('Vertical media teaser - xlarge'));
-    $page->checkField($this->t('Vertical media teaser - xsmall'));
-    $page->checkField($this->t('Horizontal media teaser - large'));
-    $page->checkField($this->t('Horizontal media teaser - medium'));
-    $page->checkField($this->t('Horizontal media teaser - small'));
-    $page->checkField($this->t('Horizontal media teaser - xlarge'));
-    $page->checkField($this->t('Horizontal media teaser - xsmall'));
-    $page->checkField($this->t('Text teaser - large'));
-    $page->checkField($this->t('Text teaser - medium'));
-    $page->checkField($this->t('Text teaser - small'));
+    $page->checkField($this->t('Featured card - large'));
+    $page->checkField($this->t('Featured card - medium'));
+    $page->checkField($this->t('Featured card - small'));
+    $page->checkField($this->t('Featured card - xlarge'));
+    $page->checkField($this->t('Featured card - xsmall'));
+    $page->checkField($this->t('Impressed card - large'));
+    $page->checkField($this->t('Impressed card - medium'));
+    $page->checkField($this->t('Impressed card - small'));
+    $page->checkField($this->t('Impressed card - xlarge'));
+    $page->checkField($this->t('Impressed card - xsmall'));
+    $page->checkField($this->t('Overlay card - large'));
+    $page->checkField($this->t('Overlay card - medium'));
+    $page->checkField($this->t('Overlay card - xlarge'));
+    $page->checkField($this->t('Text card - large'));
+    $page->checkField($this->t('Text card - medium'));
+    $page->checkField($this->t('Text card - small'));
+    $page->checkField($this->t('Hero card'));
     $page->pressButton('Save');
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/hero_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/hero_card');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Hero content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/tout_large');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/overlay_card_large');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/tout_medium');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/overlay_card_medium');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/tout_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/overlay_card_xlarge');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/vertical_media_teaser_large');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/impressed_card_large');
     $assert_session->pageTextContains($this->t('Main video'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/vertical_media_teaser_medium');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/impressed_card_medium');
     $assert_session->pageTextContains($this->t('Main video'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/vertical_media_teaser_small');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/impressed_card_small');
     $assert_session->pageTextContains($this->t('Main video'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/vertical_media_teaser_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/impressed_card_xlarge');
     $assert_session->pageTextContains($this->t('Main video'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/vertical_media_teaser_xsmall');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/impressed_card_xsmall');
     $assert_session->pageTextContains($this->t('Main video'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/horizontal_media_teaser_large');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/featured_card_large');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/horizontal_media_teaser_medium');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/featured_card_medium');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/horizontal_media_teaser_small');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/featured_card_small');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/horizontal_media_teaser_xlarge');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/featured_card_xlarge');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/horizontal_media_teaser_xsmall');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/featured_card_xsmall');
     $assert_session->pageTextContains($this->t('Main video'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/text_teaser_large');
-    $assert_session->pageTextContains($this->t('Title'));
-    $assert_session->pageTextContains($this->t('Body'));
-
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/text_teaser_medium');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/text_card_large');
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/video_content/display/text_teaser_small');
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/text_card_medium');
+    $assert_session->pageTextContains($this->t('Title'));
+    $assert_session->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('/admin/structure/types/manage/video_content/display/text_card_small');
     $assert_session->pageTextContains($this->t('Title'));
   }
 
@@ -366,113 +331,99 @@ class ViewModesInventoryTests extends BrowserTestBase {
     $this->drupalGet('/admin/structure/types/manage/media_content/display');
 
     // Check all check boxes for VMI custom display view modes.
-    $page->checkField($this->t('Hero - xlarge'));
-    $page->checkField($this->t('Tout - large'));
-    $page->checkField($this->t('Tout - medium'));
-    $page->checkField($this->t('Tout - xlarge'));
-    $page->checkField($this->t('Vertical media teaser - large'));
-    $page->checkField($this->t('Vertical media teaser - medium'));
-    $page->checkField($this->t('Vertical media teaser - small'));
-    $page->checkField($this->t('Vertical media teaser - xlarge'));
-    $page->checkField($this->t('Vertical media teaser - xsmall'));
-    $page->checkField($this->t('Horizontal media teaser - large'));
-    $page->checkField($this->t('Horizontal media teaser - medium'));
-    $page->checkField($this->t('Horizontal media teaser - small'));
-    $page->checkField($this->t('Horizontal media teaser - xlarge'));
-    $page->checkField($this->t('Horizontal media teaser - xsmall'));
-    $page->checkField($this->t('Text teaser - large'));
-    $page->checkField($this->t('Text teaser - medium'));
-    $page->checkField($this->t('Text teaser - small'));
+    $page->checkField($this->t('Featured card - large'));
+    $page->checkField($this->t('Featured card - medium'));
+    $page->checkField($this->t('Featured card - small'));
+    $page->checkField($this->t('Featured card - xlarge'));
+    $page->checkField($this->t('Featured card - xsmall'));
+    $page->checkField($this->t('Impressed card - large'));
+    $page->checkField($this->t('Impressed card - medium'));
+    $page->checkField($this->t('Impressed card - small'));
+    $page->checkField($this->t('Impressed card - xlarge'));
+    $page->checkField($this->t('Impressed card - xsmall'));
+    $page->checkField($this->t('Overlay card - large'));
+    $page->checkField($this->t('Overlay card - medium'));
+    $page->checkField($this->t('Overlay card - xlarge'));
+    $page->checkField($this->t('Text card - large'));
+    $page->checkField($this->t('Text card - medium'));
+    $page->checkField($this->t('Text card - small'));
+    $page->checkField($this->t('Hero card'));
     $page->pressButton('Save');
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/hero_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/hero_card');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Hero content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/tout_large');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/overlay_card_large');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/tout_medium');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/overlay_card_medium');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/tout_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/overlay_card_xlarge');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Tout content'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/vertical_media_teaser_large');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/impressed_card_large');
     $assert_session->pageTextContains($this->t('Main media'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/vertical_media_teaser_medium');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/impressed_card_medium');
     $assert_session->pageTextContains($this->t('Main media'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/vertical_media_teaser_small');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/impressed_card_small');
     $assert_session->pageTextContains($this->t('Main media'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/vertical_media_teaser_xlarge');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/impressed_card_xlarge');
     $assert_session->pageTextContains($this->t('Main media'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/vertical_media_teaser_xsmall');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/impressed_card_xsmall');
     $assert_session->pageTextContains($this->t('Main media'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/horizontal_media_teaser_large');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/featured_card_large');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/horizontal_media_teaser_medium');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/featured_card_medium');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/horizontal_media_teaser_small');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/featured_card_small');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/horizontal_media_teaser_xlarge');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/featured_card_xlarge');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/horizontal_media_teaser_xsmall');
-    $assert_session->pageTextContains($this->t('Left'));
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/featured_card_xsmall');
     $assert_session->pageTextContains($this->t('Main media'));
-    $assert_session->pageTextContains($this->t('Right'));
     $assert_session->pageTextContains($this->t('Title'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/text_teaser_large');
-    $assert_session->pageTextContains($this->t('Title'));
-    $assert_session->pageTextContains($this->t('Body'));
-
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/text_teaser_medium');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/text_card_large');
     $assert_session->pageTextContains($this->t('Title'));
     $assert_session->pageTextContains($this->t('Body'));
 
-    $this->drupalGet('/admin/structure/types/manage/media_content/display/text_teaser_small');
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/text_card_medium');
+    $assert_session->pageTextContains($this->t('Title'));
+    $assert_session->pageTextContains($this->t('Body'));
+
+    $this->drupalGet('/admin/structure/types/manage/media_content/display/text_card_small');
     $assert_session->pageTextContains($this->t('Title'));
   }
 
