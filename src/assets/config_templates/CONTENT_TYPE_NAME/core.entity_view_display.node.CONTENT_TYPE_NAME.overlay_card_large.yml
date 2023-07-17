@@ -25,6 +25,8 @@ third_party_settings:
           settings:
             style_size: large
             card_border: true
+            equal_height: true
+            anchor_all: true
             horizontal_alignment: ''
             vertical_alignment: ''
             utility_classes: ''
