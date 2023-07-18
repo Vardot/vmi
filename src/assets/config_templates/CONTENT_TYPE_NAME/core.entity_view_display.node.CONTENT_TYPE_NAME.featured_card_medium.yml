@@ -21,7 +21,7 @@ third_party_settings:
       entity_classes: all_classes
       settings:
         pattern:
-          field_templates: only_content
+          field_templates: default
           settings:
             style_size: medium
             card_border: true
