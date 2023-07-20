@@ -163,28 +163,42 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
 
       if ($not_existed_default_supported_field) {
         // Remove the not existed field from config dependencies.
-        foreach ($config_template_data['dependencies']['config'] as $dependencies_config_index => $dependencies_config_item) {
-          if ($dependencies_config_item == $field_config_name) {
-            array_splice($config_template_data['dependencies']['config'], $dependencies_config_index, 1);
+        if (isset($config_template_data['dependencies'])
+          && isset($config_template_data['dependencies']['config'])) {
+          foreach ($config_template_data['dependencies']['config'] as $dependencies_config_index => $dependencies_config_item) {
+            if ($dependencies_config_item == $field_config_name) {
+              array_splice($config_template_data['dependencies']['config'], $dependencies_config_index, 1);
+            }
           }
         }
 
-        // Remove the not existed field from the "media" UI Pattern region in the third party settings.
-        foreach ($config_template_data['third_party_settings']['ds']['regions']['media'] as $regions_media_index => $regions_media_item) {
-          if ($regions_media_item == $default_supported_field) {
-            array_splice($config_template_data['third_party_settings']['ds']['regions']['media'], $regions_media_index, 1);
-          }
-        }
+        // Filter third party ds regions.
+        if (isset($config_template_data['third_party_settings'])
+          && isset($config_template_data['third_party_settings']['ds'])
+          && isset($config_template_data['third_party_settings']['ds']['regions'])) {
 
-        // Remove the not existed field from the "content" UI Pattern region in the third party settings.
-        foreach ($config_template_data['third_party_settings']['ds']['regions']['content'] as $regions_content_index => $regions_content_item) {
-          if ($regions_content_item == $default_supported_field) {
-            array_splice($config_template_data['third_party_settings']['ds']['regions']['content'], $regions_content_index, 1);
+          // Remove the not existed field from the "media" UI Pattern region in the third party settings.
+          if (isset($config_template_data['third_party_settings']['ds']['regions']['media'])) {
+            foreach ($config_template_data['third_party_settings']['ds']['regions']['media'] as $regions_media_index => $regions_media_item) {
+              if ($regions_media_item == $default_supported_field) {
+                array_splice($config_template_data['third_party_settings']['ds']['regions']['media'], $regions_media_index, 1);
+              }
+            }
+          }
+
+          // Remove the not existed field from the "content" UI Pattern region in the third party settings.
+          if (isset($config_template_data['third_party_settings']['ds']['regions']['content'])) {
+            foreach ($config_template_data['third_party_settings']['ds']['regions']['content'] as $regions_content_index => $regions_content_item) {
+              if ($regions_content_item == $default_supported_field) {
+                array_splice($config_template_data['third_party_settings']['ds']['regions']['content'], $regions_content_index, 1);
+              }
+            }
           }
         }
 
         // Remove the not existed field from content list
-        if (isset($config_template_data['content'][$default_supported_field])) {
+        if (isset($config_template_data['content'])
+          && isset($config_template_data['content'][$default_supported_field])) {
           unset($config_template_data['content'][$default_supported_field]);
         }
 
