@@ -122,5 +122,6 @@ content:
     type: entity_reference_entity_view
     region: main
 hidden:
+  content_moderation_control: true
   langcode: true
   links: true

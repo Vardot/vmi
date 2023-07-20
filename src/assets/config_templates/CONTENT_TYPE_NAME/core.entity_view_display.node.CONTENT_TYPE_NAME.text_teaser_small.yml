@@ -60,5 +60,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  content_moderation_control: true
   langcode: true
   links: true

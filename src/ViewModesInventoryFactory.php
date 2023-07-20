@@ -133,12 +133,72 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     // Replace CONTENT_TYPE_NAME with the bundle name in the config template.
     $real_config_template_content = str_replace('CONTENT_TYPE_NAME', $bundle_name, $config_template_content);
 
-    // Parse real config template conten to data.
+    // Parse real config template content to data.
     $real_config_template_content_data = (array) Yaml::parse($real_config_template_content);
 
-    // Set and save new message value.
-    $view_mode_config->setData($real_config_template_content_data)->save();
+    // Filter configs for existing fields with the default supported fields.
+    $final_config = $this->filterConfigsForExistingFields($bundle_name, $real_config_template_content_data);
 
+    // Set and save new message value.
+    $view_mode_config->setData($final_config)->save();
+
+  }
+
+  /**
+   * Filter configs for existing fields with the default supported fields.
+   */
+  public function filterConfigsForExistingFields(string $bundle_name, array $config_template_data): array {
+
+    $default_supported_fields = [
+      'field_image',
+      'field_video',
+      'field_media',
+      'body',
+    ];
+
+    foreach ($default_supported_fields as $default_supported_field) {
+      // Check if the config for the field exists for the current bundle name.
+      $field_config_name = 'field.field.node.' . $bundle_name . '.' . $default_supported_field;
+      $not_existed_default_supported_field = \Drupal::service('config.factory')->get($field_config_name)->isNew();
+
+      if ($not_existed_default_supported_field) {
+        // Remove the not existed field from config dependencies.
+        foreach ($config_template_data['dependencies']['config'] as $dependencies_config_index => $dependencies_config_item) {
+          if ($dependencies_config_item == $field_config_name) {
+            array_splice($config_template_data['dependencies']['config'], $dependencies_config_index, 1);
+          }
+        }
+
+        // Remove the not existed field from the "left" region in the third party settings.
+        foreach ($config_template_data['third_party_settings']['ds']['regions']['left'] as $regions_left_index => $regions_left_item) {
+          if ($regions_left_item == $default_supported_field) {
+            array_splice($config_template_data['third_party_settings']['ds']['regions']['left'], $regions_left_index, 1);
+          }
+        }
+
+        // Remove the not existed field from the "right" region in the third party settings.
+        foreach ($config_template_data['third_party_settings']['ds']['regions']['right'] as $regions_right_index => $regions_right_item) {
+          if ($regions_right_item == $default_supported_field) {
+            array_splice($config_template_data['third_party_settings']['ds']['regions']['right'], $regions_right_index, 1);
+          }
+        }
+
+        // Remove the not existed field from the "main" region in the third party settings.
+        foreach ($config_template_data['third_party_settings']['ds']['regions']['main'] as $regions_main_index => $regions_main_item) {
+          if ($regions_main_item == $default_supported_field) {
+            array_splice($config_template_data['third_party_settings']['ds']['regions']['main'], $regions_main_index, 1);
+          }
+        }
+
+        // Remove the not existed field from content list
+        if (isset($config_template_data['content'][$default_supported_field])) {
+          unset($config_template_data['content'][$default_supported_field]);
+        }
+
+      }
+    }
+
+    return $config_template_data;
   }
 
 }

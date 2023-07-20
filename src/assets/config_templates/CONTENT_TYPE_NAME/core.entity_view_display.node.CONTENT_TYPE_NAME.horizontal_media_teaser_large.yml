@@ -124,5 +124,6 @@ content:
     third_party_settings: { }
     region: left
 hidden:
+  content_moderation_control: true
   langcode: true
   links: true

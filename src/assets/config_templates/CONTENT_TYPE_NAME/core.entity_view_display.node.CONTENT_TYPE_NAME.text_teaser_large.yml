@@ -64,5 +64,6 @@ hidden:
   field_image: true
   field_video: true
   field_media: true
+  content_moderation_control: true
   langcode: true
   links: true
