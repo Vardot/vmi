@@ -24,8 +24,7 @@ third_party_settings:
             equal_height: true
             anchor_all: false
             utility_classes: ''
-            card_attributes: ''
-            content_attributes: ''
+            content_utility_classes: ''
     regions:
       content:
         - node_title
