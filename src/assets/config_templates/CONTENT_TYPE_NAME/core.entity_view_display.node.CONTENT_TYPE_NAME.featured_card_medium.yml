@@ -10,7 +10,6 @@ dependencies:
     - node.type.CONTENT_TYPE_NAME
   module:
     - ds
-    - smart_trim
     - user
     - varbase_components
 third_party_settings:
@@ -64,14 +63,15 @@ third_party_settings:
             classes: {  }
 id: node.CONTENT_TYPE_NAME.featured_card_medium
 targetEntityType: node
-bundle: image_content
+bundle: CONTENT_TYPE_NAME
 mode: featured_card_medium
 content:
   body:
     type: smart_trim
+    weight: 2
     label: hidden
     settings:
-      trim_length: 30
+      trim_length: '30'
       trim_type: words
       trim_suffix: ' ...'
       more_link: '0'
@@ -81,7 +81,6 @@ content:
         text: text
       more_class: more-link
     third_party_settings: {  }
-    weight: 2
     region: content
   field_image:
     type: entity_reference_entity_view
@@ -95,28 +94,24 @@ content:
           id: expert
           settings:
             lb: ''
-            lbw: false
+            prefix: ''
             lbw-el: ''
             lbw-cl: ''
             lbw-at: ''
-            lb-col: false
             ow: true
             ow-el: a
             ow-cl: ''
             ow-at: 'href="[node:url]"'
             ow-def-at: true
             ow-def-cl: true
-            fis: false
             fis-el: ''
             fis-cl: ''
             fis-at: ''
             fis-def-at: true
-            fi: false
             fi-el: ''
             fi-cl: ''
             fi-at: ''
             fi-def-at: true
-            prefix: ''
             suffix: ''
             lbw: false
             lb-col: false
@@ -146,4 +141,3 @@ hidden:
   content_moderation_control: true
   langcode: true
   links: true
-  search_api_excerpt: true
