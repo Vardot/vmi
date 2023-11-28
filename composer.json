@@ -23,14 +23,9 @@
     }
   ],
   "require": {
-    "drupal/core": "~9.5.0 || ~10.1.0",
+    "drupal/core": "~9.5.0 || ~10",
     "drupal/ds": "~3",
     "drupal/field_group": "~3",
     "drupal/smart_trim": "~1 || ~2"
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-8.x-2.x": "8.2.x-dev"
-    }
   }
 }
