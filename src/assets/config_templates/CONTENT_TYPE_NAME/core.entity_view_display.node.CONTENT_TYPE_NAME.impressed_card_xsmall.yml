@@ -24,7 +24,7 @@ third_party_settings:
           field_templates: default
           settings:
             style_size: xsmall
-            card_border: true
+            card_border: false
             equal_height: true
             anchor_all: false
             media_position: top

@@ -20,7 +20,7 @@ third_party_settings:
           field_templates: default
           settings:
             style_size: small
-            card_border: true
+            card_border: false
             equal_height: true
             anchor_all: false
             utility_classes: ''

@@ -23,7 +23,7 @@ third_party_settings:
           field_templates: default
           settings:
             style_size: large
-            card_border: true
+            card_border: false
             equal_height: false
             anchor_all: false
             media_position: start

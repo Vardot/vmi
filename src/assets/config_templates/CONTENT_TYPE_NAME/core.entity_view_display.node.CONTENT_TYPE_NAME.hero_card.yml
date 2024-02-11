@@ -23,7 +23,7 @@ third_party_settings:
         pattern:
           field_templates: default
           settings:
-            card_border: true
+            card_border: false
             horizontal_alignment: ''
             vertical_alignment: ''
             utility_classes: ''
