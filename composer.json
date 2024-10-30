@@ -26,7 +26,7 @@
     "drupal/core": "~10.3.0 || ~11.0.0",
     "drupal/ds": "~3",
     "drupal/field_group": "~3",
-    "drupal/smart_trim": "~1 || ~2",
-    "drupal/varbase_components": "~2"
+    "drupal/smart_trim": "~2",
+    "drupal/varbase_components": "~3 || 3.0.x-dev"
   }
 }
