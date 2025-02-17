@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "drupal/core": "~10.4.0 || ~11.1.0",
+    "drupal/core": ">=11.1",
     "drupal/ds": "~3",
     "drupal/field_group": "~4",
     "drupal/smart_trim": "~2",
