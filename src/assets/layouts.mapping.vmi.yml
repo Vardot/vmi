@@ -6,86 +6,86 @@ for:
 mapping:
   impressed_card_xlarge:
     label: 'Impressed card - xlarge'
-    layout: pattern_card_impressed
+    layout: 'ui_patterns:varbase_components:card_impressed'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_xlarge.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_xlarge'
   impressed_card_large:
     label: 'Impressed card - large'
-    layout: pattern_card_impressed
+    layout: 'ui_patterns:varbase_components:card_impressed'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_large.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_large'
   impressed_card_medium:
     label: 'Impressed card - medium'
-    layout: pattern_card_impressed
+    layout: 'ui_patterns:varbase_components:card_impressed'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_medium.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_medium'
   impressed_card_small:
     label: 'Impressed card - small'
-    layout: pattern_card_impressed
+    layout: 'ui_patterns:varbase_components:card_impressed'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_small.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_small'
   impressed_card_xsmall:
     label: 'Impressed card - xsmall'
-    layout: pattern_card_impressed
+    layout: 'ui_patterns:varbase_components:card_impressed'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_xsmall.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.impressed_card_xsmall'
   featured_card_xlarge:
     label: 'Featured card - xlarge'
-    layout: pattern_card_featured
+    layout: 'ui_patterns:varbase_components:card_featured'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_xlarge.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_xlarge'
   featured_card_large:
     label: 'Featured card - large'
-    layout: pattern_card_featured
+    layout: 'ui_patterns:varbase_components:card_featured'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_large.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_large'
   featured_card_medium:
     label: 'Featured card - medium'
-    layout: pattern_card_featured
+    layout: 'ui_patterns:varbase_components:card_featured'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_medium.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_medium'
   featured_card_small:
     label: 'Featured card - small'
-    layout: pattern_card_featured
+    layout: 'ui_patterns:varbase_components:card_featured'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_small.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_small'
   featured_card_xsmall:
     label: 'Featured card - xsmall'
-    layout: pattern_card_featured
+    layout: 'ui_patterns:varbase_components:card_featured'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_xsmall.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.featured_card_xsmall'
   text_card_large:
     label: 'Text teaser - large'
-    layout: pattern_card_text
+    layout: 'ui_patterns:varbase_components:card_text'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_large.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_large'
   text_card_medium:
     label: 'Text teaser - medium'
-    layout: pattern_card_text
+    layout: 'ui_patterns:varbase_components:card_text'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_medium.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_medium'
   text_card_small:
     label: 'Text teaser - small'
-    layout: pattern_card_text
+    layout: 'ui_patterns:varbase_components:card_text'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_small.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.text_card_small'
   overlay_card_xlarge:
     label: 'overlay_card - xlarge'
-    layout: pattern_card_overlay
+    layout: 'ui_patterns:varbase_components:card_overlay'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_xlarge.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_xlarge'
   overlay_card_large:
     label: 'overlay_card - large'
-    layout: pattern_card_overlay
+    layout: 'ui_patterns:varbase_components:card_overlay'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_large.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_large'
   overlay_card_medium:
     label: 'overlay_card - medium'
-    layout: pattern_card_overlay
+    layout: 'ui_patterns:varbase_components:card_overlay'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_medium.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.overlay_card_medium'
   hero_card:
     label: 'Hero card'
-    layout: pattern_card_hero
+    layout: 'ui_patterns:varbase_components:card_hero'
     config_template: '/src/assets/config_templates/CONTENT_TYPE_NAME/core.entity_view_display.node.CONTENT_TYPE_NAME.hero_card.yml'
     config_name: 'core.entity_view_display.node.CONTENT_TYPE_NAME.hero_card'
