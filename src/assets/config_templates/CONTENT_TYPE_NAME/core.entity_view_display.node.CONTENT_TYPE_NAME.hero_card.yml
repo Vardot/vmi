@@ -40,7 +40,7 @@ third_party_settings:
             media_position:
               source_id: select
               source:
-                value: top
+                value: overlay
             horizontal_alignment:
               source_id: select
               source:
