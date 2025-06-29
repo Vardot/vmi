@@ -4,7 +4,6 @@
   "type": "drupal-module",
   "homepage": "https://www.drupal.org/project/vmi",
   "license": "GPL-2.0-or-later",
-  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Vardot",
@@ -16,12 +15,6 @@
     "issues": "https://www.drupal.org/project/issues/vmi",
     "source": "http://cgit.drupalcode.org/vmi"
   },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    }
-  ],
   "require": {
     "drupal/core": "~10.5.0 || ~11.2.0",
     "drupal/ds": "~3",
