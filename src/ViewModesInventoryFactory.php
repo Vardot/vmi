@@ -32,6 +32,14 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
   protected $moduleHandler;
 
   /**
+   * The theme manager service.
+   *
+   * @var \Drupal\Core\Theme\ThemeManagerInterface
+   */
+  protected $themeManager;
+
+
+  /**
    * Constructs the View Modes Inventory Factory object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
@@ -40,11 +48,15 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
    *   The translation service. for form alters.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler service.
+   * @param \Drupal\Core\Theme\ThemeManagerInterface $theme_manager
+   *   The theme manager service.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, TranslationInterface $translation, ModuleHandlerInterface $module_handler) {
+
+  public function __construct(ConfigFactoryInterface $config_factory, TranslationInterface $translation, ModuleHandlerInterface $module_handler , ThemeManagerInterface $theme_manager) {
     $this->configFactory = $config_factory;
     $this->stringTranslation = $translation;
     $this->moduleHandler = $module_handler;
+    $this->themeManager = $theme_manager;
   }
 
   /**
@@ -54,7 +66,8 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     return new static(
       $container->get('config.factory'),
       $container->get('string_translation'),
-      $container->get('module_handler')
+      $container->get('module_handler'),
+      $container->get('theme.manager')
     );
   }
 
@@ -119,9 +132,15 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
    *   Config name to map to.
    */
   public function mapViewModeWithLayout($selected_view_mode, $default_mapped_layout, $entity_type, $bundle_name, $config_template_file, $config_name) {
+    // Get the active theme.
+    $activeTheme = $this->themeManager->getActiveTheme()->getName();
 
-    // Replace CONTENT_TYPE_NAME with the bundle name for the config name.
-    $real_config_name = str_replace('CONTENT_TYPE_NAME', $bundle_name, $config_name);
+    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name and the active theme name for the config name.
+    $real_config_name = str_replace(
+      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'], 
+      [$bundle_name, $activeTheme],
+      $config_name
+    );
 
     $view_mode_config = $this->configFactory->getEditable($real_config_name);
 
@@ -130,8 +149,12 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     $full_config_template_file = DRUPAL_ROOT . '/' . $module_path . $config_template_file;
     $config_template_content = file_get_contents($full_config_template_file);
 
-    // Replace CONTENT_TYPE_NAME with the bundle name in the config template.
-    $real_config_template_content = str_replace('CONTENT_TYPE_NAME', $bundle_name, $config_template_content);
+    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name and the active theme name in the config template.
+    $real_config_template_content = str_replace(
+      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'], 
+      [$bundle_name, $activeTheme], 
+      $config_template_content
+    );
 
     // Parse real config template content to data.
     $real_config_template_content_data = (array) Yaml::parse($real_config_template_content);
