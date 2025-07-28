@@ -2,13 +2,13 @@
 
 namespace Drupal\vmi;
 
-use Symfony\Component\Yaml\Yaml;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslationInterface;
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * View Modes Inventory Factory.
@@ -32,14 +32,6 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
   protected $moduleHandler;
 
   /**
-   * The theme manager service.
-   *
-   * @var \Drupal\Core\Theme\ThemeManagerInterface
-   */
-  protected $themeManager;
-
-
-  /**
    * Constructs the View Modes Inventory Factory object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
@@ -48,15 +40,11 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
    *   The translation service. for form alters.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler service.
-   * @param \Drupal\Core\Theme\ThemeManagerInterface $theme_manager
-   *   The theme manager service.
    */
-
-  public function __construct(ConfigFactoryInterface $config_factory, TranslationInterface $translation, ModuleHandlerInterface $module_handler , ThemeManagerInterface $theme_manager) {
+  public function __construct(ConfigFactoryInterface $config_factory, TranslationInterface $translation, ModuleHandlerInterface $module_handler) {
     $this->configFactory = $config_factory;
     $this->stringTranslation = $translation;
     $this->moduleHandler = $module_handler;
-    $this->themeManager = $theme_manager;
   }
 
   /**
@@ -67,7 +55,6 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
       $container->get('config.factory'),
       $container->get('string_translation'),
       $container->get('module_handler'),
-      $container->get('theme.manager')
     );
   }
 
@@ -132,13 +119,14 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
    *   Config name to map to.
    */
   public function mapViewModeWithLayout($selected_view_mode, $default_mapped_layout, $entity_type, $bundle_name, $config_template_file, $config_name) {
-    // Get the active theme.
-    $activeTheme = $this->themeManager->getActiveTheme()->getName();
+    // Get the default active theme.
+    $defaultActiveTheme = $this->configFactory->get('system.theme')->get('default');
 
-    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name and the active theme name for the config name.
+    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name.
+    // And the default active theme name for the config name.
     $real_config_name = str_replace(
-      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'], 
-      [$bundle_name, $activeTheme],
+      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'],
+      [$bundle_name, $defaultActiveTheme],
       $config_name
     );
 
@@ -149,10 +137,11 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     $full_config_template_file = DRUPAL_ROOT . '/' . $module_path . $config_template_file;
     $config_template_content = file_get_contents($full_config_template_file);
 
-    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name and the active theme name in the config template.
+    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name.
+    // And the default active theme name in the config template.
     $real_config_template_content = str_replace(
-      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'], 
-      [$bundle_name, $activeTheme], 
+      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'],
+      [$bundle_name, $defaultActiveTheme],
       $config_template_content
     );
 
@@ -182,7 +171,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     foreach ($default_supported_fields as $default_supported_field) {
       // Check if the config for the field exists for the current bundle name.
       $field_config_name = 'field.field.node.' . $bundle_name . '.' . $default_supported_field;
-      $not_existed_default_supported_field = \Drupal::service('config.factory')->get($field_config_name)->isNew();
+      $not_existed_default_supported_field = $this->configFactory->get($field_config_name)->isNew();
 
       if ($not_existed_default_supported_field) {
         // Remove the not existed field from config dependencies.
@@ -200,7 +189,8 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
           && isset($config_template_data['third_party_settings']['ds'])
           && isset($config_template_data['third_party_settings']['ds']['regions'])) {
 
-          // Remove the not existed field from the "media" UI Pattern region in the third party settings.
+          // Remove not existed field from the "media" UI Pattern region
+          // in the third party settings.
           if (isset($config_template_data['third_party_settings']['ds']['regions']['media'])) {
             foreach ($config_template_data['third_party_settings']['ds']['regions']['media'] as $regions_media_index => $regions_media_item) {
               if ($regions_media_item == $default_supported_field) {
@@ -209,7 +199,8 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
             }
           }
 
-          // Remove the not existed field from the "content" UI Pattern region in the third party settings.
+          // Remove not existed field from the "content" UI Pattern region
+          // in the third party settings.
           if (isset($config_template_data['third_party_settings']['ds']['regions']['content'])) {
             foreach ($config_template_data['third_party_settings']['ds']['regions']['content'] as $regions_content_index => $regions_content_item) {
               if ($regions_content_item == $default_supported_field) {
@@ -219,7 +210,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
           }
         }
 
-        // Remove the not existed field from content list
+        // Remove the not existed field from content list.
         if (isset($config_template_data['content'])
           && isset($config_template_data['content'][$default_supported_field])) {
           unset($config_template_data['content'][$default_supported_field]);
