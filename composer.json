@@ -16,7 +16,7 @@
     "source": "http://cgit.drupalcode.org/vmi"
   },
   "require": {
-    "drupal/core": "~11.2.0",
+    "drupal/core": "~11.3.0",
     "drupal/ds": "~3",
     "drupal/field_group": "~4",
     "drupal/smart_trim": "~2",
