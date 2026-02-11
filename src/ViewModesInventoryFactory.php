@@ -103,42 +103,92 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
   }
 
   /**
-   * Map a view mode with a layout and default configuration template.
+   * Map a view mode with default configuration templates.
+   *
+   * Imports both the core.entity_view_display and canvas.content_template
+   * config templates for the selected view mode.
    *
    * @param string $selected_view_mode
    *   Selected view mode in the custom display settings form.
-   * @param string $default_mapped_layout
-   *   Default mapped layout.
    * @param string $entity_type
    *   Entity type like node, block, user.
    * @param string $bundle_name
    *   Bundle name.
-   * @param string $config_template_file
-   *   Config template file name.
-   * @param string $config_name
-   *   Config name to map to.
+   * @param array $view_mode_mapping
+   *   The mapping data for the selected view mode.
    */
-  public function mapViewModeWithLayout($selected_view_mode, $default_mapped_layout, $entity_type, $bundle_name, $config_template_file, $config_name) {
+  public function mapViewModeWithLayout($selected_view_mode, $entity_type, $bundle_name, array $view_mode_mapping) {
     // Get the default active theme.
     $defaultActiveTheme = $this->configFactory->get('system.theme')->get('default');
 
-    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name.
-    // And the default active theme name for the config name.
+    // Import core.entity_view_display config template.
+    if (isset($view_mode_mapping['config_template'])
+      && isset($view_mode_mapping['config_name'])) {
+      $this->importConfigTemplate(
+        $bundle_name,
+        $defaultActiveTheme,
+        $view_mode_mapping['config_template'],
+        $view_mode_mapping['config_name']
+      );
+    }
+
+    // Import canvas.content_template config template from the mapping.
+    if (isset($view_mode_mapping['canvas_config_template'])
+      && isset($view_mode_mapping['canvas_config_name'])) {
+      $this->importConfigTemplate(
+        $bundle_name,
+        $defaultActiveTheme,
+        $view_mode_mapping['canvas_config_template'],
+        $view_mode_mapping['canvas_config_name']
+      );
+    }
+    else {
+      // Auto-derive canvas config template path from view mode name.
+      $canvas_config_template_file = '/src/assets/config_templates/CONTENT_TYPE_NAME/canvas.content_template.node.CONTENT_TYPE_NAME.' . $selected_view_mode . '.yml';
+      $canvas_config_name = 'canvas.content_template.node.CONTENT_TYPE_NAME.' . $selected_view_mode;
+      $this->importConfigTemplate(
+        $bundle_name,
+        $defaultActiveTheme,
+        $canvas_config_template_file,
+        $canvas_config_name
+      );
+    }
+  }
+
+  /**
+   * Import a config template file.
+   *
+   * @param string $bundle_name
+   *   Bundle name.
+   * @param string $defaultActiveTheme
+   *   The default active theme name.
+   * @param string $config_template_file
+   *   Config template file path relative to the module.
+   * @param string $config_name
+   *   Config name to map to.
+   */
+  protected function importConfigTemplate($bundle_name, $defaultActiveTheme, $config_template_file, $config_name) {
+    $module_path = $this->moduleHandler->getModule('vmi')->getPath();
+    $full_config_template_file = DRUPAL_ROOT . '/' . $module_path . $config_template_file;
+
+    // Skip if the config template file does not exist.
+    if (!is_file($full_config_template_file)) {
+      return;
+    }
+
+    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name
+    // and the default active theme name for the config name.
     $real_config_name = str_replace(
       ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'],
       [$bundle_name, $defaultActiveTheme],
       $config_name
     );
 
-    $view_mode_config = $this->configFactory->getEditable($real_config_name);
-
     // Load the config template.
-    $module_path = $this->moduleHandler->getModule('vmi')->getPath();
-    $full_config_template_file = DRUPAL_ROOT . '/' . $module_path . $config_template_file;
     $config_template_content = file_get_contents($full_config_template_file);
 
-    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name.
-    // And the default active theme name in the config template.
+    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name
+    // and the default active theme name in the config template.
     $real_config_template_content = str_replace(
       ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'],
       [$bundle_name, $defaultActiveTheme],
@@ -151,9 +201,9 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     // Filter configs for existing fields with the default supported fields.
     $final_config = $this->filterConfigsForExistingFields($bundle_name, $real_config_template_content_data);
 
-    // Set and save new message value.
+    // Set and save new config value.
+    $view_mode_config = $this->configFactory->getEditable($real_config_name);
     $view_mode_config->setData($final_config)->save();
-
   }
 
   /**
@@ -162,6 +212,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
   public function filterConfigsForExistingFields(string $bundle_name, array $config_template_data): array {
 
     $default_supported_fields = [
+      'field_image',
       'field_image',
       'field_video',
       'field_media',
@@ -180,32 +231,6 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
           foreach ($config_template_data['dependencies']['config'] as $dependencies_config_index => $dependencies_config_item) {
             if ($dependencies_config_item == $field_config_name) {
               array_splice($config_template_data['dependencies']['config'], $dependencies_config_index, 1);
-            }
-          }
-        }
-
-        // Filter third party ds regions.
-        if (isset($config_template_data['third_party_settings'])
-          && isset($config_template_data['third_party_settings']['ds'])
-          && isset($config_template_data['third_party_settings']['ds']['regions'])) {
-
-          // Remove not existed field from the "media" UI Pattern region
-          // in the third party settings.
-          if (isset($config_template_data['third_party_settings']['ds']['regions']['media'])) {
-            foreach ($config_template_data['third_party_settings']['ds']['regions']['media'] as $regions_media_index => $regions_media_item) {
-              if ($regions_media_item == $default_supported_field) {
-                array_splice($config_template_data['third_party_settings']['ds']['regions']['media'], $regions_media_index, 1);
-              }
-            }
-          }
-
-          // Remove not existed field from the "content" UI Pattern region
-          // in the third party settings.
-          if (isset($config_template_data['third_party_settings']['ds']['regions']['content'])) {
-            foreach ($config_template_data['third_party_settings']['ds']['regions']['content'] as $regions_content_index => $regions_content_item) {
-              if ($regions_content_item == $default_supported_field) {
-                array_splice($config_template_data['third_party_settings']['ds']['regions']['content'], $regions_content_index, 1);
-              }
             }
           }
         }

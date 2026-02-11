@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.CONTENT_TYPE_NAME.field_content
+    - field.field.node.CONTENT_TYPE_NAME.field_description
+    - field.field.node.CONTENT_TYPE_NAME.field_featured_image
+    - field.field.node.CONTENT_TYPE_NAME.field_seo_analysis
+    - field.field.node.CONTENT_TYPE_NAME.field_seo_description
+    - field.field.node.CONTENT_TYPE_NAME.field_seo_image
+    - field.field.node.CONTENT_TYPE_NAME.field_seo_title
+    - field.field.node.CONTENT_TYPE_NAME.field_tags
+    - node.type.CONTENT_TYPE_NAME
+  module:
+    - media
+    - text
+    - user
+id: node.CONTENT_TYPE_NAME.full
+targetEntityType: node
+bundle: CONTENT_TYPE_NAME
+mode: full
+content:
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_featured_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_description: true
+  field_seo_analysis: true
+  field_seo_description: true
+  field_seo_image: true
+  field_seo_title: true
+  links: true

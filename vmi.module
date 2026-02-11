@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Display Suite core functions.
+ * View Modes Inventory core functions.
  */
 
 use Drupal\Core\Form\FormStateInterface;
@@ -66,16 +66,16 @@ function _vmi_form_entity_view_display_edit_form_submit($form, FormStateInterfac
         // Only when we do have a new selected view mode inventory.
         if (!in_array($selected_view_mode, $enabled_view_modes)
            && isset($vmi_list['view_modes'][$selected_view_mode])
-           && isset($vmi_layouts_mapping['mapping'][$selected_view_mode])
-           && isset($vmi_layouts_mapping['mapping'][$selected_view_mode]['layout'])
-           && isset($vmi_layouts_mapping['mapping'][$selected_view_mode]['config_template'])
-           && isset($vmi_layouts_mapping['mapping'][$selected_view_mode]['config_name'])) {
+           && isset($vmi_layouts_mapping['mapping'][$selected_view_mode])) {
 
-          $default_mapped_layout = $vmi_layouts_mapping['mapping'][$selected_view_mode]['layout'];
-          $config_template_file = $vmi_layouts_mapping['mapping'][$selected_view_mode]['config_template'];
-          $config_name = $vmi_layouts_mapping['mapping'][$selected_view_mode]['config_name'];
+          $view_mode_mapping = $vmi_layouts_mapping['mapping'][$selected_view_mode];
 
-          $vmi_factory->mapViewModeWithLayout($selected_view_mode, $default_mapped_layout, $entity_type, $bundle_name, $config_template_file, $config_name);
+          $vmi_factory->mapViewModeWithLayout(
+            $selected_view_mode,
+            $entity_type,
+            $bundle_name,
+            $view_mode_mapping
+          );
 
         }
       }

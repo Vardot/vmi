@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.CONTENT_TYPE_NAME.field_content
+    - field.field.node.CONTENT_TYPE_NAME.field_description
+    - field.field.node.CONTENT_TYPE_NAME.field_featured_image
+    - field.field.node.CONTENT_TYPE_NAME.field_seo_analysis
+    - field.field.node.CONTENT_TYPE_NAME.field_seo_description
+    - field.field.node.CONTENT_TYPE_NAME.field_seo_image
+    - field.field.node.CONTENT_TYPE_NAME.field_seo_title
+    - field.field.node.CONTENT_TYPE_NAME.field_tags
+    - node.type.CONTENT_TYPE_NAME
+  module:
+    - user
+id: node.CONTENT_TYPE_NAME.card
+targetEntityType: node
+bundle: CONTENT_TYPE_NAME
+mode: card
+content:
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 16_9_medium
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  content_moderation_control: true
+  field_content: true
+  field_seo_analysis: true
+  field_seo_description: true
+  field_seo_image: true
+  field_seo_title: true
+  field_tags: true
+  links: true

@@ -9,110 +9,16 @@ dependencies:
     - field.field.node.CONTENT_TYPE_NAME.field_media
     - node.type.CONTENT_TYPE_NAME
   module:
-    - ds
     - smart_trim
-third_party_settings:
-  ds:
-    layout:
-      id: 'ui_patterns:DEFAULT_ACTIVE_THEME:card_overlay'
-      library: null
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        label: ''
-        ui_patterns:
-          component_id: 'DEFAULT_ACTIVE_THEME:card-overlay'
-          variant_id: null
-          props:
-            attributes:
-              source_id: attributes
-              source:
-                value: ''
-            style_size:
-              source_id: select
-              source:
-                value: medium
-            card_border:
-              source_id: checkbox
-              source:
-                value: 0
-            padded:
-              source_id: checkbox
-              source:
-                value: 0
-            equal_height:
-              source_id: checkbox
-              source:
-                value: 1
-            anchor_all:
-              source_id: checkbox
-              source:
-                value: 1
-            horizontal_alignment:
-              source_id: select
-              source:
-                value: ''
-            vertical_alignment:
-              source_id: select
-              source:
-                value: ''
-            card_overlay_utility_classes:
-              source_id: list_textarea
-              source:
-                value: ''
-            card_overlay_media_utility_classes:
-              source_id: list_textarea
-              source:
-                value: ''
-            card_overlay_content_utility_classes:
-              source_id: list_textarea
-              source:
-                value: ''
-            card_attributes:
-              source_id: attributes
-              source:
-                value: ''
-            media_attributes:
-              source_id: attributes
-              source:
-                value: ''
-            content_attributes:
-              source_id: attributes
-              source:
-                value: ''
-          slots: {  }
-    regions:
-      media:
-        - field_image
-        - field_video
-        - field_media
-      content:
-        - node_title
-        - body
-    fields:
-      node_title:
-        plugin_id: node_title
-        weight: 1
-        label: hidden
-        formatter: default
-        settings:
-          link: true
-          wrapper: h3
-          class: card-title
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
+    - user
 id: node.CONTENT_TYPE_NAME.overlay_card_medium
 targetEntityType: node
 bundle: CONTENT_TYPE_NAME
 mode: overlay_card_medium
 content:
   body:
-    label: hidden
     type: smart_trim
+    label: hidden
     weight: 2
     settings:
       trim_length: '30'
@@ -128,33 +34,32 @@ content:
     region: content
   field_image:
     type: entity_reference_entity_view
-    weight: 0
     label: hidden
     settings:
-      view_mode: media_16_09
+      view_mode: 16_9_medium
       link: false
     third_party_settings: {  }
-    region: media
+    weight: 0
+    region: content
   field_video:
     type: entity_reference_entity_view
-    weight: 0
     label: hidden
     settings:
-      view_mode: media_video_16_09
+      view_mode: 16_9_medium
       link: false
     third_party_settings: {  }
-    region: media
+    weight: 0
+    region: content
   field_media:
     type: entity_reference_entity_view
-    weight: 0
     label: hidden
     settings:
-      view_mode: media_video_16_09
+      view_mode: 16_9_medium
       link: false
     third_party_settings: {  }
-    region: media
+    weight: 0
+    region: content
 hidden:
   content_moderation_control: true
-  body: true
   langcode: true
   links: true

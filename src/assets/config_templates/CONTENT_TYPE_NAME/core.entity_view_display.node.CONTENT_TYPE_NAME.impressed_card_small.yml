@@ -9,111 +9,21 @@ dependencies:
     - field.field.node.CONTENT_TYPE_NAME.field_media
     - node.type.CONTENT_TYPE_NAME
   module:
-    - ds
     - smart_trim
-third_party_settings:
-  ds:
-    layout:
-      id: 'ui_patterns:DEFAULT_ACTIVE_THEME:card_impressed'
-      library: null
-      disable_css: false
-      entity_classes: all_classes
-      settings:
-        label: ''
-        ui_patterns:
-          component_id: 'DEFAULT_ACTIVE_THEME:card-impressed'
-          variant_id: null
-          props:
-            attributes:
-              source_id: attributes
-              source:
-                value: ''
-            style_size:
-              source_id: select
-              source:
-                value: small
-            card_border:
-              source_id: checkbox
-              source:
-                value: 0
-            padded:
-              source_id: checkbox
-              source:
-                value: 0
-            equal_height:
-              source_id: checkbox
-              source:
-                value: 1
-            anchor_all:
-              source_id: checkbox
-              source:
-                value: 1
-            media_position:
-              source_id: select
-              source:
-                value: top
-            card_impressed_utility_classes:
-              source_id: list_textarea
-              source:
-                value: ''
-            card_impressed_media_utility_classes:
-              source_id: list_textarea
-              source:
-                value: ''
-            card_impressed_content_utility_classes:
-              source_id: list_textarea
-              source:
-                value: ''
-            card_attributes:
-              source_id: attributes
-              source:
-                value: ''
-            media_attributes:
-              source_id: attributes
-              source:
-                value: ''
-            content_attributes:
-              source_id: attributes
-              source:
-                value: ''
-          slots: {  }
-    regions:
-      media:
-        - field_image
-        - field_video
-        - field_media
-      content:
-        - node_title
-        - body
-    fields:
-      node_title:
-        plugin_id: node_title
-        weight: 1
-        label: hidden
-        formatter: default
-        settings:
-          link: true
-          wrapper: h3
-          class: card-title
-        ft:
-          id: default
-          settings:
-            lb: ''
-            lb-col: false
-            classes: {  }
+    - user
 id: node.CONTENT_TYPE_NAME.impressed_card_small
 targetEntityType: node
 bundle: CONTENT_TYPE_NAME
 mode: impressed_card_small
 content:
   body:
-    label: hidden
     type: smart_trim
+    label: hidden
     weight: 2
     settings:
       trim_length: '20'
       trim_type: words
-      trim_suffix: ...
+      trim_suffix: ' ...'
       more_link: '0'
       more_text: More
       summary_handler: full
@@ -126,57 +36,29 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: media_16_09
+      view_mode: 16_9_small
       link: false
-    third_party_settings:
-      ds:
-        ft:
-          id: expert
-          settings:
-            lb: ''
-            prefix: ''
-            lbw-el: ''
-            lbw-cl: ''
-            lbw-at: ''
-            ow: true
-            ow-el: a
-            ow-cl: ''
-            ow-at: 'href="[node:url]"'
-            ow-def-at: true
-            ow-def-cl: true
-            fis-el: ''
-            fis-cl: ''
-            fis-at: ''
-            fis-def-at: true
-            fi-el: ''
-            fi-cl: ''
-            fi-at: ''
-            fi-def-at: true
-            suffix: ''
-            lbw: false
-            lb-col: false
-            fis: false
-            fi: false
+    third_party_settings: {  }
     weight: 0
-    region: media
+    region: content
   field_video:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: media_16_09
+      view_mode: 16_9_small
       link: false
     third_party_settings: {  }
     weight: 0
-    region: media
+    region: content
   field_media:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: media_16_09
+      view_mode: 16_9_small
       link: false
     third_party_settings: {  }
     weight: 0
-    region: media
+    region: content
 hidden:
   content_moderation_control: true
   langcode: true

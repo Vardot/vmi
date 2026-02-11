@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.heading
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.image
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.text
+    - core.entity_view_mode.node.full
+    - field.field.media.image.field_media_image
+    - field.field.node.CONTENT_TYPE_NAME.field_content
+    - field.field.node.CONTENT_TYPE_NAME.field_featured_image
+    - filter.format.content_format
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - node.type.CONTENT_TYPE_NAME
+  module:
+    - file
+    - media
+    - node
+    - options
+id: node.CONTENT_TYPE_NAME.full
+content_entity_type_id: node
+content_entity_type_bundle: CONTENT_TYPE_NAME
+content_entity_type_view_mode: full
+component_tree:
+  -
+    uuid: 12f585e3-f476-48b1-a7d2-16614ec08489
+    component_id: sdc.DEFAULT_ACTIVE_THEME.heading
+    component_version: 314fe2483b490e6d
+    inputs: '{"heading_text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"}}'
+  -
+    uuid: 02a93dcf-d3fa-4718-b7ef-5a019d0a66b9
+    component_id: sdc.DEFAULT_ACTIVE_THEME.image
+    component_version: cd6bf91f9bab43bc
+    inputs: '{"media":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dfield_featured_image\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"figcaption_align":"start","target":"self","ratio":"auto","fit":"cover","width":"auto","rounded":"none","border":"none","shadow":"none","loading":"lazy","sizes":"(max-width: 768px) 100vw, 50vw"}'
+  -
+    uuid: eb3e968b-08ca-456a-853f-7a62ca1abee3
+    component_id: sdc.DEFAULT_ACTIVE_THEME.text
+    component_version: 6d5fce63333b4423
+    inputs: '{"text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dfield_content\u241e\u241fprocessed"},"text_size":"default","text_color":"default"}'
+exposed_slots: {  }
