@@ -18,5 +18,5 @@ component_tree:
     uuid: b4f7a8b9-f0a1-4523-4567-012345678912
     component_id: sdc.DEFAULT_ACTIVE_THEME.card
     component_version: a1102c37d3eb70ce
-    inputs: '{"shadow":"default","border":"default","rounded":"default","background":"default","style":"framed","orientation":"vertical","heading_text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"},"level":3,"text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dfield_description\u241e\u241fvalue"},"is_text_centered":false,"button_label":"Learn more","button_variant":"link","extra_classes":"mb-3"}'
+    inputs: '{"shadow":"default","border":"default","rounded":"default","background":"default","style":"framed","orientation":"vertical","heading_text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"},"level":3,"text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dfield_description\u241e\u241fvalue"},"is_text_centered":false,"button_label":"Learn more","button_variant":"link","extra_classes":"card-text"}'
 exposed_slots: {  }

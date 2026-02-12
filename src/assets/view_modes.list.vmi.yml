@@ -2,6 +2,10 @@
 name: view_modes
 type: list
 view_modes:
+  full:
+    label: 'Full'
+  card:
+    label: 'Card'
   impressed_card_xlarge:
     label: 'Impressed card - xlarge'
   impressed_card_large:
@@ -36,7 +40,3 @@ view_modes:
     label: 'Overlay card - medium'
   hero_card:
     label: 'Hero card'
-  card:
-    label: 'Card'
-  full:
-    label: 'Full'
