@@ -19,7 +19,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: 16_9_small
+      view_mode: media_16_09
       link: false
     third_party_settings: {  }
     weight: 0
@@ -28,7 +28,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: 16_9_small
+      view_mode: media_16_09
       link: false
     third_party_settings: {  }
     weight: 0
@@ -37,7 +37,7 @@ content:
     type: entity_reference_entity_view
     label: hidden
     settings:
-      view_mode: 16_9_small
+      view_mode: media_16_09
       link: false
     third_party_settings: {  }
     weight: 0
