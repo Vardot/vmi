@@ -5,7 +5,7 @@ dependencies:
     - canvas.component.sdc.DEFAULT_ACTIVE_THEME.card
     - core.entity_view_mode.node.featured_card_xsmall
     - field.field.media.image.field_media_image
-    - field.field.node.CONTENT_TYPE_NAME.field_featured_image
+    - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - image.style.canvas_parametrized_width
     - media.type.image
     - node.type.CONTENT_TYPE_NAME
@@ -23,5 +23,5 @@ component_tree:
     uuid: f2a5b6c7-d8e9-4fa1-2345-ef1234567890
     component_id: sdc.DEFAULT_ACTIVE_THEME.card
     component_version: a1102c37d3eb70ce
-    inputs: '{"shadow":"default","border":"default","rounded":"default","background":"default","style":"framed","orientation":"horizontal","heading_text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"},"level":3,"media":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dfield_featured_image\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"is_text_centered":false,"extra_classes":"card-featured"}'
+    inputs: '{"shadow":"default","border":"default","rounded":"default","background":"default","style":"framed","orientation":"horizontal","heading_text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"},"level":3,"media":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dMEDIA_FIELD_NAME\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"is_text_centered":false,"extra_classes":"card-featured"}'
 exposed_slots: {  }

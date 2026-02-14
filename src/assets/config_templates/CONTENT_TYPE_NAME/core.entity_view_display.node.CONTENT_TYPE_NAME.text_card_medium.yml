@@ -3,7 +3,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.text_card_medium
-    - field.field.node.CONTENT_TYPE_NAME.body
+    - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
     - node.type.CONTENT_TYPE_NAME
   module:
     - smart_trim
@@ -13,7 +13,7 @@ targetEntityType: node
 bundle: CONTENT_TYPE_NAME
 mode: text_card_medium
 content:
-  body:
+  DESCRIPTION_FIELD_NAME:
     type: smart_trim
     label: hidden
     weight: 2

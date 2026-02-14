@@ -3,8 +3,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.overlay_card_large
-    - field.field.node.CONTENT_TYPE_NAME.body
-    - field.field.node.CONTENT_TYPE_NAME.field_image
+    - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
+    - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.field_video
     - field.field.node.CONTENT_TYPE_NAME.field_media
     - node.type.CONTENT_TYPE_NAME
@@ -16,7 +16,7 @@ targetEntityType: node
 bundle: CONTENT_TYPE_NAME
 mode: overlay_card_large
 content:
-  body:
+  DESCRIPTION_FIELD_NAME:
     type: smart_trim
     label: hidden
     weight: 2
@@ -32,25 +32,7 @@ content:
       more_class: more-link
     third_party_settings: {  }
     region: content
-  field_image:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: media_16_09
-      link: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_video:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: media_16_09
-      link: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_media:
+  MEDIA_FIELD_NAME:
     type: entity_reference_entity_view
     label: hidden
     settings:

@@ -8,7 +8,7 @@ dependencies:
     - core.entity_view_mode.node.full
     - field.field.media.image.field_media_image
     - field.field.node.CONTENT_TYPE_NAME.field_content
-    - field.field.node.CONTENT_TYPE_NAME.field_featured_image
+    - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - filter.format.content_format
     - image.style.canvas_parametrized_width
     - media.type.image
@@ -32,7 +32,7 @@ component_tree:
     uuid: 02a93dcf-d3fa-4718-b7ef-5a019d0a66b9
     component_id: sdc.DEFAULT_ACTIVE_THEME.image
     component_version: cd6bf91f9bab43bc
-    inputs: '{"media":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dfield_featured_image\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"figcaption_align":"start","target":"self","ratio":"auto","fit":"cover","width":"auto","rounded":"none","border":"none","shadow":"none","loading":"lazy","sizes":"(max-width: 768px) 100vw, 50vw"}'
+    inputs: '{"media":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dMEDIA_FIELD_NAME\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"figcaption_align":"start","target":"self","ratio":"auto","fit":"cover","width":"auto","rounded":"none","border":"none","shadow":"none","loading":"lazy","sizes":"(max-width: 768px) 100vw, 50vw"}'
   -
     uuid: eb3e968b-08ca-456a-853f-7a62ca1abee3
     component_id: sdc.DEFAULT_ACTIVE_THEME.text

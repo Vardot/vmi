@@ -3,8 +3,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.impressed_card_xsmall
-    - field.field.node.CONTENT_TYPE_NAME.body
-    - field.field.node.CONTENT_TYPE_NAME.field_image
+    - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
+    - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.field_video
     - field.field.node.CONTENT_TYPE_NAME.field_media
     - node.type.CONTENT_TYPE_NAME
@@ -15,7 +15,7 @@ targetEntityType: node
 bundle: CONTENT_TYPE_NAME
 mode: impressed_card_xsmall
 content:
-  field_image:
+  MEDIA_FIELD_NAME:
     type: entity_reference_entity_view
     label: hidden
     settings:
@@ -24,26 +24,9 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_video:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: media_16_09
-      link: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_media:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: media_16_09
-      link: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
+
 hidden:
-  body: true
+  DESCRIPTION_FIELD_NAME: true
   content_moderation_control: true
   langcode: true
   links: true

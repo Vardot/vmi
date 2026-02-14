@@ -3,8 +3,8 @@ status: true
 dependencies:
   config:
     - field.field.node.CONTENT_TYPE_NAME.field_content
-    - field.field.node.CONTENT_TYPE_NAME.field_description
-    - field.field.node.CONTENT_TYPE_NAME.field_featured_image
+    - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
+    - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.field_seo_analysis
     - field.field.node.CONTENT_TYPE_NAME.field_seo_description
     - field.field.node.CONTENT_TYPE_NAME.field_seo_image
@@ -27,7 +27,7 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_featured_image:
+  MEDIA_FIELD_NAME:
     type: media_thumbnail
     label: hidden
     settings:
@@ -47,7 +47,7 @@ content:
     weight: 3
     region: content
 hidden:
-  field_description: true
+  DESCRIPTION_FIELD_NAME: true
   field_seo_analysis: true
   field_seo_description: true
   field_seo_image: true

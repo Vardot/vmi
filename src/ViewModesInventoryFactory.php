@@ -176,22 +176,28 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
       return;
     }
 
-    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name
-    // and the default active theme name for the config name.
+    // Resolve the media field name for this bundle.
+    $media_field_name = $this->getMediaFieldName($bundle_name);
+
+    // Resolve the description field name for this bundle.
+    $description_field_name = $this->getDescriptionFieldName($bundle_name);
+
+    // Replace CONTENT_TYPE_NAME, DEFAULT_ACTIVE_THEME, MEDIA_FIELD_NAME, and
+    // DESCRIPTION_FIELD_NAME with resolved values for the config name.
     $real_config_name = str_replace(
-      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'],
-      [$bundle_name, $defaultActiveTheme],
+      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME', 'MEDIA_FIELD_NAME', 'DESCRIPTION_FIELD_NAME'],
+      [$bundle_name, $defaultActiveTheme, $media_field_name, $description_field_name],
       $config_name
     );
 
     // Load the config template.
     $config_template_content = file_get_contents($full_config_template_file);
 
-    // Replace CONTENT_TYPE_NAME and DEFAULT_ACTIVE_THEME with the bundle name
-    // and the default active theme name in the config template.
+    // Replace CONTENT_TYPE_NAME, DEFAULT_ACTIVE_THEME, MEDIA_FIELD_NAME, and
+    // DESCRIPTION_FIELD_NAME with resolved values in the config template.
     $real_config_template_content = str_replace(
-      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME'],
-      [$bundle_name, $defaultActiveTheme],
+      ['CONTENT_TYPE_NAME', 'DEFAULT_ACTIVE_THEME', 'MEDIA_FIELD_NAME', 'DESCRIPTION_FIELD_NAME'],
+      [$bundle_name, $defaultActiveTheme, $media_field_name, $description_field_name],
       $config_template_content
     );
 
@@ -207,16 +213,94 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
   }
 
   /**
+   * Resolve the media field name for a given bundle.
+   *
+   * Checks common Drupal CMS and Varbase media field names in priority order:
+   * field_featured_image, field_main_image, field_image, field_media,
+   * field_video, field_hero_image, field_banner_image, field_thumbnail,
+   * field_cover_image, field_photo, field_media_image.
+   *
+   * @param string $bundle_name
+   *   The bundle (content type) machine name.
+   *
+   * @return string
+   *   The resolved media field name.
+   */
+  public function getMediaFieldName(string $bundle_name): string {
+    $candidates = [
+      'field_featured_image',
+      'field_main_image',
+      'field_image',
+      'field_media',
+      'field_video',
+      'field_hero_image',
+      'field_banner_image',
+      'field_thumbnail',
+      'field_cover_image',
+      'field_photo',
+      'field_media_image',
+    ];
+    foreach ($candidates as $field_name) {
+      $field_config_name = 'field.field.node.' . $bundle_name . '.' . $field_name;
+      if (!$this->configFactory->get($field_config_name)->isNew()) {
+        return $field_name;
+      }
+    }
+    return 'field_featured_image';
+  }
+
+  /**
+   * Resolve the description field name for a given bundle.
+   *
+   * Checks for body first, then field_body, then field_content,
+   * then field_description.
+   *
+   * @param string $bundle_name
+   *   The bundle (content type) machine name.
+   *
+   * @return string
+   *   The resolved description field name.
+   */
+  public function getDescriptionFieldName(string $bundle_name): string {
+    $candidates = ['body', 'field_body', 'field_content', 'field_description'];
+    foreach ($candidates as $field_name) {
+      $field_config_name = 'field.field.node.' . $bundle_name . '.' . $field_name;
+      if (!$this->configFactory->get($field_config_name)->isNew()) {
+        return $field_name;
+      }
+    }
+    return 'field_description';
+  }
+
+  /**
    * Filter configs for existing fields with the default supported fields.
    */
   public function filterConfigsForExistingFields(string $bundle_name, array $config_template_data): array {
 
     $default_supported_fields = [
+      // MEDIA_FIELD_NAME candidates (from getMediaFieldName).
+      'field_featured_image',
+      'field_main_image',
       'field_image',
-      'field_image',
-      'field_video',
       'field_media',
+      'field_video',
+      'field_hero_image',
+      'field_banner_image',
+      'field_thumbnail',
+      'field_cover_image',
+      'field_photo',
+      'field_media_image',
+      // DESCRIPTION_FIELD_NAME candidates (from getDescriptionFieldName).
       'body',
+      'field_body',
+      'field_content',
+      'field_description',
+      // Other optional fields.
+      'field_tags',
+      'field_seo_analysis',
+      'field_seo_description',
+      'field_seo_image',
+      'field_seo_title',
     ];
 
     foreach ($default_supported_fields as $default_supported_field) {
@@ -241,6 +325,11 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
           unset($config_template_data['content'][$default_supported_field]);
         }
 
+        // Remove the not existed field from hidden list.
+        if (isset($config_template_data['hidden'])
+          && isset($config_template_data['hidden'][$default_supported_field])) {
+          unset($config_template_data['hidden'][$default_supported_field]);
+        }
       }
     }
 

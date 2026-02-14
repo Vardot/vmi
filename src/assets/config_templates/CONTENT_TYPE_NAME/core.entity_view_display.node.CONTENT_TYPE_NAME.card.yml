@@ -4,8 +4,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - field.field.node.CONTENT_TYPE_NAME.field_content
-    - field.field.node.CONTENT_TYPE_NAME.field_description
-    - field.field.node.CONTENT_TYPE_NAME.field_featured_image
+    - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
+    - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.field_seo_analysis
     - field.field.node.CONTENT_TYPE_NAME.field_seo_description
     - field.field.node.CONTENT_TYPE_NAME.field_seo_image
@@ -19,14 +19,14 @@ targetEntityType: node
 bundle: CONTENT_TYPE_NAME
 mode: card
 content:
-  field_description:
+  DESCRIPTION_FIELD_NAME:
     type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
-  field_featured_image:
+  MEDIA_FIELD_NAME:
     type: entity_reference_entity_view
     label: hidden
     settings:
