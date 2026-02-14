@@ -7,7 +7,7 @@ dependencies:
     - canvas.component.sdc.DEFAULT_ACTIVE_THEME.text
     - core.entity_view_mode.node.full
     - field.field.media.image.field_media_image
-    - field.field.node.CONTENT_TYPE_NAME.field_content
+    - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - filter.format.content_format
     - image.style.canvas_parametrized_width
@@ -37,5 +37,5 @@ component_tree:
     uuid: eb3e968b-08ca-456a-853f-7a62ca1abee3
     component_id: sdc.DEFAULT_ACTIVE_THEME.text
     component_version: 6d5fce63333b4423
-    inputs: '{"text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dfield_content\u241e\u241fprocessed"},"text_size":"default","text_color":"default"}'
+    inputs: '{"text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dDESCRIPTION_FIELD_NAME\u241e\u241fprocessed"},"text_size":"default","text_color":"default"}'
 exposed_slots: {  }

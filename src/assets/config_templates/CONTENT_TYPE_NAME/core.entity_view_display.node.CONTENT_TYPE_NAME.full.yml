@@ -2,7 +2,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.CONTENT_TYPE_NAME.field_content
     - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.field_seo_analysis
@@ -20,7 +19,7 @@ targetEntityType: node
 bundle: CONTENT_TYPE_NAME
 mode: full
 content:
-  field_content:
+  DESCRIPTION_FIELD_NAME:
     type: text_default
     label: hidden
     settings: {  }
@@ -47,7 +46,6 @@ content:
     weight: 3
     region: content
 hidden:
-  DESCRIPTION_FIELD_NAME: true
   field_seo_analysis: true
   field_seo_description: true
   field_seo_image: true

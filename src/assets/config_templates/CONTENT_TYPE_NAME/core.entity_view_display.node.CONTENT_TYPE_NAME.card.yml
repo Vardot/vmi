@@ -3,7 +3,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.card
-    - field.field.node.CONTENT_TYPE_NAME.field_content
     - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.field_seo_analysis
@@ -37,7 +36,6 @@ content:
     region: content
 hidden:
   content_moderation_control: true
-  field_content: true
   field_seo_analysis: true
   field_seo_description: true
   field_seo_image: true
