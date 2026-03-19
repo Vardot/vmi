@@ -33,7 +33,7 @@ component_tree:
     slot: content
     uuid: 2f8c1a25-aa87-4ce1-b70f-b8a6c0b873d8
     component_id: sdc.DEFAULT_ACTIVE_THEME.heading
-    component_version: 9658d7e35d15d3d5
+    component_version: e3d793250a52296e
     inputs: '{"heading_text":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"}}'
   '0:content:1':
     parent_uuid: 6815c028-6b72-4de5-a1cc-ef83243a3c29
