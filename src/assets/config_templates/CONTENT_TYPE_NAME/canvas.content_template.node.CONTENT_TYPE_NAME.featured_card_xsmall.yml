@@ -2,9 +2,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.card
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.card-featured
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.heading
     - core.entity_view_mode.node.featured_card_xsmall
     - field.field.media.image.field_media_image
+    - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
     - field.field.node.CONTENT_TYPE_NAME.MEDIA_FIELD_NAME
     - image.style.canvas_parametrized_width
     - media.type.image
@@ -19,9 +21,17 @@ content_entity_type_id: node
 content_entity_type_bundle: CONTENT_TYPE_NAME
 content_entity_type_view_mode: featured_card_xsmall
 component_tree:
-  -
-    uuid: f2a5b6c7-d8e9-4fa1-2345-ef1234567890
-    component_id: sdc.DEFAULT_ACTIVE_THEME.card
-    component_version: a1102c37d3eb70ce
-    inputs: '{"shadow":"default","border":"default","rounded":"default","background":"default","style":"framed","orientation":"horizontal","heading_text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"},"level":3,"media":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dMEDIA_FIELD_NAME\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"is_text_centered":false,"extra_classes":"card-featured"}'
+  0:
+    uuid: 2f6d376d-79da-4bdf-a7be-82a0420883cc
+    component_id: sdc.DEFAULT_ACTIVE_THEME.card-featured
+    component_version: 9d25f9c415df0ca5
+    inputs: '{"media_position":"top","ratio":"ratio-16x9","fit":"object-fit-cover","card_border":false,"padded":true,"equal_height":true,"content_vertical_alignment":"justify-content-center","link_url":{"sourceType":"host-entity-url","absolute":false},"stretched_link":true,"media_image":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dMEDIA_FIELD_NAME\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"}}'
+  '0:content:0':
+    parent_uuid: 2f6d376d-79da-4bdf-a7be-82a0420883cc
+    slot: content
+    uuid: 02cdd656-d77a-4728-ac56-dd9a7d7d224b
+    component_id: sdc.DEFAULT_ACTIVE_THEME.heading
+    component_version: 9658d7e35d15d3d5
+    inputs: '{"heading_text":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"}}'
 exposed_slots: {  }
+

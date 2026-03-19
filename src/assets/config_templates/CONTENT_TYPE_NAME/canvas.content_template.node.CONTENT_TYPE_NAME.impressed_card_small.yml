@@ -2,7 +2,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.card
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.card-impressed
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.heading
     - core.entity_view_mode.node.impressed_card_small
     - field.field.media.image.field_media_image
     - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
@@ -20,9 +21,17 @@ content_entity_type_id: node
 content_entity_type_bundle: CONTENT_TYPE_NAME
 content_entity_type_view_mode: impressed_card_small
 component_tree:
-  -
-    uuid: e6b9c0d1-a2b3-4d45-6789-234567890134
-    component_id: sdc.DEFAULT_ACTIVE_THEME.card
-    component_version: a1102c37d3eb70ce
-    inputs: '{"shadow":"default","border":"default","rounded":"default","background":"accent","style":"framed","orientation":"vertical","heading_text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"},"level":3,"media":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dMEDIA_FIELD_NAME\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dDESCRIPTION_FIELD_NAME\u241e\u241fvalue"},"is_text_centered":false,"button_label":"Learn more","button_variant":"link","extra_classes":"card-impressed"}'
+  0:
+    uuid: 6a94ee03-0d3b-40b5-9448-17a4d9978d74
+    component_id: sdc.DEFAULT_ACTIVE_THEME.card-impressed
+    component_version: 8181eed6ae681360
+    inputs: '{"media_position":"top","ratio":"ratio-16x9","fit":"object-fit-cover","card_border":false,"padded":false,"equal_height":true,"link_url":{"sourceType":"host-entity-url","absolute":false},"stretched_link":true,"media_image":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dMEDIA_FIELD_NAME\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"}}'
+  '0:content:0':
+    parent_uuid: 6a94ee03-0d3b-40b5-9448-17a4d9978d74
+    slot: content
+    uuid: 1f53f146-64c0-4c2f-a9e3-e32f0097dac6
+    component_id: sdc.DEFAULT_ACTIVE_THEME.heading
+    component_version: 9658d7e35d15d3d5
+    inputs: '{"heading_text":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"}}'
 exposed_slots: {  }
+

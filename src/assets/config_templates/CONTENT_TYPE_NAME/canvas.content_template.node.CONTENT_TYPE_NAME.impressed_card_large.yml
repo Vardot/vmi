@@ -2,7 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.card
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.card-impressed
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.date
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.heading
+    - canvas.component.sdc.DEFAULT_ACTIVE_THEME.rich-text
     - core.entity_view_mode.node.impressed_card_large
     - field.field.media.image.field_media_image
     - field.field.node.CONTENT_TYPE_NAME.DESCRIPTION_FIELD_NAME
@@ -20,9 +23,31 @@ content_entity_type_id: node
 content_entity_type_bundle: CONTENT_TYPE_NAME
 content_entity_type_view_mode: impressed_card_large
 component_tree:
-  -
-    uuid: e4b7c8d9-f0a1-4b23-4567-012345678912
-    component_id: sdc.DEFAULT_ACTIVE_THEME.card
-    component_version: a1102c37d3eb70ce
-    inputs: '{"shadow":"default","border":"default","rounded":"default","background":"accent","style":"framed","orientation":"vertical","heading_text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"},"level":3,"media":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dMEDIA_FIELD_NAME\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"},"text":{"sourceType":"dynamic","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dDESCRIPTION_FIELD_NAME\u241e\u241fvalue"},"is_text_centered":false,"button_label":"Learn more","button_variant":"link","extra_classes":"card-impressed"}'
+  0:
+    uuid: 1acc5cc6-57db-4cb0-8a82-bd8fce040599
+    component_id: sdc.DEFAULT_ACTIVE_THEME.card-impressed
+    component_version: 8181eed6ae681360
+    inputs: '{"media_position":"top","ratio":"ratio-16x9","fit":"object-fit-cover","card_border":false,"padded":true,"equal_height":true,"box_shadow":"shadow","link_url":{"sourceType":"host-entity-url","absolute":false},"stretched_link":true,"media_image":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dMEDIA_FIELD_NAME\u241e\u241fentity\u241c\u241centity:media:image\u241dfield_media_image\u241e\u241f{src\u21a0src_with_alternate_widths,alt\u21a0alt,width\u21a0width,height\u21a0height}"}}'
+  '0:content:0':
+    parent_uuid: 1acc5cc6-57db-4cb0-8a82-bd8fce040599
+    slot: content
+    uuid: 45de38cb-d018-4f49-b06c-28a6b75cd4fa
+    component_id: sdc.DEFAULT_ACTIVE_THEME.heading
+    component_version: 9658d7e35d15d3d5
+    inputs: '{"heading_text":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dtitle\u241e\u241fvalue"}}'
+  '0:content:1':
+    parent_uuid: 1acc5cc6-57db-4cb0-8a82-bd8fce040599
+    slot: content
+    uuid: 70440ead-7416-4807-8493-8f2f716d89c4
+    component_id: sdc.DEFAULT_ACTIVE_THEME.rich-text
+    component_version: 81e8d07ea267bfa1
+    inputs: '{"trim":true,"trim_length":40,"trim_units":"words","suffix":" ...","strip_html":true,"text":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dDESCRIPTION_FIELD_NAME\u241e\u241fprocessed"}}'
+  '0:content:2':
+    parent_uuid: 1acc5cc6-57db-4cb0-8a82-bd8fce040599
+    slot: content
+    uuid: d1a00002-0001-4001-a001-000000000004
+    component_id: sdc.DEFAULT_ACTIVE_THEME.date
+    component_version: 419d2b516956a02e
+    inputs: '{"date":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dcreated\u241e\u241fvalue","adapter":"unix_to_date"}}'
 exposed_slots: {  }
+
