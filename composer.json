@@ -16,7 +16,7 @@
     "source": "http://cgit.drupalcode.org/vmi"
   },
   "require": {
-    "drupal/core": "~11.3.0",
+    "drupal/core": "~11.4.0",
     "drupal/canvas": "~1"
   }
 }
