@@ -16,10 +16,10 @@
     "source": "http://cgit.drupalcode.org/vmi"
   },
   "require": {
-    "drupal/core": "~11.3.0",
+    "drupal/core": "~11.4.0",
     "drupal/ds": "~3",
     "drupal/field_group": "~4",
     "drupal/smart_trim": "~2",
-    "drupal/varbase_components": "~3"
+    "drupal/varbase_components": "3.0.x-dev"
   }
 }
