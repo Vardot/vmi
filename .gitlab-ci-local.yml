@@ -1,0 +1,131 @@
+################################################################################
+# Slim pipeline for `gitlab-ci-local` (https://github.com/firecow/gitlab-ci-local).
+#
+# The real `.gitlab-ci.yml` includes the Drupal CI templates, which cannot run
+# on a workstation: `$_GITLAB_TEMPLATES_REPO` is not a public path, and the
+# templates' `rules:` embed shell variables inside `=~` regexes, which
+# gitlab-ci-local still cannot evaluate (firecow/gitlab-ci-local issue 1893).
+# This file therefore includes nothing. It reproduces, self-contained, the
+# checks that are worth having before a push.
+#
+# WHAT THIS FILE RUNS
+#   composer-lint  composer validate on the module's composer.json
+#   phpcs          the project's own .phpcs.xml ruleset, over the whole tree
+#   cspell         the same word list and core dictionaries the real job uses
+#
+# WHAT IS DELIBERATELY LEFT OUT, AND WHY
+#   composer            builds a Drupal site from the templates' own images
+#                       and Composer endpoints
+#   phpstan, phpunit    need the built Drupal root the composer job produces
+#                       as an artifact, with drupal/canvas installed
+#   stylelint, nightwatch, twig-cs-fixer
+#                       no CSS, no Nightwatch tests and no Twig in this module,
+#                       so the template's own exists-rules skip them remotely
+#   eslint              skipped remotely too, see SKIP_ESLINT in .gitlab-ci.yml
+#   varbase-e2e-test-drupal, varbase-e2e-test-drupal-cms
+#                       need the Drupal CI PHP-Apache image with a MySQL
+#                       service, a full site install and Playwright. Run the
+#                       suite directly instead: yarn test:drupal and
+#                       yarn test:drupalcms against a site built per
+#                       tests/README.md
+#   the core-version variants
+#                       exist only as template `rules:`, which is exactly what
+#                       breaks locally
+# All of those still gate the merge remotely. They are simply not reproducible
+# here. Never treat a green run of this file as a green pipeline.
+#
+# Usage:
+#   bash ~/workspace/products/cmd-tools-gitlab-ci-local.sh vmi --slim
+#   gitlab-ci-local --file .gitlab-ci-local.yml phpcs
+################################################################################
+
+stages:
+  - validate
+
+variables:
+  COMPOSER_MEMORY_LIMIT: "-1"
+  COMPOSER_ALLOW_SUPERUSER: "1"
+  # Keep identical to _CSPELL_WORDS in .gitlab-ci.yml.
+  CSPELL_WORDS: "Natshah,Varbase,Vardot,Razem,xlarge,spritemap,centity,dcreated,dfield,dtitle,fentity,fprocessed,firecow,libzip,ddev,drupalcms,infobars"
+
+# = composer.json schema =
+composer-lint:
+  stage: validate
+  image: composer:2
+  script:
+    - composer --version
+    - composer validate --no-check-all --no-check-publish
+  allow_failure: false
+
+# = Drupal coding standards =
+# .phpcs.xml lists individual Drupal and DrupalPractice sniffs rather than
+# referencing the whole standard, so drupal/coder has to be installed and
+# registered before the ruleset will resolve.
+phpcs:
+  stage: validate
+  image: php:8.3-cli
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y -qq git unzip libzip-dev > /dev/null
+    - docker-php-ext-install zip > /dev/null
+    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    - composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+    - composer global require --no-interaction drupal/coder:^8.3
+    - export PATH="$PATH:$(composer global config bin-dir --absolute --quiet)"
+    # phpcodesniffer-composer-installer already registered coder_sniffer,
+    # variable-analysis and slevomat. Re-running --config-set here would drop
+    # the last two, and .phpcs.xml references SlevomatCodingStandard sniffs.
+    - phpcs -i
+  script:
+    - export PATH="$PATH:$(composer global config bin-dir --absolute --quiet)"
+    - phpcs --standard=.phpcs.xml --report=full .
+  allow_failure: false
+
+# = Spelling =
+# The remote job builds its config with the templates' prepare-cspell.php: the
+# default assets/.cspell.json, the fifteen built-in dictionaries, Drupal core's
+# two dictionary files out of the built core, and the words in _CSPELL_WORDS.
+# Core is not built here, so its dictionaries are fetched from the 11.4.x
+# branch instead. Same inputs, same result.
+cspell:
+  stage: validate
+  image: node:20
+  before_script:
+    - npm install -g cspell@8 > /dev/null 2>&1
+    - cspell --version
+    - mkdir -p /tmp/cspell-dict
+    - curl -sSL https://git.drupalcode.org/project/drupal/-/raw/11.4.x/core/misc/cspell/drupal-dictionary.txt -o /tmp/cspell-dict/drupal-dictionary.txt
+    - curl -sSL https://git.drupalcode.org/project/drupal/-/raw/11.4.x/core/misc/cspell/dictionary.txt -o /tmp/cspell-dict/dictionary.txt
+    - |
+      node -e '
+        const words = (process.env.CSPELL_WORDS || "").split(",").filter(Boolean);
+        const config = {
+          language: "en-US",
+          allowCompoundWords: false,
+          globRoot: ".",
+          minWordLength: 4,
+          words: words.concat(["vmi", "ddev", "lando"]),
+          ignorePaths: [
+            "web", "vendor", "node_modules", ".git", "recipes",
+            "*.patch", "*.svg", "*_ignore_*",
+            "**/.*.json", "package.json", "yarn.lock", "phpstan*", ".*ignore",
+            "LICENSE.txt"
+          ],
+          dictionaries: [
+            "companies", "fonts", "html", "php", "softwareTerms", "misc",
+            "typescript", "node", "css", "bash", "filetypes", "npm",
+            "lorem-ipsum", "sql", "fullstack", "drupal", "dictionary"
+          ],
+          dictionaryDefinitions: [
+            { name: "drupal", path: "/tmp/cspell-dict/drupal-dictionary.txt" },
+            { name: "dictionary", path: "/tmp/cspell-dict/dictionary.txt" }
+          ],
+          overrides: [
+            { filename: "**/{*.engine,*.inc,*.install,*.module,*.profile,*.theme}", languageId: "php" }
+          ]
+        };
+        require("fs").writeFileSync("/tmp/cspell-local.json", JSON.stringify(config, null, 2));
+      '
+  script:
+    - cspell lint --no-progress --show-suggestions --show-context --config /tmp/cspell-local.json .
+  allow_failure: false

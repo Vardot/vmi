@@ -1,0 +1,266 @@
+################################################################################
+# GitLab CI for View Modes Inventory (vmi).
+#
+# The module had no pipeline at all, so nothing in it was checked by anything.
+# This adds the official Drupal CI templates, with every validate job turned
+# into a gate and PHPUnit running whatever tests the branch carries.
+#
+# The templates ref is PINNED to a fixed tag rather than left on the moving
+# $_GITLAB_TEMPLATES_REF. On a moving ref an upstream templates change can turn
+# this pipeline red with no commit of ours. Bump it deliberately, as its own
+# issue. Tags: https://git.drupalcode.org/project/gitlab_templates/-/tags
+#
+# Full documentation: https://project.pages.drupalcode.org/gitlab_templates/
+################################################################################
+
+include:
+  - project: $_GITLAB_TEMPLATES_REPO
+    ref: '1.17.0'
+    file:
+      - '/includes/include.drupalci.main.yml'
+      - '/includes/include.drupalci.variables.yml'
+      - '/includes/include.drupalci.workflows.yml'
+
+variables:
+  PROJECT_TYPE: module
+
+  # Must always equal the `ref:` above. The jobs that pull helper scripts and
+  # assets over curl (cspell fetches prepare-cspell.php and the default
+  # .cspell.json, phpunit fetches prepare-phpunit-xml.php) read this variable
+  # rather than `ref:`, and default to the moving ref when it is unset.
+  _CURL_TEMPLATES_REF: '1.17.0'
+
+  # vmi.info.yml declares core_version_requirement: ~11.4.0, so only the
+  # current stable core can install this module. Templates 1.17.0 pins
+  # CORE_STABLE to 11.4.6, which satisfies it, so DRUPAL_CORE is left alone.
+  # The other variants are all outside the constraint and stay off:
+  #   previous minor  11.3.16     next minor  11.x-dev
+  #   previous major  10.6.16     next major  main-dev
+  OPT_IN_TEST_CURRENT: 1
+  OPT_IN_TEST_PREVIOUS_MINOR: 0
+  OPT_IN_TEST_PREVIOUS_MAJOR: 0
+  OPT_IN_TEST_NEXT_MINOR: 0
+  OPT_IN_TEST_NEXT_MAJOR: 0
+
+  # No lint job is advisory. The templates ship most validate jobs as
+  # allow_failure by default, which lets a red lint merge. This one variable
+  # turns every one of them into a gate, including the per-core phpstan
+  # variants that a per-job override would not reach.
+  _ALL_VALIDATE_ALLOW_FAILURE: '0'
+
+  # The module ships no JavaScript and no CSS, so ESLint's only subject would
+  # be the 59 config YAML files. It cannot lint them: the project's own
+  # .eslintrc.json extends the shareable config "airbnb-base", and ESLint
+  # resolves an extends relative to the config file's own directory, which in
+  # the built site is the project root with no node_modules. Drupal core ships
+  # that package, but only under web/core/node_modules, which is not an
+  # ancestor of the config. Reproduced against the job's exact layout.
+  # Those YAML files are already linted by .phpcs.xml (it declares yml in its
+  # extensions) and parsed for real by the composer job's install.
+  # Making ESLint work here means rewriting .eslintrc.json, which is a
+  # coding-standards change, not CI setup. Tracked separately.
+  SKIP_ESLINT: 1
+
+  # Project vocabulary the CSpell dictionaries do not carry. Natshah and Razem
+  # are maintainer names in README.md; spritemap comes from a devDependency
+  # name in package.json. The rest are not words at all: the Canvas content
+  # template YAML files hold structured-data expressions whose
+  # field separators are the control-picture code points U+241C to U+241F,
+  # written as backslash-u escapes, so CSpell reads the escape plus the
+  # following word as one token and reports "centity", "dtitle" and friends.
+  _CSPELL_WORDS: 'Natshah,Varbase,Vardot,Razem,xlarge,spritemap,centity,dcreated,dfield,dtitle,fentity,fprocessed,firecow,libzip,ddev,drupalcms,infobars'
+
+  COMPOSER_MEMORY_LIMIT: '-1'
+
+################################################################################
+# Every lint job blocks the merge. _ALL_VALIDATE_ALLOW_FAILURE above already
+# does this; these make it explicit and readable.
+################################################################################
+composer-lint:
+  allow_failure: false
+phpcs:
+  allow_failure: false
+phpstan:
+  allow_failure: false
+cspell:
+  allow_failure: false
+
+################################################################################
+# PHPUnit. The template's own rule adds this job only when the branch carries
+# a **/tests/**/*Test.php file, and the test-group variable defaults to all,
+# so every Unit, Kernel, Functional and FunctionalJavascript test in the
+# module runs. It is not allow_failure, here or upstream: a failing test blocks.
+#
+# stylelint, twig-cs-fixer and nightwatch carry the same kind of exists-rule
+# upstream and skip themselves, because this module has no CSS, no Twig and no
+# Nightwatch tests. They are not listed here for that reason.
+################################################################################
+phpunit:
+  allow_failure: false
+
+
+################################################################################
+# Reusable before_script fragments.
+################################################################################
+.fragments:
+  # Serve the built site over Apache, on the CI database.
+  web_db:
+    - mkdir -pv $CI_PROJECT_DIR/$_WEB_ROOT/sites/default/files
+    - mkdir -pv $CI_PROJECT_DIR/$_WEB_ROOT/sites/simpletest
+    - chmod -R 777 $CI_PROJECT_DIR/$_WEB_ROOT/sites/default/files
+    - chmod -R 777 $CI_PROJECT_DIR/$_WEB_ROOT/sites/simpletest
+    - rm -rf /var/www/html && ln -s $CI_PROJECT_DIR/$_WEB_ROOT /var/www/html
+    - chown -R www-data:www-data $CI_PROJECT_DIR
+    - service apache2 start
+    - export SIMPLETEST_DB=mysql://$MYSQL_USER:$MYSQL_PASSWORD@database/$MYSQL_DATABASE
+  # Node 20 plus Playwright's own Chromium, run from $CI_PROJECT_DIR where the
+  # features and the cucumber configs live.
+  node_playwright:
+    - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+    - apt-get install -y nodejs
+    - node --version && npm --version
+    - 'test -f .yarnrc.yml || echo "nodeLinker: node-modules" > .yarnrc.yml'
+    # varbase-e2e's postinstall can overwrite a cucumber config under Yarn 4,
+    # and this project has three of them. Back up every one, not just the
+    # default, or the Drupal CMS suite silently runs the wrong paths.
+    - cp cucumber.js .cucumber.js.bak
+    - cp cucumber.drupalcms.js .cucumber.drupalcms.js.bak
+    - cp cucumber.shared.js .cucumber.shared.js.bak
+    - corepack enable
+    - yarn install
+    - cp .cucumber.js.bak cucumber.js && rm .cucumber.js.bak
+    - cp .cucumber.drupalcms.js.bak cucumber.drupalcms.js && rm .cucumber.drupalcms.js.bak
+    - cp .cucumber.shared.js.bak cucumber.shared.js && rm .cucumber.shared.js.bak
+    - ./node_modules/.bin/playwright install --with-deps chromium
+
+################################################################################
+# Shared base for the two browser-test jobs.
+#
+# No tag filter on either `cucumber-js` call. canvas_override passes
+# --tags "not @wip"; this suite has no @wip tags and must not gain a filter
+# that would let one hide a scenario from the pipeline.
+################################################################################
+.vmi-e2e-base:
+  extends: .testing-job-base
+  stage: test
+  # Override the parent's services: only the database is needed. Playwright
+  # bundles its own browser, so Selenium and chromedriver are not.
+  services:
+    - name: $_CONFIG_DOCKERHUB_ROOT/$_TARGET_DB_TYPE-$_TARGET_DB_VERSION:$_TARGET_DB_IMAGE_TAG
+      alias: database
+  variables:
+    DRUPAL_ADMIN_USERNAME: 'webmaster'
+    DRUPAL_ADMIN_PASSWORD: 'dD.123123ddd'
+    DRUPAL_TEST_BASE_URL: 'http://localhost'
+    LAUNCH_URL: 'http://localhost'
+    BROWSER: 'chromium'
+    FORCE_COLOR: '1'
+    # The suite writes its own JSON report through the cucumber formatter; the
+    # library's automatic report hook cannot await its own output.
+    VARBASE_E2E_REPORT_DISABLE: '1'
+    # Yarn 4 defaults to immutable installs and would refuse to refresh the
+    # lock file in CI.
+    YARN_ENABLE_IMMUTABLE_INSTALLS: 'false'
+  artifacts:
+    when: always
+    expire_in: 7 days
+    paths:
+      - tests/reports/
+      - tests/screenshots/
+      - tests/videos/
+  allow_failure: false
+
+################################################################################
+# Browser tests, Drupal Standard profile.
+#
+# tests/features/drupal/** read by cucumber.js. The `exists` guard keeps the
+# job out of the pipeline if that directory ever goes away.
+#
+# The site has to be provisioned to the state the features assert against, and
+# every step below is load bearing: drupal/canvas_override is not a dependency
+# of vmi, so the composer job does not install it, and without it the
+# vmi_test_base recipe cannot apply. Without the recipe there is no vmi_test
+# content type, so the display routes the features visit do not exist and the
+# failures read as feature defects when they are really a missing fixture.
+################################################################################
+varbase-e2e-test-drupal:
+  extends: .vmi-e2e-base
+  needs: [composer]
+  rules:
+    - exists:
+        - tests/features/drupal/**/*.feature
+  before_script:
+    - !reference [.fragments, web_db]
+    # canvas_override is a test-only dependency, required by the fixture recipe.
+    - cd $CI_PROJECT_DIR && composer require 'drupal/canvas_override:^1' --no-interaction --no-progress
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT site:install standard
+        --db-url=$SIMPLETEST_DB --account-name=webmaster --account-pass=dD.123123ddd
+        --site-name="View Modes Inventory Test" -y
+    # site:install makes webmaster the super user; granting the administrator
+    # role as well keeps the account identical to the one the local runs use.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT
+        user:role:add administrator webmaster
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT en -y
+        field_ui canvas canvas_override vmi
+    # Creates the vmi_test content type, turns Canvas Override on for it and
+    # seeds the node at /vmi-test-node.
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT recipe
+        $CI_PROJECT_DIR/tests/fixtures/vmi_test_base -y
+    - $CI_PROJECT_DIR/vendor/bin/drush --root=$CI_PROJECT_DIR/$_WEB_ROOT cache:rebuild
+    - !reference [.fragments, node_playwright]
+  script:
+    - npx cucumber-js --config cucumber.js
+
+################################################################################
+# Browser tests, Drupal CMS distribution.
+#
+# tests/features/drupalcms/** read by cucumber.drupalcms.js. Builds its own
+# drupal/cms project rather than reusing the composer job's artifact: that
+# artifact pins cweagans/composer-patches ~1, which conflicts with
+# drupal/cms >= 2.1. Hence `needs: []` and a build of its own in /tmp.
+################################################################################
+varbase-e2e-test-drupal-cms:
+  extends: .vmi-e2e-base
+  needs: []
+  rules:
+    - exists:
+        - tests/features/drupalcms/**/*.feature
+  variables:
+    _CMS_BUILD_DIR: '/tmp/cms-build'
+  before_script:
+    # Build a fresh Drupal CMS project.
+    - composer create-project drupal/cms $_CMS_BUILD_DIR --no-interaction --no-progress
+    - cd $_CMS_BUILD_DIR
+    # The module under test comes in as a local path repo, so dev stability is
+    # needed. In CI the checkout is a detached HEAD, so without an explicit
+    # version map the path repo would derive dev-<sha> and no constraint would
+    # match it.
+    - composer config minimum-stability dev
+    - composer config prefer-stable true
+    - composer config repositories.vmi-local '{"type":"path","url":"'"$CI_PROJECT_DIR"'","options":{"symlink":true,"versions":{"drupal/vmi":"5.0.x-dev"}}}'
+    - composer require 'drupal/canvas_override:^1' --no-interaction --no-progress
+    - composer require 'drupal/vmi:5.0.x-dev@dev' --no-interaction --no-progress
+    # Serve the Drupal CMS build over Apache, on the CI database.
+    - mkdir -pv $_CMS_BUILD_DIR/web/sites/default/files
+    - mkdir -pv $_CMS_BUILD_DIR/web/sites/simpletest
+    - chmod -R 777 $_CMS_BUILD_DIR/web/sites/default/files
+    - chmod -R 777 $_CMS_BUILD_DIR/web/sites/simpletest
+    - rm -rf /var/www/html && ln -s $_CMS_BUILD_DIR/web /var/www/html
+    - chown -R www-data:www-data $_CMS_BUILD_DIR
+    - service apache2 start
+    - export SIMPLETEST_DB=mysql://$MYSQL_USER:$MYSQL_PASSWORD@database/$MYSQL_DATABASE
+    - $_CMS_BUILD_DIR/vendor/bin/drush --root=$_CMS_BUILD_DIR/web site:install drupal_cms_installer
+        --db-url=$SIMPLETEST_DB --site-name="View Modes Inventory Drupal CMS Test" -y
+    # The Drupal CMS installer ignores --account-name, so uid 1 is renamed to
+    # the account the suite logs in as.
+    - $_CMS_BUILD_DIR/vendor/bin/drush --root=$_CMS_BUILD_DIR/web php:eval '$u=\Drupal\user\Entity\User::load(1); $u->setUsername("webmaster"); $u->setEmail("webmaster@example.test"); $u->setPassword("dD.123123ddd"); $u->save();'
+    - $_CMS_BUILD_DIR/vendor/bin/drush --root=$_CMS_BUILD_DIR/web en -y
+        field_ui canvas canvas_override vmi
+    - $_CMS_BUILD_DIR/vendor/bin/drush --root=$_CMS_BUILD_DIR/web recipe
+        $CI_PROJECT_DIR/tests/fixtures/vmi_test_base -y
+    - $_CMS_BUILD_DIR/vendor/bin/drush --root=$_CMS_BUILD_DIR/web cache:rebuild
+    # The features and the cucumber configs live in the checkout, not the build.
+    - cd $CI_PROJECT_DIR
+    - !reference [.fragments, node_playwright]
+  script:
+    - npx cucumber-js --config cucumber.drupalcms.js

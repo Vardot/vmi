@@ -1,0 +1,22 @@
+name: 'VMI test base'
+description: >
+  Creates the "VMI test" content type whose full view mode is a Drupal Canvas
+  content template, and turns Canvas Override on for it. This is the state in
+  which Drupal CMS treats the node default display as a Canvas template, and it
+  is the precondition the View Modes Inventory functional testing suite asserts
+  against.
+type: 'Content type'
+install:
+  - node
+  - field
+  - canvas
+  - canvas_override
+  - vmi
+config:
+  strict: false
+  actions:
+    node.type.vmi_test:
+      setThirdPartySetting:
+        module: canvas_override
+        key: enabled
+        value: true

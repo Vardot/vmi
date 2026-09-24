@@ -50,4 +50,3 @@ component_tree:
     component_version: 419d2b516956a02e
     inputs: '{"date":{"sourceType":"entity-field","expression":"\u2139\ufe0e\u241centity:node:CONTENT_TYPE_NAME\u241dcreated\u241e\u241fvalue","adapter":"unix_to_date"}}'
 exposed_slots: {  }
-

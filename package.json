@@ -9,7 +9,17 @@
   },
   "scripts": {
     "phpcs": "phpcs --standard=./.phpcs.xml .",
-    "phpcbf": "phpcbf --standard=./.phpcs.xml ."
+    "phpcbf": "phpcbf --standard=./.phpcs.xml .",
+    "test": "VARBASE_E2E_REPORT_DISABLE=1 cucumber-js --config cucumber.js",
+    "test:drupal": "VARBASE_E2E_REPORT_DISABLE=1 cucumber-js --config cucumber.js",
+    "test:drupalcms": "VARBASE_E2E_REPORT_DISABLE=1 cucumber-js --config cucumber.drupalcms.js",
+    "test:chromium": "VARBASE_E2E_REPORT_DISABLE=1 BROWSER=chromium cucumber-js --config cucumber.js",
+    "test:firefox": "VARBASE_E2E_REPORT_DISABLE=1 BROWSER=firefox cucumber-js --config cucumber.js",
+    "test:webkit": "VARBASE_E2E_REPORT_DISABLE=1 BROWSER=webkit cucumber-js --config cucumber.js",
+    "test:headed": "VARBASE_E2E_REPORT_DISABLE=1 HEADLESS=false cucumber-js --config cucumber.js",
+    "generate-reports": "node ./node_modules/@vardot/varbase-e2e/bin/generate-reports.js",
+    "test:dry-run": "VARBASE_E2E_REPORT_DISABLE=1 cucumber-js --config cucumber.js --dry-run",
+    "test:dry-run:drupalcms": "VARBASE_E2E_REPORT_DISABLE=1 cucumber-js --config cucumber.drupalcms.js --dry-run"
   },
   "license": "MIT",
   "keywords": [
@@ -23,6 +33,7 @@
     "Varbase Components"
   ],
   "devDependencies": {
+    "@vardot/varbase-e2e": "^2.0.7",
     "dotenv-safe": "^8.2.0",
     "eslint": "^8.9.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -106,5 +117,13 @@
     "last 1 Samsung version",
     "Firefox ESR"
   ],
-  "packageManager": "yarn@4.9.1"
+  "packageManager": "yarn@4.9.1",
+  "overrides": {
+    "@cucumber/cucumber": "12.9.0",
+    "@cucumber/pretty-formatter": "1.0.1"
+  },
+  "resolutions": {
+    "@cucumber/cucumber": "12.9.0",
+    "@cucumber/pretty-formatter": "1.0.1"
+  }
 }

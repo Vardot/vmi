@@ -40,3 +40,7 @@ ehthumbs.db
 .bashrc
 errors.log
 
+# Ignore functional testing run artifacts.
+tests/reports
+tests/screenshots
+tests/videos

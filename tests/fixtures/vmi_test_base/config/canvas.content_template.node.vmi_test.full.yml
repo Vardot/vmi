@@ -1,0 +1,12 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - node.type.vmi_test
+id: node.vmi_test.full
+content_entity_type_id: node
+content_entity_type_bundle: vmi_test
+content_entity_type_view_mode: full
+component_tree: {  }
+exposed_slots: {  }
