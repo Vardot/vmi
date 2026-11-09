@@ -1,7 +1,6 @@
 # Ignore node modules
 node_modules
 /*/node_modules
-package-lock.json
 
 # Ignore Variables
 /css/variables.css
@@ -40,3 +39,11 @@ ehthumbs.db
 .bashrc
 errors.log
 
+# Yarn 4 cache and install state.
+.yarn/
+
+# JavaScript lockfiles are not committed: installs resolve from package.json
+# (packageManager yarn@4.18.1, engines).
+yarn.lock
+package-lock.json
+pnpm-lock.yaml

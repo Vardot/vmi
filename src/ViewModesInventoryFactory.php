@@ -8,7 +8,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslationInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Serialization\Yaml;
 
 /**
  * View Modes Inventory Factory.
@@ -71,7 +71,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     $vmi_filename = DRUPAL_ROOT . '/' . $module_path . '/src/assets/view_modes.list.vmi.yml';
 
     if (is_file($vmi_filename)) {
-      $vmi_list = (array) Yaml::parse(file_get_contents($vmi_filename));
+      $vmi_list = (array) Yaml::decode(file_get_contents($vmi_filename));
       return $vmi_list;
     }
     else {
@@ -93,7 +93,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     $vmi_layout_filename = DRUPAL_ROOT . '/' . $module_path . '/src/assets/layouts.mapping.vmi.yml';
 
     if (is_file($vmi_layout_filename)) {
-      $vmi_layout_list = (array) Yaml::parse(file_get_contents($vmi_layout_filename));
+      $vmi_layout_list = (array) Yaml::decode(file_get_contents($vmi_layout_filename));
       return $vmi_layout_list;
     }
     else {
@@ -146,7 +146,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     );
 
     // Parse real config template content to data.
-    $real_config_template_content_data = (array) Yaml::parse($real_config_template_content);
+    $real_config_template_content_data = (array) Yaml::decode($real_config_template_content);
 
     // Filter configs for existing fields with the default supported fields.
     $final_config = $this->filterConfigsForExistingFields($bundle_name, $real_config_template_content_data);
