@@ -1,0 +1,44 @@
+################################################################################
+# GitLab CI: the standard drupal/gitlab_templates pipeline.
+# https://project.pages.drupalcode.org/gitlab_templates/
+#
+# The lint jobs (composer-lint, cspell, eslint, phpcs, phpstan, stylelint) keep
+# the template default, advisory, as this branch has not been linted before.
+# The composer build and phpunit gate the pipeline.
+################################################################################
+include:
+  - project: $_GITLAB_TEMPLATES_REPO
+    ref: $_GITLAB_TEMPLATES_REF
+    file:
+      - "/includes/include.drupalci.main.yml"
+      - "/includes/include.drupalci.variables.yml"
+      - "/includes/include.drupalci.workflows.yml"
+
+variables:
+  # The branch declares core ~10.6.0 || ~11.4.0, but its drupal/varbase_components 2.0.x
+  # requires drupal/cl_selector_field, which allows Drupal ^9 || ^10 only.
+  DRUPAL_CORE: "10.6.9"
+  IGNORE_PROJECT_DRUPAL_CORE_VERSION: "1"
+  # No yarn.lock is committed; Yarn 4 would refuse to create one in CI.
+  YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
+  # The project .eslintrc.json extends airbnb-base, which CI cannot resolve,
+  # so lint with Drupal core's config.
+  _ESLINT_EXTRA: "--quiet --no-eslintrc --config=$CI_PROJECT_DIR/$_WEB_ROOT/core/.eslintrc.passing.json"
+
+composer:
+  variables:
+    # The template's composer job sets DRUPAL_CORE itself, which overrides the
+    # global value above, so the pin has to be on the job.
+    DRUPAL_CORE: "10.6.9"
+
+.composer-base:
+  variables:
+    # Drupal core's own Yarn 4.9.1 would read the project .yarnrc.yml (Yarn >= 4.14 keys) too.
+    YARN_RC_FILENAME: .yarnrc.core.yml
+    YARN_NODE_LINKER: node-modules
+
+stylelint:
+  variables:
+    # Drupal core's own Yarn 4.9.1 would read the project .yarnrc.yml (Yarn >= 4.14 keys) too.
+    YARN_RC_FILENAME: .yarnrc.core.yml
+    YARN_NODE_LINKER: node-modules
