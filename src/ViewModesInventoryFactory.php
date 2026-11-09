@@ -2,7 +2,7 @@
 
 namespace Drupal\vmi;
 
-use Symfony\Component\Yaml\Yaml;
+use Drupal\Component\Serialization\Yaml;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -71,7 +71,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     $vmi_filename = DRUPAL_ROOT . '/' . $module_path . '/src/assets/view_modes.list.vmi.yml';
 
     if (is_file($vmi_filename)) {
-      $vmi_list = (array) Yaml::parse(file_get_contents($vmi_filename));
+      $vmi_list = (array) Yaml::decode(file_get_contents($vmi_filename));
       return $vmi_list;
     }
     else {
@@ -93,7 +93,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     $vmi_layout_filename = DRUPAL_ROOT . '/' . $module_path . '/src/assets/layouts.mapping.vmi.yml';
 
     if (is_file($vmi_layout_filename)) {
-      $vmi_layout_list = (array) Yaml::parse(file_get_contents($vmi_layout_filename));
+      $vmi_layout_list = (array) Yaml::decode(file_get_contents($vmi_layout_filename));
       return $vmi_layout_list;
     }
     else {
@@ -134,7 +134,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     $real_config_template_content = str_replace('CONTENT_TYPE_NAME', $bundle_name, $config_template_content);
 
     // Parse real config template content to data.
-    $real_config_template_content_data = (array) Yaml::parse($real_config_template_content);
+    $real_config_template_content_data = (array) Yaml::decode($real_config_template_content);
 
     // Filter configs for existing fields with the default supported fields.
     $final_config = $this->filterConfigsForExistingFields($bundle_name, $real_config_template_content_data);
@@ -159,7 +159,7 @@ class ViewModesInventoryFactory implements ContainerInjectionInterface {
     foreach ($default_supported_fields as $default_supported_field) {
       // Check if the config for the field exists for the current bundle name.
       $field_config_name = 'field.field.node.' . $bundle_name . '.' . $default_supported_field;
-      $not_existed_default_supported_field = \Drupal::service('config.factory')->get($field_config_name)->isNew();
+      $not_existed_default_supported_field = $this->configFactory->get($field_config_name)->isNew();
 
       if ($not_existed_default_supported_field) {
         // Remove the not existed field from config dependencies.

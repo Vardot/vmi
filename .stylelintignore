@@ -1,3 +1,5 @@
+# Compiled from scss/ by gulp.
+css/
 node_modules/**/*.css
 vendor/**/*.css
 **/*.min.css
