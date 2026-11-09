@@ -32,7 +32,8 @@ variables:
 
   # vmi.info.yml declares core_version_requirement: ~11.4.0, so only the
   # current stable core can install this module. Templates 1.17.0 pins
-  # CORE_STABLE to 11.4.6, which satisfies it, so DRUPAL_CORE is left alone.
+  # CORE_STABLE to 11.4.6, which Twig 3.30 breaks, so the composer job below
+  # pins the core.
   # The other variants are all outside the constraint and stay off:
   #   previous minor  11.3.16     next minor  11.x-dev
   #   previous major  10.6.16     next major  main-dev
@@ -71,6 +72,25 @@ variables:
   _CSPELL_WORDS: 'Natshah,Varbase,Vardot,Razem,xlarge,spritemap,centity,dcreated,dfield,dtitle,fentity,fprocessed,firecow,libzip,ddev,drupalcms,infobars'
 
   COMPOSER_MEMORY_LIMIT: '-1'
+
+################################################################################
+# Every composer job (and its core-version variants) and stylelint run Drupal
+# core's own Yarn, which must not read the project .yarnrc.yml.
+################################################################################
+.composer-base:
+  variables:
+    # Drupal core's own Yarn 4.9.1 would read the project .yarnrc.yml (Yarn >= 4.14 keys) too.
+    YARN_RC_FILENAME: .yarnrc.core.yml
+    YARN_NODE_LINKER: node-modules
+composer:
+  variables:
+    # Core 11.4.6 with Twig 3.30 answers HTTP 500 on rendered pages (fixed in 11.4.8).
+    DRUPAL_CORE: "11.4.11"
+stylelint:
+  variables:
+    # Drupal core's own Yarn 4.9.1 would read the project .yarnrc.yml (Yarn >= 4.14 keys) too.
+    YARN_RC_FILENAME: .yarnrc.core.yml
+    YARN_NODE_LINKER: node-modules
 
 ################################################################################
 # Every lint job blocks the merge. _ALL_VALIDATE_ALLOW_FAILURE above already
@@ -113,10 +133,10 @@ phpunit:
     - chown -R www-data:www-data $CI_PROJECT_DIR
     - service apache2 start
     - export SIMPLETEST_DB=mysql://$MYSQL_USER:$MYSQL_PASSWORD@database/$MYSQL_DATABASE
-  # Node 20 plus Playwright's own Chromium, run from $CI_PROJECT_DIR where the
+  # Node 24 plus Playwright's own Chromium, run from $CI_PROJECT_DIR where the
   # features and the cucumber configs live.
   node_playwright:
-    - curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+    - curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
     - apt-get install -y nodejs
     - node --version && npm --version
     - 'test -f .yarnrc.yml || echo "nodeLinker: node-modules" > .yarnrc.yml'
