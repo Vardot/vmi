@@ -20,7 +20,7 @@
     "drupal/ds": "~3",
     "drupal/field_group": "~3 || ~4",
     "drupal/smart_trim": "~1 || ~2",
-    "drupal/varbase_components": "2.0.x-dev"
+    "drupal/varbase_components": "~2"
   },
   "config": {
     "allow-plugins": {
